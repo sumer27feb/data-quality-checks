@@ -1,0 +1,24 @@
+# API
+fastapi
+uvicorn[standard]
+
+# Workflow orchestration
+langgraph
+langchain-core
+
+# LLM integration
+langchain-openai
+
+# Databricks
+databricks-sql-connector
+databricks-sdk
+databricks-langchain
+
+# Data validation and configuration
+pydantic
+pydantic-settings
+python-dotenv
+
+# Testing
+pytest
+httpx

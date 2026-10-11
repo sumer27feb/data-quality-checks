@@ -1,0 +1,93 @@
+
+# ==========================================
+# ENVIRONMENT VARIABLES AND SECRETS
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# BACKEND - PYTHON / FASTAPI
+# ==========================================
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Testing and type checking
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python build files
+*.egg-info/
+*.egg
+build/
+dist/
+
+# ==========================================
+# BACKEND - GENERATED DQ ARTIFACTS
+# ==========================================
+
+# Discovery, statistical and semantic profiles
+/backend/artifacts/
+
+# ==========================================
+# FRONTEND - REACT / NEXT.JS / VITE
+# ==========================================
+
+# Dependencies
+node_modules/
+
+# Framework build outputs
+.next/
+.nuxt/
+.vite/
+.turbo/
+
+# Static build outputs
+dist/
+out/
+
+# Frontend coverage
+coverage/
+
+# ==========================================
+# LOGS AND TEMPORARY FILES
+# ==========================================
+*.log
+*.tmp
+*.bak
+*.swp
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================================
+# JUPYTER NOTEBOOKS
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# IDE / EDITOR
+# ==========================================
+.vscode/
+.idea/
+
+# ==========================================
+# OPERATING SYSTEM
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
