@@ -18,6 +18,7 @@ databricks-langchain
 pydantic
 pydantic-settings
 python-dotenv
+PyYAML
 
 # Testing
 pytest
