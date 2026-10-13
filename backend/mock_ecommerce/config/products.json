@@ -1,0 +1,59 @@
+{
+  "table_name": "products",
+  "expected_row_count": 250,
+  "primary_key": [
+    "product_id"
+  ],
+  "columns": [
+    {
+      "name": "product_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "category_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "sku",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "product_name",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "brand",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "list_price",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    },
+    {
+      "name": "stock_quantity",
+      "datatype": "INTEGER",
+      "nullable": false
+    },
+    {
+      "name": "launch_date",
+      "datatype": "DATE",
+      "nullable": false
+    },
+    {
+      "name": "discontinued_date",
+      "datatype": "DATE",
+      "nullable": true
+    },
+    {
+      "name": "is_active",
+      "datatype": "BOOLEAN",
+      "nullable": false
+    }
+  ]
+}

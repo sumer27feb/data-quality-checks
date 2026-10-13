@@ -1,0 +1,69 @@
+{
+  "table_name": "orders",
+  "expected_row_count": 900,
+  "primary_key": [
+    "order_id"
+  ],
+  "columns": [
+    {
+      "name": "order_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "customer_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "order_date",
+      "datatype": "DATE",
+      "nullable": false
+    },
+    {
+      "name": "sales_channel",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "order_status",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "items_subtotal",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    },
+    {
+      "name": "shipping_fee",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    },
+    {
+      "name": "order_discount",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    },
+    {
+      "name": "total_amount",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    },
+    {
+      "name": "currency",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "shipping_city",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "shipping_state",
+      "datatype": "STRING",
+      "nullable": false
+    }
+  ]
+}

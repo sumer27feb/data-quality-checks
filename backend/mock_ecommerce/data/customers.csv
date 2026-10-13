@@ -1,0 +1,351 @@
+customer_id,first_name,last_name,email,phone,city,state,postal_code,country,date_of_birth,signup_date,customer_status
+CUS0001,Aman,Reddy,aman.reddy.0001@example.test,6663759945,Delhi,Delhi,110001,India,1960-08-24,2025-05-02,ACTIVE
+CUS0002,Maya,Banerjee,maya.banerjee.0002@example.test,,Hyderabad,Telangana,500081,India,1993-10-23,2025-02-14,ACTIVE
+CUS0003,Kabir,Bose,kabir.bose.0003@example.test,8542272251,Hyderabad,Telangana,500081,India,1966-05-23,2026-05-11,INACTIVE
+CUS0004,Pranav,Malhotra,pranav.malhotra.0004@example.test,7483369463,Hyderabad,Telangana,500081,India,1975-06-29,2023-12-14,INACTIVE
+CUS0005,Samira,Gupta,samira.gupta.0005@example.test,6263172206,Visakhapatnam,Andhra Pradesh,530003,India,1989-02-10,2023-01-15,ACTIVE
+CUS0006,Kiran,Chatterjee,kiran.chatterjee.0006@example.test,8897058073,Mumbai,Maharashtra,400001,India,2005-05-11,2024-08-07,INACTIVE
+CUS0007,Tara,Malhotra,tara.malhotra.0007@example.test,7289663891,Indore,Madhya Pradesh,452001,India,1963-10-30,2025-12-13,ACTIVE
+CUS0008,Arjun,Dubey,arjun.dubey.0008@example.test,8244136048,Mumbai,Maharashtra,400001,India,1992-10-23,2025-10-01,ACTIVE
+CUS0009,Asha,Kumar,asha.kumar.0009@example.test,9870246907,Kolkata,West Bengal,700001,India,1988-11-26,2025-05-07,INACTIVE
+CUS0010,Leela,Khan,leela.khan.0010@example.test,6228044067,Kochi,Kerala,682001,India,1981-01-01,2026-02-06,ACTIVE
+CUS0011,Riya,Nair,riya.nair.0011@example.test,7209989705,Kochi,Kerala,682001,India,1967-11-05,2025-01-16,ACTIVE
+CUS0012,Kiran,Roy,kiran.roy.0012@example.test,8713332554,Bengaluru,Karnataka,560001,India,2001-03-25,2023-08-26,ACTIVE
+CUS0013,Aarav,Chatterjee,aarav.chatterjee.0013@example.test,8218855971,Lucknow,Uttar Pradesh,226001,India,2001-07-30,2025-12-15,ACTIVE
+CUS0014,Tanvi,Chatterjee,tanvi.chatterjee.0014@example.test,,Chennai,Tamil Nadu,600001,India,1977-01-21,2026-07-07,ACTIVE
+CUS0015,Ishaan,Kulkarni,ishaan.kulkarni.0015@example.test,8370247827,Bengaluru,Karnataka,560001,India,1990-01-25,2024-11-12,ACTIVE
+CUS0016,Samira,Verma,samira.verma.0016@example.test,7816574176,Chennai,Tamil Nadu,600001,India,1971-03-16,2024-10-13,ACTIVE
+CUS0017,Kabir,Singh,kabir.singh.0017@example.test,8328890741,Hyderabad,Telangana,500081,India,1979-05-19,2023-05-01,ACTIVE
+CUS0018,Leela,Gupta,leela.gupta.0018@example.test,8729596464,Bengaluru,Karnataka,560001,India,1973-03-03,2024-02-23,INACTIVE
+CUS0019,Kavya,Rao,kavya.rao.0019@example.test,7653353206,Chennai,Tamil Nadu,600001,India,1959-07-04,2025-05-19,ACTIVE
+CUS0020,Naveen,Reddy,naveen.reddy.0020@example.test,9433028488,Chennai,Tamil Nadu,600001,India,1978-03-16,2025-02-23,ACTIVE
+CUS0021,Neha,Chopra,neha.chopra.0021@example.test,8898375082,Mumbai,Maharashtra,400001,India,1957-07-31,2023-12-31,ACTIVE
+CUS0022,Shreya,Chopra,shreya.chopra.0022@example.test,,Hyderabad,Telangana,500081,India,1979-01-09,2026-05-08,ACTIVE
+CUS0023,Kiran,Mishra,kiran.mishra.0023@example.test,9711938546,Hyderabad,Telangana,500081,India,1987-11-21,2024-04-05,INACTIVE
+CUS0024,Zoya,Gupta,zoya.gupta.0024@example.test,8558735556,Coimbatore,Tamil Nadu,641001,India,1981-11-21,2026-06-23,ACTIVE
+CUS0025,Vihaan,Menon,vihaan.menon.0025@example.test,6473802614,Pune,Maharashtra,411001,India,1974-01-18,2025-07-09,INACTIVE
+CUS0026,Srinivas,Verma,srinivas.verma.0026@example.test,7490104044,Delhi,Delhi,110001,India,1985-07-11,2024-07-05,ACTIVE
+CUS0027,Zoya,Reddy,zoya.reddy.0027@example.test,,Hyderabad,Telangana,500081,India,1978-03-06,2023-01-12,INACTIVE
+CUS0028,Sneha,Banerjee,sneha.banerjee.0028@example.test,9222019754,Kolkata,West Bengal,700001,India,1981-10-31,2025-08-10,ACTIVE
+CUS0029,Shreya,Kaur,shreya.kaur.0029@example.test,8284515790,Indore,Madhya Pradesh,452001,India,1987-07-18,2023-10-14,ACTIVE
+CUS0030,Sneha,Banerjee,sneha.banerjee.0030@example.test,8852508468,Hyderabad,Telangana,500081,India,1968-10-29,2026-03-08,ACTIVE
+CUS0031,Fatima,Verma,fatima.verma.0031@example.test,6573851929,Bengaluru,Karnataka,560001,India,1975-12-29,2023-11-02,ACTIVE
+CUS0032,Ayesha,Reddy,ayesha.reddy.0032@example.test,8085632967,Ahmedabad,Gujarat,380001,India,1977-06-13,2023-11-07,INACTIVE
+CUS0033,Priya,Patel,priya.patel.0033@example.test,8763104681,Chandigarh,Chandigarh,160017,India,1985-03-28,2024-07-18,ACTIVE
+CUS0034,Aparna,Rao,aparna.rao.0034@example.test,9459516136,Ahmedabad,Gujarat,380001,India,1958-03-03,2024-03-14,ACTIVE
+CUS0035,Neha,Malhotra,neha.malhotra.0035@example.test,7655503323,Bengaluru,Karnataka,560001,India,1977-11-01,2024-11-26,ACTIVE
+CUS0036,Madhav,Sethi,madhav.sethi.0036@example.test,8057278060,Visakhapatnam,Andhra Pradesh,530003,India,1977-05-28,2025-07-18,ACTIVE
+CUS0037,Dev,Shah,dev.shah.0037@example.test,8216252214,Bhubaneswar,Odisha,751001,India,1975-11-18,2023-09-15,ACTIVE
+CUS0038,Rohan,Mishra,rohan.mishra.0038@example.test,9437830628,Mumbai,Maharashtra,400001,India,1985-12-15,2025-06-15,INACTIVE
+CUS0039,Yash,Nair,yash.nair.0039@example.test,8906984969,Mumbai,Maharashtra,400001,India,1985-03-09,2026-08-23,ACTIVE
+CUS0040,Maya,Chatterjee,maya.chatterjee.0040@example.test,8696494459,Mumbai,Maharashtra,400001,India,1973-05-18,2024-10-22,ACTIVE
+CUS0041,Priya,Desai,priya.desai.0041@example.test,9959072100,Mumbai,Maharashtra,400001,India,2000-05-29,2023-08-17,ACTIVE
+CUS0042,Jhanvi,Khan,jhanvi.khan.0042@example.test,8019997108,Bengaluru,Karnataka,560001,India,1965-05-26,2024-06-17,INACTIVE
+CUS0043,Shreya,Shetty,shreya.shetty.0043@example.test,9652568341,Bengaluru,Karnataka,560001,India,1982-04-28,2026-06-01,ACTIVE
+CUS0044,Dev,Gupta,dev.gupta.0044@example.test,9650628650,Kochi,Kerala,682001,India,1980-04-10,2024-08-25,INACTIVE
+CUS0045,Aarav,Jain,aarav.jain.0045@example.test,9728534733,Visakhapatnam,Andhra Pradesh,530003,India,1973-07-23,2026-05-03,ACTIVE
+CUS0046,Fatima,Nair,fatima.nair.0046@example.test,9136815175,Mumbai,Maharashtra,400001,India,1992-09-10,2026-08-15,ACTIVE
+CUS0047,Varun,Khan,varun.khan.0047@example.test,9218961919,Kolkata,West Bengal,700001,India,1967-04-13,2024-05-28,ACTIVE
+CUS0048,Akhil,Naidu,akhil.naidu.0048@example.test,7473270809,Bengaluru,Karnataka,560001,India,2001-05-17,2024-02-28,ACTIVE
+CUS0049,Rohan,Kulkarni,rohan.kulkarni.0049@example.test,7197275422,Kolkata,West Bengal,700001,India,1965-12-16,2024-05-07,INACTIVE
+CUS0050,Kavya,Reddy,kavya.reddy.0050@example.test,,Lucknow,Uttar Pradesh,226001,India,1998-03-20,2024-10-03,ACTIVE
+CUS0051,Ira,Sharma,ira.sharma.0051@example.test,7043575576,Hyderabad,Telangana,500081,India,2000-04-16,2025-07-14,ACTIVE
+CUS0052,Vivek,Singh,vivek.singh.0052@example.test,8456914804,Bhubaneswar,Odisha,751001,India,1970-10-03,2023-08-24,ACTIVE
+CUS0053,Aarav,Bose,aarav.bose.0053@example.test,9350668875,Chennai,Tamil Nadu,600001,India,1985-06-18,2025-09-09,ACTIVE
+CUS0054,Ayesha,Dubey,ayesha.dubey.0054@example.test,,Pune,Maharashtra,411001,India,1968-02-18,2023-06-01,ACTIVE
+CUS0055,Sneha,Dubey,sneha.dubey.0055@example.test,9031935087,Ahmedabad,Gujarat,380001,India,1974-07-02,2025-01-15,ACTIVE
+CUS0056,Asha,Dubey,asha.dubey.0056@example.test,8676623155,Hyderabad,Telangana,500081,India,1973-01-30,2024-11-08,ACTIVE
+CUS0057,Ananya,Patel,ananya.patel.0057@example.test,9479291764,Hyderabad,Telangana,500081,India,2003-06-26,2026-09-21,ACTIVE
+CUS0058,Rahul,Kaur,rahul.kaur.0058@example.test,,Kolkata,West Bengal,700001,India,1974-02-26,2023-12-19,ACTIVE
+CUS0059,Aman,Naidu,aman.naidu.0059@example.test,9619840292,Visakhapatnam,Andhra Pradesh,530003,India,1970-08-20,2024-07-18,ACTIVE
+CUS0060,Keerthi,Rao,keerthi.rao.0060@example.test,,Visakhapatnam,Andhra Pradesh,530003,India,1961-05-03,2023-03-30,ACTIVE
+CUS0061,Nikhil,Shah,nikhil.shah.0061@example.test,9491885154,Hyderabad,Telangana,500081,India,1979-05-22,2024-10-22,ACTIVE
+CUS0062,Aparna,Desai,aparna.desai.0062@example.test,,Hyderabad,Telangana,500081,India,1991-04-03,2025-10-14,ACTIVE
+CUS0063,Arjun,Singh,arjun.singh.0063@example.test,7278918784,Hyderabad,Telangana,500081,India,1972-01-15,2023-11-19,ACTIVE
+CUS0064,Farhan,Verma,farhan.verma.0064@example.test,8040354202,Hyderabad,Telangana,500081,India,1959-07-25,2025-01-22,INACTIVE
+CUS0065,Sanjana,Jain,sanjana.jain.0065@example.test,8373303750,Bengaluru,Karnataka,560001,India,1966-12-06,2024-08-18,ACTIVE
+CUS0066,Neha,Sharma,neha.sharma.0066@example.test,6586148514,Visakhapatnam,Andhra Pradesh,530003,India,2001-10-25,2024-04-08,ACTIVE
+CUS0067,Pooja,Reddy,pooja.reddy.0067@example.test,8345734016,Ahmedabad,Gujarat,380001,India,1979-06-10,2025-02-07,ACTIVE
+CUS0068,Yash,Iyer,yash.iyer.0068@example.test,7526284398,Chandigarh,Chandigarh,160017,India,1994-07-25,2025-02-24,ACTIVE
+CUS0069,Rahul,Mishra,rahul.mishra.0069@example.test,,Mumbai,Maharashtra,400001,India,2000-08-26,2023-07-13,ACTIVE
+CUS0070,Sanjana,Menon,sanjana.menon.0070@example.test,6986632413,Delhi,Delhi,110001,India,1990-02-15,2023-12-01,INACTIVE
+CUS0071,Fatima,Roy,fatima.roy.0071@example.test,9655767720,Hyderabad,Telangana,500081,India,1998-07-22,2026-03-13,ACTIVE
+CUS0072,Kiran,Joshi,kiran.joshi.0072@example.test,,Vijayawada,Andhra Pradesh,520001,India,1987-02-09,2024-02-27,INACTIVE
+CUS0073,Diya,Rao,diya.rao.0073@example.test,9682992800,Hyderabad,Telangana,500081,India,1979-08-17,2023-09-17,ACTIVE
+CUS0074,Asha,Sharma,asha.sharma.0074@example.test,9403824496,Coimbatore,Tamil Nadu,641001,India,1966-02-17,2025-12-19,ACTIVE
+CUS0075,Ira,Nair,ira.nair.0075@example.test,7432353965,Mumbai,Maharashtra,400001,India,1978-04-28,2024-03-09,INACTIVE
+CUS0076,Tara,Gupta,tara.gupta.0076@example.test,7558424018,Ahmedabad,Gujarat,380001,India,1956-11-09,2023-10-07,INACTIVE
+CUS0077,Naina,Rao,naina.rao.0077@example.test,,Mumbai,Maharashtra,400001,India,1985-04-18,2023-08-10,INACTIVE
+CUS0078,Manav,Kulkarni,manav.kulkarni.0078@example.test,9052266841,Hyderabad,Telangana,500081,India,1986-05-12,2025-01-25,INACTIVE
+CUS0079,Vikram,Sharma,vikram.sharma.0079@example.test,7968964813,Delhi,Delhi,110001,India,2003-07-22,2026-01-19,ACTIVE
+CUS0080,Tanvi,Khan,tanvi.khan.0080@example.test,8455310178,Pune,Maharashtra,411001,India,2003-09-27,2024-11-10,ACTIVE
+CUS0081,Farhan,Reddy,farhan.reddy.0081@example.test,6912751093,Mumbai,Maharashtra,400001,India,1980-06-07,2023-01-15,ACTIVE
+CUS0082,Sahil,Banerjee,sahil.banerjee.0082@example.test,7040351382,Indore,Madhya Pradesh,452001,India,2003-07-05,2024-02-27,ACTIVE
+CUS0083,Farhan,Shetty,farhan.shetty.0083@example.test,6818361444,Delhi,Delhi,110001,India,1959-07-01,2025-09-10,ACTIVE
+CUS0084,Diya,Kaur,diya.kaur.0084@example.test,9878956949,Delhi,Delhi,110001,India,1983-06-17,2024-07-28,ACTIVE
+CUS0085,Ritika,Shah,ritika.shah.0085@example.test,8688543120,Pune,Maharashtra,411001,India,1983-05-01,2024-08-28,INACTIVE
+CUS0086,Zoya,Verma,zoya.verma.0086@example.test,9594800261,Bengaluru,Karnataka,560001,India,1970-11-06,2024-12-14,ACTIVE
+CUS0087,Farhan,Jain,farhan.jain.0087@example.test,9776154553,Delhi,Delhi,110001,India,2003-09-15,2024-04-15,INACTIVE
+CUS0088,Varun,Malhotra,varun.malhotra.0088@example.test,9384726680,Visakhapatnam,Andhra Pradesh,530003,India,1962-03-09,2023-02-13,ACTIVE
+CUS0089,Ira,Chopra,ira.chopra.0089@example.test,7538899844,Delhi,Delhi,110001,India,1959-10-04,2026-03-13,INACTIVE
+CUS0090,Manav,Banerjee,manav.banerjee.0090@example.test,,Pune,Maharashtra,411001,India,1999-06-11,2026-09-02,ACTIVE
+CUS0091,Rupali,Jain,rupali.jain.0091@example.test,7899950284,Ahmedabad,Gujarat,380001,India,1978-04-17,2023-09-10,ACTIVE
+CUS0092,Vivek,Bhat,vivek.bhat.0092@example.test,7808816691,Bengaluru,Karnataka,560001,India,1988-03-28,2023-04-21,ACTIVE
+CUS0093,Rahul,Kulkarni,rahul.kulkarni.0093@example.test,8687147402,Delhi,Delhi,110001,India,1980-11-28,2024-06-21,ACTIVE
+CUS0094,Mohan,Gupta,mohan.gupta.0094@example.test,7197725340,Lucknow,Uttar Pradesh,226001,India,1965-09-05,2025-05-24,ACTIVE
+CUS0095,Srinivas,Jain,srinivas.jain.0095@example.test,6456427769,Mumbai,Maharashtra,400001,India,1959-11-19,2024-02-15,ACTIVE
+CUS0096,Rupali,Bose,rupali.bose.0096@example.test,,Hyderabad,Telangana,500081,India,1965-12-02,2025-08-06,ACTIVE
+CUS0097,Reyansh,Jain,reyansh.jain.0097@example.test,7497603806,Kochi,Kerala,682001,India,1997-05-09,2025-04-04,INACTIVE
+CUS0098,Leela,Patel,leela.patel.0098@example.test,9935110331,Pune,Maharashtra,411001,India,1971-09-19,2024-03-28,INACTIVE
+CUS0099,Aditi,Bhat,aditi.bhat.0099@example.test,8409364414,Delhi,Delhi,110001,India,1958-11-18,2024-07-03,ACTIVE
+CUS0100,Vihaan,Dubey,vihaan.dubey.0100@example.test,6777842175,Ahmedabad,Gujarat,380001,India,1980-08-26,2024-09-08,INACTIVE
+CUS0101,Pranav,Pillai,pranav.pillai.0101@example.test,,Visakhapatnam,Andhra Pradesh,530003,India,1975-07-24,2023-04-23,ACTIVE
+CUS0102,Ritika,Gupta,ritika.gupta.0102@example.test,,Bhubaneswar,Odisha,751001,India,1959-03-26,2025-09-15,ACTIVE
+CUS0103,Riya,Naidu,riya.naidu.0103@example.test,9205610172,Bengaluru,Karnataka,560001,India,1993-02-14,2023-06-26,INACTIVE
+CUS0104,Farhan,Shah,farhan.shah.0104@example.test,,Mumbai,Maharashtra,400001,India,1980-08-12,2026-05-06,INACTIVE
+CUS0105,Rupali,Rao,rupali.rao.0105@example.test,9587395103,Mumbai,Maharashtra,400001,India,2005-08-17,2025-11-03,ACTIVE
+CUS0106,Varun,Joshi,varun.joshi.0106@example.test,7463508068,Mumbai,Maharashtra,400001,India,1972-05-21,2024-09-28,ACTIVE
+CUS0107,Mehul,Reddy,mehul.reddy.0107@example.test,9777554429,Lucknow,Uttar Pradesh,226001,India,1983-09-26,2025-06-13,ACTIVE
+CUS0108,Mohan,Patel,mohan.patel.0108@example.test,9841440062,Surat,Gujarat,395003,India,1992-05-27,2025-02-20,ACTIVE
+CUS0109,Om,Naidu,om.naidu.0109@example.test,6112159242,Hyderabad,Telangana,500081,India,1986-02-16,2023-12-17,ACTIVE
+CUS0110,Madhav,Mishra,madhav.mishra.0110@example.test,,Ahmedabad,Gujarat,380001,India,1972-05-26,2023-07-11,ACTIVE
+CUS0111,Kiran,Roy,kiran.roy.0111@example.test,6880108259,Mumbai,Maharashtra,400001,India,2004-04-06,2024-05-09,ACTIVE
+CUS0112,Mohan,Kaur,mohan.kaur.0112@example.test,7716453610,Chandigarh,Chandigarh,160017,India,1987-03-13,2023-03-29,INACTIVE
+CUS0113,Ishaan,Sethi,ishaan.sethi.0113@example.test,,Visakhapatnam,Andhra Pradesh,530003,India,1993-07-19,2024-05-17,ACTIVE
+CUS0114,Reyansh,Kaur,reyansh.kaur.0114@example.test,6439620928,Jaipur,Rajasthan,302001,India,1974-03-23,2026-05-31,ACTIVE
+CUS0115,Kavya,Malhotra,kavya.malhotra.0115@example.test,6153439821,Hyderabad,Telangana,500081,India,1959-06-05,2023-02-14,ACTIVE
+CUS0116,Maya,Dubey,maya.dubey.0116@example.test,9082990894,Ahmedabad,Gujarat,380001,India,1996-11-27,2024-01-26,ACTIVE
+CUS0117,Fatima,Rao,fatima.rao.0117@example.test,7421026416,Chandigarh,Chandigarh,160017,India,1978-06-01,2026-06-11,ACTIVE
+CUS0118,Fatima,Bose,fatima.bose.0118@example.test,8780191407,Pune,Maharashtra,411001,India,1981-03-02,2025-09-04,ACTIVE
+CUS0119,Ananya,Reddy,ananya.reddy.0119@example.test,8676976239,Hyderabad,Telangana,500081,India,1962-06-01,2023-11-27,ACTIVE
+CUS0120,Rahul,Patel,rahul.patel.0120@example.test,7643035157,Ahmedabad,Gujarat,380001,India,2002-10-23,2025-07-21,INACTIVE
+CUS0121,Fatima,Gupta,fatima.gupta.0121@example.test,9927387536,Vijayawada,Andhra Pradesh,520001,India,1956-09-17,2023-01-23,ACTIVE
+CUS0122,Naina,Iyer,naina.iyer.0122@example.test,,Hyderabad,Telangana,500081,India,1966-06-29,2025-02-25,ACTIVE
+CUS0123,Arjun,Desai,arjun.desai.0123@example.test,8959723916,Bhubaneswar,Odisha,751001,India,1991-05-09,2024-05-01,ACTIVE
+CUS0124,Kiran,Chopra,kiran.chopra.0124@example.test,6888259804,Coimbatore,Tamil Nadu,641001,India,1960-10-05,2024-09-22,ACTIVE
+CUS0125,Meera,Kumar,meera.kumar.0125@example.test,6330133114,Ahmedabad,Gujarat,380001,India,1970-12-07,2024-08-09,INACTIVE
+CUS0126,Arjun,Iyer,arjun.iyer.0126@example.test,,Kochi,Kerala,682001,India,1980-12-20,2025-08-14,INACTIVE
+CUS0127,Anika,Sharma,anika.sharma.0127@example.test,7299667343,Bengaluru,Karnataka,560001,India,1970-02-17,2024-05-28,ACTIVE
+CUS0128,Jhanvi,Jain,jhanvi.jain.0128@example.test,9063107198,Vijayawada,Andhra Pradesh,520001,India,1972-06-10,2024-02-27,ACTIVE
+CUS0129,Jhanvi,Malhotra,jhanvi.malhotra.0129@example.test,9136949793,Jaipur,Rajasthan,302001,India,1968-03-17,2025-02-10,INACTIVE
+CUS0130,Vikram,Nair,vikram.nair.0130@example.test,7809622240,Hyderabad,Telangana,500081,India,1973-07-26,2026-01-29,INACTIVE
+CUS0131,Shreya,Mishra,shreya.mishra.0131@example.test,,Kolkata,West Bengal,700001,India,1981-02-27,2024-10-26,INACTIVE
+CUS0132,Aditi,Verma,aditi.verma.0132@example.test,7739823654,Bengaluru,Karnataka,560001,India,1989-08-08,2024-08-07,INACTIVE
+CUS0133,Pooja,Iyer,pooja.iyer.0133@example.test,9685932188,Jaipur,Rajasthan,302001,India,1978-11-24,2026-04-13,ACTIVE
+CUS0134,Maya,Shetty,maya.shetty.0134@example.test,7825356009,Kolkata,West Bengal,700001,India,1986-12-18,2023-10-16,INACTIVE
+CUS0135,Nisha,Rao,nisha.rao.0135@example.test,9327115102,Kochi,Kerala,682001,India,1983-10-07,2023-11-26,INACTIVE
+CUS0136,Dev,Pillai,dev.pillai.0136@example.test,,Bengaluru,Karnataka,560001,India,1963-11-26,2024-02-21,INACTIVE
+CUS0137,Meera,Nair,meera.nair.0137@example.test,6655807044,Lucknow,Uttar Pradesh,226001,India,1999-01-01,2025-12-04,ACTIVE
+CUS0138,Ishaan,Shetty,ishaan.shetty.0138@example.test,6811673647,Lucknow,Uttar Pradesh,226001,India,1960-10-30,2026-04-29,ACTIVE
+CUS0139,Keerthi,Desai,keerthi.desai.0139@example.test,6621939268,Hyderabad,Telangana,500081,India,1979-10-08,2023-11-07,ACTIVE
+CUS0140,Aarav,Nair,aarav.nair.0140@example.test,7277441505,Mumbai,Maharashtra,400001,India,1963-02-16,2025-05-23,INACTIVE
+CUS0141,Harsh,Pillai,harsh.pillai.0141@example.test,8859316451,Pune,Maharashtra,411001,India,1996-12-22,2025-08-22,ACTIVE
+CUS0142,Riya,Patel,riya.patel.0142@example.test,,Visakhapatnam,Andhra Pradesh,530003,India,2000-10-16,2026-04-21,ACTIVE
+CUS0143,Bhavya,Sethi,bhavya.sethi.0143@example.test,,Kochi,Kerala,682001,India,1997-09-22,2023-01-25,INACTIVE
+CUS0144,Kiran,Nair,kiran.nair.0144@example.test,7627246452,Chennai,Tamil Nadu,600001,India,1985-05-31,2024-04-28,INACTIVE
+CUS0145,Sahil,Patel,sahil.patel.0145@example.test,6038374354,Visakhapatnam,Andhra Pradesh,530003,India,2004-12-24,2025-10-07,INACTIVE
+CUS0146,Neha,Dubey,neha.dubey.0146@example.test,,Kochi,Kerala,682001,India,1984-11-26,2026-06-06,ACTIVE
+CUS0147,Priya,Joshi,priya.joshi.0147@example.test,7527544322,Delhi,Delhi,110001,India,1958-07-12,2025-01-16,INACTIVE
+CUS0148,Maya,Kaur,maya.kaur.0148@example.test,7829992320,Coimbatore,Tamil Nadu,641001,India,1995-03-26,2023-11-12,INACTIVE
+CUS0149,Asha,Gupta,asha.gupta.0149@example.test,7519086971,Visakhapatnam,Andhra Pradesh,530003,India,1957-11-01,2023-01-18,ACTIVE
+CUS0150,Rupali,Mehta,rupali.mehta.0150@example.test,,Mumbai,Maharashtra,400001,India,1959-02-18,2025-03-17,INACTIVE
+CUS0151,Diya,Malhotra,diya.malhotra.0151@example.test,,Mumbai,Maharashtra,400001,India,1985-08-07,2024-03-15,INACTIVE
+CUS0152,Aman,Malhotra,aman.malhotra.0152@example.test,6210989099,Kochi,Kerala,682001,India,1981-09-25,2024-05-29,ACTIVE
+CUS0153,Mohan,Khan,mohan.khan.0153@example.test,7052764745,Ahmedabad,Gujarat,380001,India,1974-03-06,2023-11-11,ACTIVE
+CUS0154,Akhil,Malhotra,akhil.malhotra.0154@example.test,8547666384,Delhi,Delhi,110001,India,1985-04-25,2024-03-18,INACTIVE
+CUS0155,Zoya,Rao,zoya.rao.0155@example.test,9531310762,Kochi,Kerala,682001,India,1987-08-21,2023-02-26,ACTIVE
+CUS0156,Vivek,Jain,vivek.jain.0156@example.test,6794067622,Kochi,Kerala,682001,India,1974-08-06,2024-02-27,INACTIVE
+CUS0157,Pooja,Jain,pooja.jain.0157@example.test,6083976580,Bengaluru,Karnataka,560001,India,2002-02-10,2025-02-27,INACTIVE
+CUS0158,Jhanvi,Mishra,jhanvi.mishra.0158@example.test,9909798408,Chennai,Tamil Nadu,600001,India,1982-10-08,2023-04-07,ACTIVE
+CUS0159,Yash,Patel,yash.patel.0159@example.test,8705582513,Mumbai,Maharashtra,400001,India,1968-12-03,2026-02-14,INACTIVE
+CUS0160,Akhil,Chatterjee,akhil.chatterjee.0160@example.test,,Mumbai,Maharashtra,400001,India,1965-05-28,2023-04-19,ACTIVE
+CUS0161,Anika,Dubey,anika.dubey.0161@example.test,8594770490,Coimbatore,Tamil Nadu,641001,India,1978-02-05,2023-05-11,ACTIVE
+CUS0162,Leela,Singh,leela.singh.0162@example.test,7406582958,Kolkata,West Bengal,700001,India,1974-06-30,2024-04-18,ACTIVE
+CUS0163,Akhil,Saxena,akhil.saxena.0163@example.test,8743577227,Pune,Maharashtra,411001,India,1963-08-25,2024-04-26,ACTIVE
+CUS0164,Akhil,Kulkarni,akhil.kulkarni.0164@example.test,,Kolkata,West Bengal,700001,India,1995-06-27,2026-03-10,INACTIVE
+CUS0165,Mehul,Malhotra,mehul.malhotra.0165@example.test,8053310130,Bengaluru,Karnataka,560001,India,2002-04-13,2024-11-07,ACTIVE
+CUS0166,Aparna,Rao,aparna.rao.0166@example.test,8457222946,Coimbatore,Tamil Nadu,641001,India,1975-09-29,2026-09-23,ACTIVE
+CUS0167,Leela,Chopra,leela.chopra.0167@example.test,8305178071,Hyderabad,Telangana,500081,India,1992-04-28,2023-03-17,ACTIVE
+CUS0168,Kavya,Rao,kavya.rao.0168@example.test,7058955915,Bhubaneswar,Odisha,751001,India,1972-09-29,2023-01-20,INACTIVE
+CUS0169,Ritika,Iyer,ritika.iyer.0169@example.test,7207380173,Hyderabad,Telangana,500081,India,1981-03-08,2025-06-22,INACTIVE
+CUS0170,Reyansh,Iyer,reyansh.iyer.0170@example.test,,Bengaluru,Karnataka,560001,India,1966-03-25,2023-08-25,INACTIVE
+CUS0171,Rohan,Khan,rohan.khan.0171@example.test,9192003259,Pune,Maharashtra,411001,India,1962-03-30,2025-09-08,ACTIVE
+CUS0172,Srinivas,Saxena,srinivas.saxena.0172@example.test,7609680818,Bengaluru,Karnataka,560001,India,1966-04-27,2025-09-01,ACTIVE
+CUS0173,Saanvi,Roy,saanvi.roy.0173@example.test,8193727389,Jaipur,Rajasthan,302001,India,1981-04-15,2025-02-19,ACTIVE
+CUS0174,Dev,Roy,dev.roy.0174@example.test,,Mumbai,Maharashtra,400001,India,1988-03-26,2025-06-21,INACTIVE
+CUS0175,Manav,Joshi,manav.joshi.0175@example.test,,Bengaluru,Karnataka,560001,India,1987-03-10,2023-02-19,ACTIVE
+CUS0176,Ayesha,Pillai,ayesha.pillai.0176@example.test,9000093024,Delhi,Delhi,110001,India,1958-01-26,2024-04-30,ACTIVE
+CUS0177,Manav,Sethi,manav.sethi.0177@example.test,,Coimbatore,Tamil Nadu,641001,India,1982-10-30,2023-07-03,ACTIVE
+CUS0178,Yash,Bhat,yash.bhat.0178@example.test,6177864707,Pune,Maharashtra,411001,India,1960-05-16,2026-07-20,ACTIVE
+CUS0179,Jhanvi,Iyer,jhanvi.iyer.0179@example.test,6364433052,Mumbai,Maharashtra,400001,India,1998-05-22,2023-04-15,ACTIVE
+CUS0180,Harsh,Chatterjee,harsh.chatterjee.0180@example.test,7849221596,Delhi,Delhi,110001,India,2003-10-08,2023-07-29,ACTIVE
+CUS0181,Ritika,Nair,ritika.nair.0181@example.test,6050000492,Pune,Maharashtra,411001,India,1967-12-06,2023-10-21,ACTIVE
+CUS0182,Tanvi,Bose,tanvi.bose.0182@example.test,8633395391,Visakhapatnam,Andhra Pradesh,530003,India,2001-09-25,2023-06-22,INACTIVE
+CUS0183,Ayesha,Rao,ayesha.rao.0183@example.test,9663586578,Mumbai,Maharashtra,400001,India,2001-12-07,2023-05-09,INACTIVE
+CUS0184,Ira,Pillai,ira.pillai.0184@example.test,6689313716,Mumbai,Maharashtra,400001,India,1990-01-20,2025-09-25,ACTIVE
+CUS0185,Shreya,Banerjee,shreya.banerjee.0185@example.test,8293977369,Jaipur,Rajasthan,302001,India,2001-07-01,2025-04-14,ACTIVE
+CUS0186,Manav,Naidu,manav.naidu.0186@example.test,8224463053,Vijayawada,Andhra Pradesh,520001,India,1986-08-26,2024-01-29,INACTIVE
+CUS0187,Tara,Desai,tara.desai.0187@example.test,8691885413,Hyderabad,Telangana,500081,India,1972-03-29,2024-11-14,ACTIVE
+CUS0188,Leela,Mehta,leela.mehta.0188@example.test,8902867306,Pune,Maharashtra,411001,India,1963-08-27,2023-03-12,INACTIVE
+CUS0189,Farhan,Kulkarni,farhan.kulkarni.0189@example.test,7603910233,Coimbatore,Tamil Nadu,641001,India,1989-02-27,2023-11-17,ACTIVE
+CUS0190,Rohan,Desai,rohan.desai.0190@example.test,6266041137,Lucknow,Uttar Pradesh,226001,India,1984-07-07,2023-03-10,ACTIVE
+CUS0191,Sanjana,Pillai,sanjana.pillai.0191@example.test,7275596571,Bengaluru,Karnataka,560001,India,1991-11-11,2023-12-17,ACTIVE
+CUS0192,Rupali,Naidu,rupali.naidu.0192@example.test,,Vijayawada,Andhra Pradesh,520001,India,1989-03-14,2024-03-10,ACTIVE
+CUS0193,Naveen,Gupta,naveen.gupta.0193@example.test,9443936140,Mumbai,Maharashtra,400001,India,2001-07-15,2026-02-12,INACTIVE
+CUS0194,Mohan,Saxena,mohan.saxena.0194@example.test,8153908743,Hyderabad,Telangana,500081,India,1973-01-03,2023-02-09,ACTIVE
+CUS0195,Akhil,Joshi,akhil.joshi.0195@example.test,7213822773,Mumbai,Maharashtra,400001,India,1980-03-21,2025-09-11,INACTIVE
+CUS0196,Vivek,Gupta,vivek.gupta.0196@example.test,6704981240,Surat,Gujarat,395003,India,1964-09-23,2024-09-16,ACTIVE
+CUS0197,Harsh,Shetty,harsh.shetty.0197@example.test,8087467709,Delhi,Delhi,110001,India,1989-09-25,2026-08-20,ACTIVE
+CUS0198,Om,Chopra,om.chopra.0198@example.test,8165856052,Chennai,Tamil Nadu,600001,India,1983-08-28,2025-04-15,ACTIVE
+CUS0199,Yash,Verma,yash.verma.0199@example.test,7751248562,Hyderabad,Telangana,500081,India,1972-10-05,2026-05-14,ACTIVE
+CUS0200,Aditi,Shetty,aditi.shetty.0200@example.test,,Kochi,Kerala,682001,India,1968-08-13,2023-07-24,ACTIVE
+CUS0201,Sahil,Verma,sahil.verma.0201@example.test,6466176676,Mumbai,Maharashtra,400001,India,1995-05-18,2025-10-02,ACTIVE
+CUS0202,Pooja,Verma,pooja.verma.0202@example.test,6811468775,Visakhapatnam,Andhra Pradesh,530003,India,1985-06-12,2026-01-06,INACTIVE
+CUS0203,Vivek,Bhat,vivek.bhat.0203@example.test,6245088645,Lucknow,Uttar Pradesh,226001,India,1994-11-18,2024-12-09,ACTIVE
+CUS0204,Sahil,Singh,sahil.singh.0204@example.test,7972988333,Bhubaneswar,Odisha,751001,India,1988-02-14,2023-12-21,ACTIVE
+CUS0205,Pooja,Naidu,pooja.naidu.0205@example.test,7636041163,Mumbai,Maharashtra,400001,India,1981-06-05,2025-05-13,ACTIVE
+CUS0206,Ira,Kulkarni,ira.kulkarni.0206@example.test,6895883990,Bhubaneswar,Odisha,751001,India,1999-07-17,2025-08-13,INACTIVE
+CUS0207,Saanvi,Iyer,saanvi.iyer.0207@example.test,7606428907,Bengaluru,Karnataka,560001,India,1969-02-07,2026-08-17,ACTIVE
+CUS0208,Om,Patel,om.patel.0208@example.test,,Bengaluru,Karnataka,560001,India,1988-06-21,2026-07-23,ACTIVE
+CUS0209,Mohan,Pillai,mohan.pillai.0209@example.test,7111100649,Chennai,Tamil Nadu,600001,India,2005-05-24,2024-07-27,ACTIVE
+CUS0210,Aarav,Roy,aarav.roy.0210@example.test,6218444760,Hyderabad,Telangana,500081,India,1988-09-29,2023-02-23,ACTIVE
+CUS0211,Bhavya,Das,bhavya.das.0211@example.test,7061669223,Kolkata,West Bengal,700001,India,1988-08-19,2025-10-07,ACTIVE
+CUS0212,Sahil,Banerjee,sahil.banerjee.0212@example.test,9053642980,Mumbai,Maharashtra,400001,India,1978-01-16,2023-11-25,ACTIVE
+CUS0213,Anika,Bhat,anika.bhat.0213@example.test,6472519910,Pune,Maharashtra,411001,India,1980-04-24,2023-06-26,INACTIVE
+CUS0214,Saanvi,Khan,saanvi.khan.0214@example.test,8471474660,Bengaluru,Karnataka,560001,India,1999-11-22,2025-08-14,INACTIVE
+CUS0215,Arjun,Mishra,arjun.mishra.0215@example.test,9203600545,Visakhapatnam,Andhra Pradesh,530003,India,1987-02-28,2025-07-13,ACTIVE
+CUS0216,Pranav,Mishra,pranav.mishra.0216@example.test,9909481873,Coimbatore,Tamil Nadu,641001,India,1969-09-12,2023-01-04,ACTIVE
+CUS0217,Ira,Mehta,ira.mehta.0217@example.test,8774826616,Kolkata,West Bengal,700001,India,1976-11-04,2024-05-16,INACTIVE
+CUS0218,Madhav,Bose,madhav.bose.0218@example.test,6946438545,Bhubaneswar,Odisha,751001,India,1997-08-01,2025-10-31,ACTIVE
+CUS0219,Srinivas,Sethi,srinivas.sethi.0219@example.test,,Chennai,Tamil Nadu,600001,India,2003-11-15,2024-05-16,INACTIVE
+CUS0220,Dev,Mishra,dev.mishra.0220@example.test,6842371171,Mumbai,Maharashtra,400001,India,2003-04-23,2023-01-09,ACTIVE
+CUS0221,Ishaan,Desai,ishaan.desai.0221@example.test,8573436229,Bengaluru,Karnataka,560001,India,1974-10-30,2024-04-29,ACTIVE
+CUS0222,Saanvi,Sharma,saanvi.sharma.0222@example.test,,Pune,Maharashtra,411001,India,1973-12-02,2023-05-18,INACTIVE
+CUS0223,Anika,Sharma,anika.sharma.0223@example.test,9953846912,Bhubaneswar,Odisha,751001,India,1970-07-28,2024-09-11,ACTIVE
+CUS0224,Manav,Dubey,manav.dubey.0224@example.test,,Visakhapatnam,Andhra Pradesh,530003,India,1969-02-09,2023-07-23,INACTIVE
+CUS0225,Leela,Kaur,leela.kaur.0225@example.test,9123577675,Bengaluru,Karnataka,560001,India,1983-10-05,2023-05-07,ACTIVE
+CUS0226,Rahul,Nair,rahul.nair.0226@example.test,8552373021,Jaipur,Rajasthan,302001,India,1968-04-30,2023-08-14,ACTIVE
+CUS0227,Asha,Pillai,asha.pillai.0227@example.test,,Mumbai,Maharashtra,400001,India,1995-07-04,2024-05-14,ACTIVE
+CUS0228,Aditi,Sethi,aditi.sethi.0228@example.test,7902117721,Ahmedabad,Gujarat,380001,India,1995-03-31,2026-06-29,ACTIVE
+CUS0229,Aarav,Dubey,aarav.dubey.0229@example.test,8708376716,Vijayawada,Andhra Pradesh,520001,India,1976-11-20,2025-04-30,ACTIVE
+CUS0230,Fatima,Sharma,fatima.sharma.0230@example.test,7078856929,Jaipur,Rajasthan,302001,India,1967-03-05,2026-08-14,ACTIVE
+CUS0231,Shreya,Mehta,shreya.mehta.0231@example.test,9861286371,Lucknow,Uttar Pradesh,226001,India,1973-02-27,2025-03-13,ACTIVE
+CUS0232,Riya,Singh,riya.singh.0232@example.test,,Pune,Maharashtra,411001,India,1988-11-21,2024-03-31,ACTIVE
+CUS0233,Fatima,Pillai,fatima.pillai.0233@example.test,7873081811,Lucknow,Uttar Pradesh,226001,India,1957-01-15,2023-05-17,ACTIVE
+CUS0234,Sanjana,Kumar,sanjana.kumar.0234@example.test,9492677621,Chennai,Tamil Nadu,600001,India,1991-08-12,2024-04-06,ACTIVE
+CUS0235,Vihaan,Sethi,vihaan.sethi.0235@example.test,7006488761,Lucknow,Uttar Pradesh,226001,India,1998-02-01,2025-04-28,ACTIVE
+CUS0236,Ritika,Shah,ritika.shah.0236@example.test,8035944217,Chennai,Tamil Nadu,600001,India,1968-01-19,2024-05-27,ACTIVE
+CUS0237,Farhan,Shetty,farhan.shetty.0237@example.test,8608665865,Hyderabad,Telangana,500081,India,1978-12-24,2023-03-25,INACTIVE
+CUS0238,Saanvi,Chopra,saanvi.chopra.0238@example.test,9275872940,Hyderabad,Telangana,500081,India,1983-04-06,2024-09-07,ACTIVE
+CUS0239,Leela,Jain,leela.jain.0239@example.test,7293975075,Visakhapatnam,Andhra Pradesh,530003,India,1970-08-28,2026-01-15,ACTIVE
+CUS0240,Jhanvi,Jain,jhanvi.jain.0240@example.test,6607589268,Hyderabad,Telangana,500081,India,1968-03-15,2023-05-05,ACTIVE
+CUS0241,Nikhil,Bose,nikhil.bose.0241@example.test,6738027508,Mumbai,Maharashtra,400001,India,1966-04-09,2023-02-15,ACTIVE
+CUS0242,Harsh,Khan,harsh.khan.0242@example.test,7879764434,Surat,Gujarat,395003,India,1987-05-27,2024-05-06,ACTIVE
+CUS0243,Meera,Reddy,meera.reddy.0243@example.test,6307156307,Chennai,Tamil Nadu,600001,India,2000-08-21,2024-07-27,ACTIVE
+CUS0244,Srinivas,Kulkarni,srinivas.kulkarni.0244@example.test,9516300753,Visakhapatnam,Andhra Pradesh,530003,India,1994-02-20,2026-09-05,ACTIVE
+CUS0245,Aarav,Iyer,aarav.iyer.0245@example.test,,Delhi,Delhi,110001,India,1991-08-24,2024-08-14,ACTIVE
+CUS0246,Sanjana,Sethi,sanjana.sethi.0246@example.test,7986275633,Delhi,Delhi,110001,India,1966-09-07,2023-02-19,ACTIVE
+CUS0247,Tara,Sharma,tara.sharma.0247@example.test,7417137215,Delhi,Delhi,110001,India,1958-11-10,2023-05-26,ACTIVE
+CUS0248,Samira,Shah,samira.shah.0248@example.test,8571142153,Surat,Gujarat,395003,India,1968-08-24,2025-03-12,INACTIVE
+CUS0249,Vihaan,Bhat,vihaan.bhat.0249@example.test,8107329184,Vijayawada,Andhra Pradesh,520001,India,1980-02-15,2023-02-26,ACTIVE
+CUS0250,Samira,Chopra,samira.chopra.0250@example.test,8382335901,Pune,Maharashtra,411001,India,1983-01-31,2024-03-30,ACTIVE
+CUS0251,Rahul,Kaur,rahul.kaur.0251@example.test,7933209477,Pune,Maharashtra,411001,India,1963-11-16,2023-05-24,ACTIVE
+CUS0252,Ritika,Mishra,ritika.mishra.0252@example.test,8572716795,Bengaluru,Karnataka,560001,India,1970-09-07,2026-05-28,ACTIVE
+CUS0253,Riya,Saxena,riya.saxena.0253@example.test,8824427416,Coimbatore,Tamil Nadu,641001,India,1969-01-14,2024-03-28,ACTIVE
+CUS0254,Akhil,Naidu,akhil.naidu.0254@example.test,9454675742,Kochi,Kerala,682001,India,1959-05-11,2025-12-17,ACTIVE
+CUS0255,Naveen,Iyer,naveen.iyer.0255@example.test,8398466458,Surat,Gujarat,395003,India,1966-06-04,2023-07-18,ACTIVE
+CUS0256,Tanvi,Chopra,tanvi.chopra.0256@example.test,7745872063,Vijayawada,Andhra Pradesh,520001,India,2003-08-24,2025-03-09,ACTIVE
+CUS0257,Aman,Chopra,aman.chopra.0257@example.test,9223301080,Chennai,Tamil Nadu,600001,India,1990-04-01,2025-11-13,ACTIVE
+CUS0258,Aditi,Kaur,aditi.kaur.0258@example.test,9093694286,Pune,Maharashtra,411001,India,2001-09-26,2023-06-12,ACTIVE
+CUS0259,Naina,Sethi,naina.sethi.0259@example.test,8548030336,Bengaluru,Karnataka,560001,India,2004-08-18,2026-07-14,ACTIVE
+CUS0260,Rohan,Verma,rohan.verma.0260@example.test,,Coimbatore,Tamil Nadu,641001,India,1999-09-28,2024-09-15,ACTIVE
+CUS0261,Tanvi,Khan,tanvi.khan.0261@example.test,,Chennai,Tamil Nadu,600001,India,2001-01-03,2024-12-27,ACTIVE
+CUS0262,Kiran,Singh,kiran.singh.0262@example.test,8868274646,Kochi,Kerala,682001,India,1981-04-07,2026-07-21,ACTIVE
+CUS0263,Pooja,Roy,pooja.roy.0263@example.test,9890973287,Mumbai,Maharashtra,400001,India,2002-10-12,2024-04-30,ACTIVE
+CUS0264,Tara,Roy,tara.roy.0264@example.test,6528643008,Mumbai,Maharashtra,400001,India,1994-02-14,2025-03-23,INACTIVE
+CUS0265,Ira,Malhotra,ira.malhotra.0265@example.test,7796034345,Mumbai,Maharashtra,400001,India,2000-11-20,2026-01-21,INACTIVE
+CUS0266,Farhan,Verma,farhan.verma.0266@example.test,,Bhubaneswar,Odisha,751001,India,1962-08-19,2024-05-21,ACTIVE
+CUS0267,Tanvi,Das,tanvi.das.0267@example.test,7300115660,Pune,Maharashtra,411001,India,1975-03-15,2024-07-26,INACTIVE
+CUS0268,Ritika,Shetty,ritika.shetty.0268@example.test,7885559554,Kochi,Kerala,682001,India,1977-02-23,2025-07-30,INACTIVE
+CUS0269,Vivek,Sharma,vivek.sharma.0269@example.test,6823423714,Kolkata,West Bengal,700001,India,1979-05-27,2025-01-25,ACTIVE
+CUS0270,Akhil,Rao,akhil.rao.0270@example.test,8591095206,Kolkata,West Bengal,700001,India,1961-06-23,2023-02-05,INACTIVE
+CUS0271,Priya,Banerjee,priya.banerjee.0271@example.test,,Bengaluru,Karnataka,560001,India,1986-04-09,2024-07-03,INACTIVE
+CUS0272,Ishaan,Mishra,ishaan.mishra.0272@example.test,7686008986,Bengaluru,Karnataka,560001,India,1969-09-30,2025-05-17,INACTIVE
+CUS0273,Varun,Iyer,varun.iyer.0273@example.test,6338244342,Delhi,Delhi,110001,India,2006-08-13,2025-08-31,INACTIVE
+CUS0274,Madhav,Desai,madhav.desai.0274@example.test,7123114670,Visakhapatnam,Andhra Pradesh,530003,India,1980-01-23,2023-07-31,ACTIVE
+CUS0275,Arjun,Iyer,arjun.iyer.0275@example.test,9363062896,Surat,Gujarat,395003,India,1989-02-05,2023-01-15,ACTIVE
+CUS0276,Kavya,Roy,kavya.roy.0276@example.test,7496239123,Hyderabad,Telangana,500081,India,1997-03-25,2025-03-09,ACTIVE
+CUS0277,Jhanvi,Bose,jhanvi.bose.0277@example.test,7483075530,Bengaluru,Karnataka,560001,India,1976-09-12,2023-05-12,INACTIVE
+CUS0278,Kabir,Gupta,kabir.gupta.0278@example.test,9093915293,Delhi,Delhi,110001,India,1986-09-24,2026-08-11,ACTIVE
+CUS0279,Tanvi,Mishra,tanvi.mishra.0279@example.test,9875273881,Hyderabad,Telangana,500081,India,1972-04-17,2023-03-31,ACTIVE
+CUS0280,Dev,Shah,dev.shah.0280@example.test,7435623004,Ahmedabad,Gujarat,380001,India,2003-05-15,2025-08-01,ACTIVE
+CUS0281,Priya,Singh,priya.singh.0281@example.test,8039905832,Pune,Maharashtra,411001,India,1979-04-16,2024-03-12,ACTIVE
+CUS0282,Sanjana,Reddy,sanjana.reddy.0282@example.test,8762710453,Jaipur,Rajasthan,302001,India,1991-09-06,2024-09-22,INACTIVE
+CUS0283,Ishaan,Banerjee,ishaan.banerjee.0283@example.test,7459046377,Mumbai,Maharashtra,400001,India,2005-04-27,2025-11-28,ACTIVE
+CUS0284,Zoya,Pillai,zoya.pillai.0284@example.test,6699698684,Ahmedabad,Gujarat,380001,India,1984-10-23,2023-11-23,ACTIVE
+CUS0285,Riya,Menon,riya.menon.0285@example.test,6759315202,Vijayawada,Andhra Pradesh,520001,India,2003-09-16,2025-01-13,INACTIVE
+CUS0286,Akhil,Khan,akhil.khan.0286@example.test,8525452802,Kochi,Kerala,682001,India,1988-07-31,2023-02-28,INACTIVE
+CUS0287,Vivek,Rao,vivek.rao.0287@example.test,8122161892,Hyderabad,Telangana,500081,India,1976-05-13,2026-04-10,ACTIVE
+CUS0288,Fatima,Desai,fatima.desai.0288@example.test,6055141686,Bengaluru,Karnataka,560001,India,1978-01-08,2024-09-03,ACTIVE
+CUS0289,Yash,Khan,yash.khan.0289@example.test,9299114965,Indore,Madhya Pradesh,452001,India,1967-12-12,2026-08-19,ACTIVE
+CUS0290,Ritika,Roy,ritika.roy.0290@example.test,9365960661,Indore,Madhya Pradesh,452001,India,1978-05-16,2025-12-04,INACTIVE
+CUS0291,Maya,Rao,maya.rao.0291@example.test,9259511834,Hyderabad,Telangana,500081,India,2002-11-21,2024-09-15,ACTIVE
+CUS0292,Manav,Das,manav.das.0292@example.test,8712569576,Hyderabad,Telangana,500081,India,2005-03-22,2024-10-05,ACTIVE
+CUS0293,Reyansh,Nair,reyansh.nair.0293@example.test,8207807313,Coimbatore,Tamil Nadu,641001,India,1987-06-16,2026-03-25,ACTIVE
+CUS0294,Meera,Mishra,meera.mishra.0294@example.test,,Chandigarh,Chandigarh,160017,India,1996-08-17,2025-06-12,ACTIVE
+CUS0295,Ayesha,Malhotra,ayesha.malhotra.0295@example.test,8237796679,Pune,Maharashtra,411001,India,1995-11-19,2024-03-15,ACTIVE
+CUS0296,Riya,Joshi,riya.joshi.0296@example.test,,Kolkata,West Bengal,700001,India,1960-08-24,2024-05-19,INACTIVE
+CUS0297,Kiran,Das,kiran.das.0297@example.test,7990338650,Kolkata,West Bengal,700001,India,1978-03-21,2025-09-15,ACTIVE
+CUS0298,Aparna,Jain,aparna.jain.0298@example.test,9678022786,Vijayawada,Andhra Pradesh,520001,India,1976-08-07,2024-12-12,ACTIVE
+CUS0299,Asha,Mehta,asha.mehta.0299@example.test,7570888897,Bengaluru,Karnataka,560001,India,2002-02-13,2023-10-27,INACTIVE
+CUS0300,Neha,Chatterjee,neha.chatterjee.0300@example.test,8781405968,Chandigarh,Chandigarh,160017,India,2004-05-26,2025-08-13,ACTIVE
+CUS0301,Mehul,Patel,mehul.patel.0301@example.test,7039966579,Bengaluru,Karnataka,560001,India,1999-01-01,2024-01-15,INACTIVE
+CUS0302,Akhil,Reddy,akhil.reddy.0302@example.test,8040845761,Mumbai,Maharashtra,400001,India,1959-10-30,2025-05-13,ACTIVE
+CUS0303,Dev,Chopra,dev.chopra.0303@example.test,9464903285,Pune,Maharashtra,411001,India,1987-07-03,2025-07-15,INACTIVE
+CUS0304,Aarav,Khan,aarav.khan.0304@example.test,,Bhubaneswar,Odisha,751001,India,1995-03-24,2024-08-16,ACTIVE
+CUS0305,Mohan,Bose,mohan.bose.0305@example.test,7963734292,Visakhapatnam,Andhra Pradesh,530003,India,2000-04-03,2024-02-26,INACTIVE
+CUS0306,Ananya,Chopra,ananya.chopra.0306@example.test,9841279031,Bengaluru,Karnataka,560001,India,1975-10-18,2026-06-12,ACTIVE
+CUS0307,Naveen,Chatterjee,naveen.chatterjee.0307@example.test,8104648998,Bengaluru,Karnataka,560001,India,2002-02-26,2026-08-06,ACTIVE
+CUS0308,Srinivas,Das,srinivas.das.0308@example.test,9913466302,Hyderabad,Telangana,500081,India,1984-12-15,2024-09-04,ACTIVE
+CUS0309,Pooja,Roy,pooja.roy.0309@example.test,8663817039,Mumbai,Maharashtra,400001,India,2003-05-25,2026-07-04,ACTIVE
+CUS0310,Rupali,Menon,rupali.menon.0310@example.test,9920341278,Delhi,Delhi,110001,India,1994-07-04,2024-10-19,ACTIVE
+CUS0311,Mohan,Joshi,mohan.joshi.0311@example.test,6161906532,Bengaluru,Karnataka,560001,India,1978-07-05,2024-06-28,ACTIVE
+CUS0312,Harsh,Chatterjee,harsh.chatterjee.0312@example.test,,Bengaluru,Karnataka,560001,India,1999-03-13,2023-03-25,ACTIVE
+CUS0313,Maya,Sharma,maya.sharma.0313@example.test,9619380043,Chennai,Tamil Nadu,600001,India,2002-09-01,2025-08-09,ACTIVE
+CUS0314,Tara,Pillai,tara.pillai.0314@example.test,8958487144,Visakhapatnam,Andhra Pradesh,530003,India,2002-02-22,2024-01-08,INACTIVE
+CUS0315,Om,Saxena,om.saxena.0315@example.test,8416800782,Bhubaneswar,Odisha,751001,India,1978-02-14,2023-03-13,ACTIVE
+CUS0316,Pranav,Saxena,pranav.saxena.0316@example.test,6611909180,Chennai,Tamil Nadu,600001,India,1969-01-03,2025-12-23,ACTIVE
+CUS0317,Nisha,Desai,nisha.desai.0317@example.test,6072974080,Mumbai,Maharashtra,400001,India,1987-12-19,2024-10-23,ACTIVE
+CUS0318,Arjun,Khan,arjun.khan.0318@example.test,8812957648,Delhi,Delhi,110001,India,1983-09-04,2025-01-23,INACTIVE
+CUS0319,Keerthi,Kulkarni,keerthi.kulkarni.0319@example.test,9303069361,Hyderabad,Telangana,500081,India,1974-02-10,2024-10-07,ACTIVE
+CUS0320,Sahil,Desai,sahil.desai.0320@example.test,6178185875,Visakhapatnam,Andhra Pradesh,530003,India,1969-01-15,2024-10-21,ACTIVE
+CUS0321,Vivek,Saxena,vivek.saxena.0321@example.test,9074375717,Bengaluru,Karnataka,560001,India,2000-12-29,2026-02-21,ACTIVE
+CUS0322,Anika,Sharma,anika.sharma.0322@example.test,7887909492,Hyderabad,Telangana,500081,India,1983-09-08,2023-09-22,INACTIVE
+CUS0323,Mehul,Joshi,mehul.joshi.0323@example.test,9607824382,Chennai,Tamil Nadu,600001,India,1975-01-12,2025-12-12,ACTIVE
+CUS0324,Reyansh,Dubey,reyansh.dubey.0324@example.test,8505586868,Coimbatore,Tamil Nadu,641001,India,1998-03-02,2023-07-28,ACTIVE
+CUS0325,Fatima,Shah,fatima.shah.0325@example.test,7096827820,Kochi,Kerala,682001,India,1968-02-21,2024-08-26,ACTIVE
+CUS0326,Ira,Bhat,ira.bhat.0326@example.test,9743450735,Delhi,Delhi,110001,India,2003-11-01,2024-09-10,ACTIVE
+CUS0327,Nikhil,Banerjee,nikhil.banerjee.0327@example.test,7568654413,Mumbai,Maharashtra,400001,India,1995-10-20,2023-07-14,ACTIVE
+CUS0328,Aarav,Joshi,aarav.joshi.0328@example.test,8692789899,Delhi,Delhi,110001,India,1963-01-20,2024-04-27,ACTIVE
+CUS0329,Farhan,Naidu,farhan.naidu.0329@example.test,,Coimbatore,Tamil Nadu,641001,India,1977-03-23,2025-01-28,ACTIVE
+CUS0330,Sahil,Bhat,sahil.bhat.0330@example.test,8345811272,Coimbatore,Tamil Nadu,641001,India,1991-04-03,2024-12-20,INACTIVE
+CUS0331,Vivek,Khan,vivek.khan.0331@example.test,9433456593,Pune,Maharashtra,411001,India,1971-12-19,2026-04-23,ACTIVE
+CUS0332,Naina,Gupta,naina.gupta.0332@example.test,6281086367,Lucknow,Uttar Pradesh,226001,India,1994-07-21,2024-11-04,ACTIVE
+CUS0333,Manav,Dubey,manav.dubey.0333@example.test,7278557602,Mumbai,Maharashtra,400001,India,1978-10-31,2026-02-15,INACTIVE
+CUS0334,Maya,Bhat,maya.bhat.0334@example.test,,Mumbai,Maharashtra,400001,India,1977-06-29,2026-01-03,ACTIVE
+CUS0335,Vihaan,Mehta,vihaan.mehta.0335@example.test,9177301797,Pune,Maharashtra,411001,India,1966-01-04,2023-03-16,ACTIVE
+CUS0336,Madhav,Khan,madhav.khan.0336@example.test,6281658447,Delhi,Delhi,110001,India,1985-06-21,2023-01-11,ACTIVE
+CUS0337,Ishaan,Kaur,ishaan.kaur.0337@example.test,8821029698,Kolkata,West Bengal,700001,India,1968-07-12,2023-10-11,ACTIVE
+CUS0338,Vivek,Kumar,vivek.kumar.0338@example.test,8295921355,Hyderabad,Telangana,500081,India,1966-12-14,2025-04-04,ACTIVE
+CUS0339,Kavya,Sharma,kavya.sharma.0339@example.test,8421260234,Jaipur,Rajasthan,302001,India,1974-03-13,2024-09-19,INACTIVE
+CUS0340,Arjun,Bose,arjun.bose.0340@example.test,7927187339,Mumbai,Maharashtra,400001,India,1984-04-10,2023-12-30,INACTIVE
+CUS0341,Jhanvi,Iyer,jhanvi.iyer.0341@example.test,8553421059,Hyderabad,Telangana,500081,India,1970-04-19,2024-05-26,ACTIVE
+CUS0342,Manav,Iyer,manav.iyer.0342@example.test,8211657601,Pune,Maharashtra,411001,India,2006-06-24,2025-09-30,INACTIVE
+CUS0343,Srinivas,Malhotra,srinivas.malhotra.0343@example.test,8958289858,Vijayawada,Andhra Pradesh,520001,India,1978-06-12,2023-08-18,INACTIVE
+CUS0344,Tara,Roy,tara.roy.0344@example.test,9037405401,Pune,Maharashtra,411001,India,1968-08-03,2024-03-14,INACTIVE
+CUS0345,Samira,Naidu,samira.naidu.0345@example.test,9658489646,Visakhapatnam,Andhra Pradesh,530003,India,1975-05-26,2026-07-23,ACTIVE
+CUS0346,Farhan,Shetty,farhan.shetty.0346@example.test,9370569531,Chandigarh,Chandigarh,160017,India,1981-01-29,2026-02-26,ACTIVE
+CUS0347,Harsh,Rao,harsh.rao.0347@example.test,7831793680,Chandigarh,Chandigarh,160017,India,1969-07-31,2024-10-03,ACTIVE
+CUS0348,Aditi,Bhat,aditi.bhat.0348@example.test,8382890286,Mumbai,Maharashtra,400001,India,1982-01-03,2023-08-20,INACTIVE
+CUS0349,Vivek,Das,vivek.das.0349@example.test,9133163634,Visakhapatnam,Andhra Pradesh,530003,India,1991-04-05,2024-05-20,INACTIVE
+CUS0350,Pooja,Mehta,pooja.mehta.0350@example.test,7024214718,Kolkata,West Bengal,700001,India,1988-12-21,2024-03-21,ACTIVE

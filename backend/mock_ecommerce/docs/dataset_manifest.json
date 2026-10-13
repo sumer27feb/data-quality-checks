@@ -1,0 +1,32 @@
+{
+  "title": "Synthetic Indian E-Commerce Relational Dataset",
+  "version": "2.0",
+  "as_of_date": "2026-09-30",
+  "random_seed": 2026100802,
+  "currency": "INR",
+  "data_origin": "100% synthetic, no actual customer records",
+  "table_row_counts": {
+    "customers": 350,
+    "categories": 15,
+    "products": 250,
+    "orders": 900,
+    "order_items": 2563,
+    "payments": 880,
+    "shipments": 835
+  },
+  "total_rows": 5793,
+  "table_descriptions": {
+    "customers": "Registered shopper accounts and home city/state",
+    "categories": "Product category hierarchy (department and category)",
+    "products": "Catalog snapshot as of 2026-09-30",
+    "orders": "Customer checkout and order lifecycle",
+    "order_items": "Purchased products and line-level prices",
+    "payments": "Prepaid order charges and completed refunds",
+    "shipments": "Dispatch and delivery milestones for orders"
+  },
+  "input_directories": [
+    "data/",
+    "config/"
+  ],
+  "notes": "docs/ and sql/ provide human reference and optional database loading; no ground-truth DQ rules included."
+}

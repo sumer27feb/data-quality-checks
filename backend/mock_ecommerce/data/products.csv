@@ -1,0 +1,251 @@
+product_id,category_id,sku,product_name,brand,list_price,stock_quantity,launch_date,discontinued_date,is_active
+PRD0001,CAT001,EC-01-00001,Orbito GaN Wall Charger 30W - Midnight Blue,Orbito,1840.99,65,2024-05-29,,true
+PRD0002,CAT001,EC-01-00002,Orbito Bluetooth Speaker - Sage Green,Orbito,1490.49,0,2023-11-18,2026-02-12,false
+PRD0003,CAT001,EC-01-00003,Nexfield Laptop Stand - Graphite,Nexfield,1490.00,9,2023-12-27,,true
+PRD0004,CAT001,EC-01-00004,Orbito LED Desk Lamp - Pro Edition,Orbito,2300.00,49,2024-06-24,,true
+PRD0005,CAT001,EC-01-00005,Orbito Wireless Mouse - Silver,Orbito,840.50,29,2023-01-22,,true
+PRD0006,CAT001,EC-01-00006,Nexfield Bluetooth Speaker - Midnight Blue,Nexfield,1900.99,17,2023-02-01,,true
+PRD0007,CAT001,EC-01-00007,Nexfield Power Bank 10000 mAh - Midnight Blue,Nexfield,1100.90,54,2025-03-09,,true
+PRD0008,CAT001,EC-01-00008,NovaCircuit Wireless Earbuds - Compact Edition,NovaCircuit,3390.00,35,2025-03-08,,true
+PRD0009,CAT001,EC-01-00009,NovaCircuit Mechanical Keyboard - Pro Edition,NovaCircuit,4730.00,48,2024-05-18,,true
+PRD0010,CAT001,EC-01-00010,NovaCircuit Braided Charging Cable - Midnight Blue,NovaCircuit,780.00,25,2023-12-14,,true
+PRD0011,CAT001,EC-01-00011,NovaCircuit Portable SSD 512GB - Midnight Blue,NovaCircuit,6740.99,0,2023-08-09,2026-05-27,false
+PRD0012,CAT001,EC-01-00012,Nexfield HD Webcam - Graphite,Nexfield,3330.00,9,2024-04-14,,true
+PRD0013,CAT001,EC-01-00013,Orbito Laptop Stand - Silver,Orbito,940.49,8,2024-09-16,,true
+PRD0014,CAT001,EC-01-00014,Orbito USB-C Hub - Compact Edition,Orbito,1860.90,11,2023-03-18,,true
+PRD0015,CAT001,EC-01-00015,NovaCircuit Laptop Stand - Pearl White,NovaCircuit,970.00,71,2023-10-17,,true
+PRD0016,CAT001,EC-01-00016,Orbito Portable SSD 512GB - Midnight Blue,Orbito,4420.90,18,2024-07-03,,true
+PRD0017,CAT001,EC-01-00017,Orbito USB-C Hub - Silver,Orbito,3030.00,37,2023-06-16,,true
+PRD0018,CAT001,EC-01-00018,Nexfield LED Desk Lamp - Pro Edition,Nexfield,930.00,0,2024-12-16,,true
+PRD0019,CAT001,EC-01-00019,NovaCircuit HD Webcam - Midnight Blue,NovaCircuit,2560.49,44,2024-10-11,,true
+PRD0020,CAT001,EC-01-00020,NovaCircuit Portable SSD 512GB - Sage Green,NovaCircuit,6600.90,41,2023-03-01,,true
+PRD0021,CAT001,EC-01-00021,Nexfield Power Bank 10000 mAh - Sage Green,Nexfield,999.00,0,2023-07-11,2026-02-28,false
+PRD0022,CAT001,EC-01-00022,Nexfield Braided Charging Cable - Compact Edition,Nexfield,800.90,0,2023-10-13,2026-07-10,false
+PRD0023,CAT001,EC-01-00023,NovaCircuit Wireless Mouse - Pearl White,NovaCircuit,1010.00,59,2023-11-17,,true
+PRD0024,CAT001,EC-01-00024,Nexfield Wireless Earbuds - Pro Edition,Nexfield,2900.50,47,2023-07-01,,true
+PRD0025,CAT001,EC-01-00025,NovaCircuit GaN Wall Charger 30W - Pearl White,NovaCircuit,1780.00,64,2024-07-25,,true
+PRD0026,CAT001,EC-01-00026,Orbito Mechanical Keyboard - Pro Edition,Orbito,2250.99,21,2023-03-30,,true
+PRD0027,CAT002,EC-02-00027,OakNest Cotton Bath Towel - Charcoal,OakNest,960.99,104,2023-10-29,,true
+PRD0028,CAT002,EC-02-00028,CasaVerde Pillow Cover Set of 2 - Sandstone,CasaVerde,720.00,91,2023-10-06,,true
+PRD0029,CAT002,EC-02-00029,CasaVerde Bamboo Cutting Board - Charcoal,CasaVerde,950.00,110,2023-05-25,,true
+PRD0030,CAT002,EC-02-00030,CasaVerde Nonstick Frying Pan 24cm - Ivory,CasaVerde,3050.00,112,2024-01-12,,true
+PRD0031,CAT002,EC-02-00031,CasaVerde Nonstick Frying Pan 24cm - Terracotta,CasaVerde,3090.00,24,2024-02-04,,true
+PRD0032,CAT002,EC-02-00032,CasaVerde Glass Storage Container Set - Sea Blue,CasaVerde,1150.90,34,2025-02-21,,true
+PRD0033,CAT002,EC-02-00033,CasaVerde Ceramic Coffee Mug 350ml - Terracotta,CasaVerde,610.49,95,2023-02-25,,true
+PRD0034,CAT002,EC-02-00034,Hearthwell Airtight Storage Jar 1L - Charcoal,Hearthwell,530.00,118,2023-05-04,,true
+PRD0035,CAT002,EC-02-00035,CasaVerde Electric Kettle 1.5L - Sea Blue,CasaVerde,2010.00,30,2023-03-19,,true
+PRD0036,CAT002,EC-02-00036,OakNest Cotton Bath Towel - Olive,OakNest,1190.00,86,2024-01-07,,true
+PRD0037,CAT002,EC-02-00037,OakNest Kitchen Utensil Set - Terracotta,OakNest,1550.00,40,2024-07-17,,true
+PRD0038,CAT002,EC-02-00038,CasaVerde Kitchen Utensil Set - Sea Blue,CasaVerde,1690.50,81,2024-02-21,,true
+PRD0039,CAT002,EC-02-00039,CasaVerde Airtight Storage Jar 1L - Olive,CasaVerde,860.00,12,2024-05-09,,true
+PRD0040,CAT002,EC-02-00040,CasaVerde Pillow Cover Set of 2 - Olive,CasaVerde,470.00,83,2023-10-26,,true
+PRD0041,CAT002,EC-02-00041,Hearthwell Bamboo Cutting Board - Sandstone,Hearthwell,630.00,123,2024-12-09,,true
+PRD0042,CAT002,EC-02-00042,OakNest Glass Storage Container Set - Ivory,OakNest,1800.90,30,2025-01-09,,true
+PRD0043,CAT002,EC-02-00043,CasaVerde Stainless Steel Water Bottle 750ml - Ivory,CasaVerde,600.00,43,2023-03-15,,true
+PRD0044,CAT002,EC-02-00044,CasaVerde Ceramic Coffee Mug 350ml - Sandstone,CasaVerde,420.99,88,2023-02-18,,true
+PRD0045,CAT002,EC-02-00045,Hearthwell Stainless Steel Water Bottle 750ml - Terracotta,Hearthwell,890.90,106,2024-08-14,,true
+PRD0046,CAT002,EC-02-00046,OakNest Pillow Cover Set of 2 - Charcoal,OakNest,580.00,70,2025-03-19,,true
+PRD0047,CAT002,EC-02-00047,Hearthwell Stainless Steel Water Bottle 750ml - Sea Blue,Hearthwell,740.00,94,2023-05-31,,true
+PRD0048,CAT002,EC-02-00048,CasaVerde Electric Kettle 1.5L - Charcoal,CasaVerde,2700.00,71,2023-12-03,,true
+PRD0049,CAT002,EC-02-00049,Hearthwell Electric Kettle 1.5L - Terracotta,Hearthwell,1770.99,94,2025-02-12,,true
+PRD0050,CAT002,EC-02-00050,OakNest Ceramic Coffee Mug 350ml - Terracotta,OakNest,360.99,24,2023-12-25,,true
+PRD0051,CAT003,EC-03-00051,Maple Ink Everyday Science Explained - Paperback,Maple Ink,590.00,182,2023-07-12,,true
+PRD0052,CAT003,EC-03-00052,Silverline Press Personal Finance Essentials - Paperback,Silverline Press,630.99,125,2024-11-11,,true
+PRD0053,CAT003,EC-03-00053,Silverline Press A Garden of Letters - Illustrated Edition,Silverline Press,550.00,94,2024-06-03,,true
+PRD0054,CAT003,EC-03-00054,Silverline Press Personal Finance Essentials - Illustrated Edition,Silverline Press,650.00,106,2023-07-29,,true
+PRD0055,CAT003,EC-03-00055,Cedar House The River at Dawn - Illustrated Edition,Cedar House,380.00,144,2023-06-28,,true
+PRD0056,CAT003,EC-03-00056,Maple Ink A Short History of Cities - Revised Edition,Maple Ink,400.00,175,2023-04-26,,true
+PRD0057,CAT003,EC-03-00057,Silverline Press Stories from the Monsoon - Revised Edition,Silverline Press,490.00,66,2025-03-04,,true
+PRD0058,CAT003,EC-03-00058,Maple Ink Practical Python Patterns - Revised Edition,Maple Ink,680.90,189,2024-01-21,,true
+PRD0059,CAT003,EC-03-00059,Cedar House Everyday Science Explained - Revised Edition,Cedar House,530.49,61,2024-01-02,,true
+PRD0060,CAT003,EC-03-00060,Silverline Press Practical Python Patterns - Hardcover,Silverline Press,410.50,108,2023-10-27,,true
+PRD0061,CAT003,EC-03-00061,Cedar House Introduction to Data Systems - Hardcover,Cedar House,610.90,82,2023-06-10,,true
+PRD0062,CAT003,EC-03-00062,Cedar House Designing Reliable Pipelines - Hardcover,Cedar House,1250.50,122,2025-01-15,,true
+PRD0063,CAT003,EC-03-00063,Cedar House Stories from the Monsoon - Paperback,Cedar House,250.50,179,2025-01-09,,true
+PRD0064,CAT003,EC-03-00064,Cedar House A Short History of Cities - Hardcover,Cedar House,400.00,176,2024-06-14,,true
+PRD0065,CAT003,EC-03-00065,Maple Ink Designing Reliable Pipelines - Paperback,Maple Ink,650.50,0,2023-01-25,2026-02-22,false
+PRD0066,CAT004,EC-04-00066,Noteleaf Desk Pencil Holder - Classic Black,Noteleaf,260.99,120,2023-08-31,,true
+PRD0067,CAT004,EC-04-00067,Noteleaf Hardbound Journal - Forest Green,Noteleaf,230.00,60,2023-05-12,,true
+PRD0068,CAT004,EC-04-00068,Inkwell Weekly Planner - Forest Green,Inkwell,520.49,74,2024-04-06,,true
+PRD0069,CAT004,EC-04-00069,Noteleaf Gel Pen Pack of 10 - Ocean Blue,Noteleaf,300.00,53,2024-03-22,,true
+PRD0070,CAT004,EC-04-00070,Inkwell Highlighter Set of 6 - Classic Black,Inkwell,290.49,81,2023-07-05,,true
+PRD0071,CAT004,EC-04-00071,Noteleaf Desk Pencil Holder - Charcoal,Noteleaf,170.00,76,2024-06-17,,true
+PRD0072,CAT004,EC-04-00072,Inkwell Sticky Note Set - Forest Green,Inkwell,190.99,37,2023-03-09,,true
+PRD0073,CAT004,EC-04-00073,PaperPilot A5 Ruled Notebook 200 Pages - Pastel Set,PaperPilot,120.99,0,2024-11-04,,true
+PRD0074,CAT004,EC-04-00074,Noteleaf Watercolour Sketchbook - Classic Black,Noteleaf,380.00,101,2024-11-14,,true
+PRD0075,CAT004,EC-04-00075,PaperPilot Gel Pen Pack of 10 - Ocean Blue,PaperPilot,250.00,36,2023-07-11,,true
+PRD0076,CAT004,EC-04-00076,Inkwell Watercolour Sketchbook - Pastel Set,Inkwell,280.90,123,2024-11-12,,true
+PRD0077,CAT004,EC-04-00077,Inkwell Highlighter Set of 6 - Forest Green,Inkwell,180.99,75,2024-02-12,,true
+PRD0078,CAT004,EC-04-00078,Noteleaf Sticky Note Set - Pastel Set,Noteleaf,200.00,85,2023-03-30,,true
+PRD0079,CAT004,EC-04-00079,PaperPilot A5 Ruled Notebook 200 Pages - Forest Green,PaperPilot,300.00,50,2024-11-16,,true
+PRD0080,CAT004,EC-04-00080,PaperPilot Weekly Planner - Ocean Blue,PaperPilot,390.00,76,2023-02-03,,true
+PRD0081,CAT005,EC-05-00081,Threadlane Linen Casual Shirt - Navy / M,Threadlane,1140.49,0,2024-11-22,,true
+PRD0082,CAT005,EC-05-00082,Solstice Wear Windbreaker Jacket - Rust / M,Solstice Wear,2100.49,66,2023-10-08,,true
+PRD0083,CAT005,EC-05-00083,Solstice Wear Lightweight Zip Hoodie - Navy / M,Solstice Wear,1450.00,102,2024-11-20,,true
+PRD0084,CAT005,EC-05-00084,Threadlane Lightweight Zip Hoodie - Navy / M,Threadlane,2250.49,0,2023-06-18,2026-06-24,false
+PRD0085,CAT005,EC-05-00085,Solstice Wear Windbreaker Jacket - Navy / M,Solstice Wear,2330.00,32,2023-08-21,,true
+PRD0086,CAT005,EC-05-00086,Terracotta Co. Cotton Scarf - Rust / M,Terracotta Co.,810.00,61,2023-02-05,,true
+PRD0087,CAT005,EC-05-00087,Threadlane Relaxed Fit Jeans - Rust / M,Threadlane,1390.49,42,2025-01-22,,true
+PRD0088,CAT005,EC-05-00088,Solstice Wear Cotton Polo Shirt - Navy / M,Solstice Wear,1360.00,62,2024-03-23,,true
+PRD0089,CAT005,EC-05-00089,Terracotta Co. Printed Kurta - Black / S,Terracotta Co.,750.99,39,2025-02-19,,true
+PRD0090,CAT005,EC-05-00090,Solstice Wear Cotton Scarf - Rust / M,Solstice Wear,670.99,108,2024-05-12,,true
+PRD0091,CAT005,EC-05-00091,Threadlane Straight Fit Chinos - Olive / L,Threadlane,2070.99,23,2024-07-30,,true
+PRD0092,CAT005,EC-05-00092,Terracotta Co. Cotton Crew Neck T-Shirt - Navy / M,Terracotta Co.,399.00,105,2023-09-26,,true
+PRD0093,CAT005,EC-05-00093,Threadlane Cotton Polo Shirt - Cream / XL,Threadlane,970.49,0,2024-05-04,2026-05-04,false
+PRD0094,CAT005,EC-05-00094,Solstice Wear Lightweight Zip Hoodie - Denim Blue / L,Solstice Wear,1290.00,42,2023-10-22,,true
+PRD0095,CAT005,EC-05-00095,Threadlane Cotton Scarf - Navy / M,Threadlane,740.90,25,2023-04-22,,true
+PRD0096,CAT005,EC-05-00096,Terracotta Co. Printed Kurta - Cream / XL,Terracotta Co.,1600.49,73,2025-03-29,,true
+PRD0097,CAT005,EC-05-00097,Threadlane Relaxed Fit Jeans - Black / S,Threadlane,2320.50,86,2024-04-04,,true
+PRD0098,CAT005,EC-05-00098,Threadlane Cotton Crew Neck T-Shirt - Rust / M,Threadlane,680.00,42,2023-12-28,,true
+PRD0099,CAT005,EC-05-00099,Terracotta Co. Straight Fit Chinos - Rust / M,Terracotta Co.,1190.90,117,2023-04-18,,true
+PRD0100,CAT005,EC-05-00100,Threadlane Printed Kurta - Navy / M,Threadlane,1590.00,11,2025-02-13,,true
+PRD0101,CAT005,EC-05-00101,Threadlane Cotton Polo Shirt - Denim Blue / L,Threadlane,1220.99,35,2024-05-10,,true
+PRD0102,CAT005,EC-05-00102,Threadlane Windbreaker Jacket - Olive / L,Threadlane,1550.00,90,2024-01-31,,true
+PRD0103,CAT005,EC-05-00103,Threadlane Relaxed Fit Jeans - Olive / L,Threadlane,2280.99,45,2023-09-26,,true
+PRD0104,CAT005,EC-05-00104,Solstice Wear Straight Fit Chinos - Olive / L,Solstice Wear,2140.49,0,2023-02-18,2026-06-04,false
+PRD0105,CAT005,EC-05-00105,Terracotta Co. Linen Casual Shirt - Olive / L,Terracotta Co.,1220.90,100,2023-07-23,,true
+PRD0106,CAT005,EC-05-00106,Threadlane Linen Casual Shirt - Denim Blue / L,Threadlane,1320.99,118,2024-09-03,,true
+PRD0107,CAT006,EC-06-00107,Treadwell Ankle Boots - Black / UK 7,Treadwell,4920.90,92,2024-01-13,,true
+PRD0108,CAT006,EC-06-00108,Northstep Casual Flip Flops - White / UK 10,Northstep,770.00,14,2023-09-16,,true
+PRD0109,CAT006,EC-06-00109,Northstep Casual Flip Flops - Black / UK 7,Northstep,670.99,19,2024-02-25,,true
+PRD0110,CAT006,EC-06-00110,Stridebay Training Shoes - Tan / UK 6,Stridebay,3390.00,16,2025-01-16,,true
+PRD0111,CAT006,EC-06-00111,Northstep Everyday Running Shoes - Navy / UK 8,Northstep,2610.99,79,2024-08-05,,true
+PRD0112,CAT006,EC-06-00112,Northstep Casual Flip Flops - Navy / UK 8,Northstep,780.90,0,2023-02-17,2026-04-21,false
+PRD0113,CAT006,EC-06-00113,Treadwell Canvas Sneakers - Navy / UK 8,Treadwell,2240.99,122,2024-01-16,,true
+PRD0114,CAT006,EC-06-00114,Stridebay Canvas Sneakers - Tan / UK 6,Stridebay,1580.00,14,2025-03-03,,true
+PRD0115,CAT006,EC-06-00115,Northstep Training Shoes - Black / UK 7,Northstep,2430.90,101,2023-11-10,,true
+PRD0116,CAT006,EC-06-00116,Northstep Formal Lace-Up Shoes - Navy / UK 8,Northstep,1980.49,93,2023-06-12,,true
+PRD0117,CAT006,EC-06-00117,Stridebay Slip-On Loafers - Black / UK 7,Stridebay,1450.90,83,2024-05-05,,true
+PRD0118,CAT006,EC-06-00118,Stridebay Comfort Walking Sandals - Tan / UK 6,Stridebay,740.99,59,2023-08-03,,true
+PRD0119,CAT006,EC-06-00119,Northstep Ankle Boots - Grey / UK 9,Northstep,4820.49,16,2023-10-01,,true
+PRD0120,CAT006,EC-06-00120,Northstep Comfort Walking Sandals - Black / UK 7,Northstep,820.00,96,2024-04-08,,true
+PRD0121,CAT006,EC-06-00121,Treadwell Ankle Boots - Grey / UK 9,Treadwell,2650.90,44,2023-04-30,,true
+PRD0122,CAT006,EC-06-00122,Treadwell Everyday Running Shoes - Black / UK 7,Treadwell,3910.49,114,2025-02-16,,true
+PRD0123,CAT006,EC-06-00123,Stridebay Canvas Sneakers - Grey / UK 9,Stridebay,1970.00,88,2025-01-15,,true
+PRD0124,CAT006,EC-06-00124,Stridebay Slip-On Loafers - White / UK 10,Stridebay,1320.49,72,2024-07-12,,true
+PRD0125,CAT006,EC-06-00125,Treadwell Slip-On Loafers - Navy / UK 8,Treadwell,2020.00,50,2023-09-01,,true
+PRD0126,CAT006,EC-06-00126,Treadwell Comfort Walking Sandals - Grey / UK 9,Treadwell,740.00,100,2023-12-15,,true
+PRD0127,CAT006,EC-06-00127,Northstep Formal Lace-Up Shoes - White / UK 10,Northstep,3750.00,69,2025-03-20,,true
+PRD0128,CAT006,EC-06-00128,Treadwell Formal Lace-Up Shoes - Grey / UK 9,Treadwell,2970.50,72,2024-10-28,,true
+PRD0129,CAT007,EC-07-00129,BloomKind Lip Balm Duo - Daily Care,BloomKind,390.49,17,2023-08-10,,true
+PRD0130,CAT007,EC-07-00130,Nira Botanics Lip Balm Duo - Sensitive Skin,Nira Botanics,230.50,137,2023-11-18,,true
+PRD0131,CAT007,EC-07-00131,Nira Botanics Repair Shampoo 250ml - Daily Care,Nira Botanics,590.00,172,2024-07-25,,true
+PRD0132,CAT007,EC-07-00132,Nira Botanics Gentle Face Cleanser 150ml - Sensitive Skin,Nira Botanics,220.90,158,2023-03-23,,true
+PRD0133,CAT007,EC-07-00133,Nira Botanics Hydrating Body Lotion 300ml - Sensitive Skin,Nira Botanics,290.99,172,2024-06-11,,true
+PRD0134,CAT007,EC-07-00134,Nira Botanics Hand Wash 500ml - Sensitive Skin,Nira Botanics,320.50,177,2023-10-16,,true
+PRD0135,CAT007,EC-07-00135,PureArc Vitamin C Face Serum 30ml - Sensitive Skin,PureArc,1170.00,158,2023-09-20,,true
+PRD0136,CAT007,EC-07-00136,BloomKind Hydrating Body Lotion 300ml - Hydrating Formula,BloomKind,640.00,0,2023-03-12,2026-07-23,false
+PRD0137,CAT007,EC-07-00137,Nira Botanics Vitamin C Face Serum 30ml - Sensitive Skin,Nira Botanics,540.50,16,2024-08-09,,true
+PRD0138,CAT007,EC-07-00138,BloomKind Daily Sunscreen SPF 50 50g - Sensitive Skin,BloomKind,540.00,80,2025-02-24,,true
+PRD0139,CAT007,EC-07-00139,BloomKind Gentle Face Cleanser 150ml - Aloe & Oat,BloomKind,480.00,61,2023-06-14,,true
+PRD0140,CAT007,EC-07-00140,Nira Botanics Daily Sunscreen SPF 50 50g - Unscented,Nira Botanics,830.00,190,2025-03-04,,true
+PRD0141,CAT007,EC-07-00141,BloomKind Hair Conditioner 250ml - Aloe & Oat,BloomKind,350.49,129,2024-04-26,,true
+PRD0142,CAT007,EC-07-00142,PureArc Hand Wash 500ml - Unscented,PureArc,440.90,132,2024-01-27,,true
+PRD0143,CAT007,EC-07-00143,PureArc Hair Conditioner 250ml - Hydrating Formula,PureArc,600.99,83,2025-03-28,,true
+PRD0144,CAT007,EC-07-00144,BloomKind Hand Wash 500ml - Sensitive Skin,BloomKind,220.00,0,2024-08-18,2026-07-24,false
+PRD0145,CAT007,EC-07-00145,PureArc Repair Shampoo 250ml - Aloe & Oat,PureArc,580.00,0,2024-04-10,2026-04-29,false
+PRD0146,CAT008,EC-08-00146,EverMove Yoga Mat 6mm - Black,EverMove,1460.99,56,2023-05-30,,true
+PRD0147,CAT008,EC-08-00147,EverMove Gym Duffle Bag - Forest Green,EverMove,1790.00,33,2024-02-05,,true
+PRD0148,CAT008,EC-08-00148,CorePeak Sports Water Bottle 1L - Teal,CorePeak,410.99,29,2024-08-15,,true
+PRD0149,CAT008,EC-08-00149,FlexTrail Steel Dumbbell Pair 5kg - Black,FlexTrail,1499.00,18,2023-12-24,,true
+PRD0150,CAT008,EC-08-00150,CorePeak Skipping Rope - Ocean Blue,CorePeak,570.50,87,2023-09-25,,true
+PRD0151,CAT008,EC-08-00151,EverMove Adjustable Hand Grip - Forest Green,EverMove,490.00,61,2023-12-28,,true
+PRD0152,CAT008,EC-08-00152,EverMove Resistance Band Set - Black,EverMove,570.90,114,2024-09-23,,true
+PRD0153,CAT008,EC-08-00153,EverMove Foam Roller - Black,EverMove,1350.90,68,2024-07-01,,true
+PRD0154,CAT008,EC-08-00154,EverMove Steel Dumbbell Pair 5kg - Ocean Blue,EverMove,1830.99,35,2023-09-10,,true
+PRD0155,CAT008,EC-08-00155,FlexTrail Skipping Rope - Forest Green,FlexTrail,199.00,90,2023-02-12,,true
+PRD0156,CAT008,EC-08-00156,FlexTrail Gym Duffle Bag - Teal,FlexTrail,1640.00,47,2023-05-21,,true
+PRD0157,CAT008,EC-08-00157,EverMove Yoga Mat 6mm - Teal,EverMove,650.00,78,2024-04-22,,true
+PRD0158,CAT008,EC-08-00158,CorePeak Foam Roller - Forest Green,CorePeak,1030.00,16,2024-02-22,,true
+PRD0159,CAT008,EC-08-00159,EverMove Adjustable Hand Grip - Ocean Blue,EverMove,430.99,37,2025-01-10,,true
+PRD0160,CAT008,EC-08-00160,EverMove Sports Water Bottle 1L - Forest Green,EverMove,490.50,74,2024-01-24,,true
+PRD0161,CAT008,EC-08-00161,CorePeak Resistance Band Set - Forest Green,CorePeak,580.49,30,2025-02-22,,true
+PRD0162,CAT009,EC-09-00162,Morning Basket Raw Honey 500g - Classic Pack,Morning Basket,520.99,185,2024-02-14,,true
+PRD0163,CAT009,EC-09-00163,HarvestTrail Natural Peanut Butter 500g - Resealable Pack,HarvestTrail,320.99,123,2023-06-19,,true
+PRD0164,CAT009,EC-09-00164,Field & Grain Green Tea Bags Pack of 50 - Value Pack,Field & Grain,240.90,120,2023-11-13,,true
+PRD0165,CAT009,EC-09-00165,HarvestTrail Arabica Coffee Beans 250g - Family Pack,HarvestTrail,370.99,179,2023-11-24,,true
+PRD0166,CAT009,EC-09-00166,HarvestTrail Premium Basmati Rice 5kg - Family Pack,HarvestTrail,580.00,59,2023-07-04,,true
+PRD0167,CAT009,EC-09-00167,HarvestTrail Green Tea Bags Pack of 50 - Classic Pack,HarvestTrail,360.49,131,2024-10-09,,true
+PRD0168,CAT009,EC-09-00168,HarvestTrail Premium Basmati Rice 5kg - Value Pack,HarvestTrail,1070.00,0,2024-02-02,,true
+PRD0169,CAT009,EC-09-00169,HarvestTrail Extra Virgin Olive Oil 500ml - Family Pack,HarvestTrail,580.00,0,2023-09-05,2026-02-03,false
+PRD0170,CAT009,EC-09-00170,Morning Basket Roasted Almonds 500g - Family Pack,Morning Basket,540.90,91,2023-09-20,,true
+PRD0171,CAT009,EC-09-00171,Morning Basket Rolled Oats 1kg - Family Pack,Morning Basket,380.90,188,2024-01-04,,true
+PRD0172,CAT009,EC-09-00172,Field & Grain Raw Honey 500g - Value Pack,Field & Grain,360.00,27,2024-01-30,,true
+PRD0173,CAT009,EC-09-00173,Morning Basket Arabica Coffee Beans 250g - Value Pack,Morning Basket,450.00,145,2025-02-27,,true
+PRD0174,CAT009,EC-09-00174,Morning Basket Natural Peanut Butter 500g - Resealable Pack,Morning Basket,520.90,141,2023-08-14,,true
+PRD0175,CAT009,EC-09-00175,Morning Basket Roasted Almonds 500g - Classic Pack,Morning Basket,540.00,40,2023-01-18,,true
+PRD0176,CAT009,EC-09-00176,HarvestTrail Extra Virgin Olive Oil 500ml - Resealable Pack,HarvestTrail,590.00,0,2023-06-20,,true
+PRD0177,CAT009,EC-09-00177,Morning Basket Rolled Oats 1kg - Resealable Pack,Morning Basket,300.00,59,2023-08-01,,true
+PRD0178,CAT010,EC-10-00178,PlayHaven 1000 Piece Jigsaw Puzzle - Starter Edition,PlayHaven,1160.49,71,2024-12-25,,true
+PRD0179,CAT010,EC-10-00179,BrightCub Craft Activity Kit - Family Edition,BrightCub,530.99,124,2023-07-16,,true
+PRD0180,CAT010,EC-10-00180,PlayHaven Craft Activity Kit - Starter Edition,PlayHaven,640.50,27,2024-04-27,,true
+PRD0181,CAT010,EC-10-00181,WonderNest Wooden Building Blocks Set - Starter Edition,WonderNest,910.99,81,2024-08-17,,true
+PRD0182,CAT010,EC-10-00182,WonderNest Magnetic Tiles Set - Rainbow Set,WonderNest,2300.50,0,2025-03-14,2026-02-28,false
+PRD0183,CAT010,EC-10-00183,PlayHaven Remote Control Toy Car - Rainbow Set,PlayHaven,1630.00,16,2023-08-26,,true
+PRD0184,CAT010,EC-10-00184,WonderNest Craft Activity Kit - Rainbow Set,WonderNest,1070.00,69,2024-10-10,,true
+PRD0185,CAT010,EC-10-00185,BrightCub Educational Flash Cards - Rainbow Set,BrightCub,410.90,36,2024-05-01,,true
+PRD0186,CAT010,EC-10-00186,WonderNest Magnetic Tiles Set - Family Edition,WonderNest,2040.00,8,2023-10-03,,true
+PRD0187,CAT010,EC-10-00187,PlayHaven Educational Flash Cards - Family Edition,PlayHaven,350.90,116,2024-04-04,,true
+PRD0188,CAT010,EC-10-00188,WonderNest 1000 Piece Jigsaw Puzzle - Family Edition,WonderNest,570.49,113,2024-10-10,,true
+PRD0189,CAT010,EC-10-00189,WonderNest Wooden Building Blocks Set - Explorer Edition,WonderNest,1250.99,102,2024-03-29,,true
+PRD0190,CAT010,EC-10-00190,WonderNest Family Strategy Board Game - Starter Edition,WonderNest,850.50,16,2024-04-28,,true
+PRD0191,CAT010,EC-10-00191,BrightCub Remote Control Toy Car - Rainbow Set,BrightCub,1190.49,13,2023-11-08,,true
+PRD0192,CAT010,EC-10-00192,BrightCub Family Strategy Board Game - Starter Edition,BrightCub,970.49,0,2024-05-10,2026-04-25,false
+PRD0193,CAT011,EC-11-00193,Drivewise Windshield Sun Shade - Compact,Drivewise,600.90,48,2025-02-09,,true
+PRD0194,CAT011,EC-11-00194,AutoHaven Microfibre Cleaning Cloth Set - Graphite,AutoHaven,450.00,0,2024-03-20,2026-05-11,false
+PRD0195,CAT011,EC-11-00195,Roadmate Portable Tyre Inflator - Compact,Roadmate,3060.00,17,2023-01-29,,true
+PRD0196,CAT011,EC-11-00196,AutoHaven Windshield Sun Shade - Heavy Duty,AutoHaven,880.99,0,2024-07-27,2026-07-29,false
+PRD0197,CAT011,EC-11-00197,AutoHaven Car Boot Organiser - Graphite,AutoHaven,1280.90,11,2025-03-18,,true
+PRD0198,CAT011,EC-11-00198,Drivewise Digital Tyre Pressure Gauge - Universal Fit,Drivewise,790.00,18,2025-03-29,,true
+PRD0199,CAT011,EC-11-00199,Roadmate Microfibre Cleaning Cloth Set - Compact,Roadmate,540.90,33,2023-09-01,,true
+PRD0200,CAT011,EC-11-00200,Roadmate Car Phone Holder - Compact,Roadmate,730.00,35,2024-10-09,,true
+PRD0201,CAT011,EC-11-00201,Drivewise Car Phone Holder - Universal Fit,Drivewise,1070.50,55,2023-08-23,,true
+PRD0202,CAT011,EC-11-00202,AutoHaven Car Boot Organiser - Heavy Duty,AutoHaven,1400.49,4,2025-03-14,,true
+PRD0203,CAT012,EC-12-00203,TailCare Cat Teaser Toy Set - Teal,TailCare,230.00,18,2024-09-19,,true
+PRD0204,CAT012,EC-12-00204,FurNest Adjustable Pet Leash - Small,FurNest,710.49,108,2023-04-02,,true
+PRD0205,CAT012,EC-12-00205,FurNest Pet Grooming Brush - Charcoal,FurNest,500.49,0,2025-01-10,2026-03-13,false
+PRD0206,CAT012,EC-12-00206,FurNest Stainless Steel Pet Bowl - Teal,FurNest,300.00,20,2023-07-07,,true
+PRD0207,CAT012,EC-12-00207,PawGarden Washable Pet Bed - Large,PawGarden,1580.50,0,2024-06-30,,true
+PRD0208,CAT012,EC-12-00208,FurNest Pet Grooming Brush - Small,FurNest,540.49,46,2023-10-10,,true
+PRD0209,CAT012,EC-12-00209,TailCare Dog Training Treat Pouch - Small,TailCare,440.90,25,2024-07-27,,true
+PRD0210,CAT012,EC-12-00210,TailCare Adjustable Pet Leash - Teal,TailCare,700.00,40,2024-09-05,,true
+PRD0211,CAT012,EC-12-00211,TailCare Cat Teaser Toy Set - Large,TailCare,230.90,115,2023-08-21,,true
+PRD0212,CAT012,EC-12-00212,TailCare Stainless Steel Pet Bowl - Charcoal,TailCare,700.50,0,2024-08-16,2026-01-15,false
+PRD0213,CAT013,EC-13-00213,GreenHaven Watering Can 2L - Compact,GreenHaven,870.50,16,2025-01-10,,true
+PRD0214,CAT013,EC-13-00214,LeafCraft Pruning Shears - Heavy Duty,LeafCraft,700.49,42,2025-01-18,,true
+PRD0215,CAT013,EC-13-00215,LeafCraft Garden Gloves Pair - Heavy Duty,LeafCraft,250.00,92,2023-01-01,,true
+PRD0216,CAT013,EC-13-00216,GreenHaven Seed Starter Tray 24 Cell - Classic Green,GreenHaven,600.00,0,2024-10-28,2026-03-04,false
+PRD0217,CAT013,EC-13-00217,GrowWell Potting Mix 5kg - Compact,GrowWell,400.50,26,2023-10-22,,true
+PRD0218,CAT013,EC-13-00218,GreenHaven Potting Mix 5kg - Compact,GreenHaven,440.00,22,2023-11-14,,true
+PRD0219,CAT013,EC-13-00219,GrowWell Pruning Shears - Classic Green,GrowWell,500.00,53,2024-02-21,,true
+PRD0220,CAT013,EC-13-00220,GrowWell Herb Seed Kit - Starter Pack,GrowWell,590.50,80,2024-09-27,,true
+PRD0221,CAT013,EC-13-00221,GrowWell Herb Seed Kit - Classic Green,GrowWell,420.50,95,2025-03-07,,true
+PRD0222,CAT013,EC-13-00222,GreenHaven Watering Can 2L - Heavy Duty,GreenHaven,830.00,119,2024-03-25,,true
+PRD0223,CAT014,EC-14-00223,TripNest Luggage Tag Set - Olive,TripNest,430.49,0,2023-01-09,,true
+PRD0224,CAT014,EC-14-00224,Roamcraft Passport Holder - Graphite,Roamcraft,790.00,32,2023-12-18,,true
+PRD0225,CAT014,EC-14-00225,TripNest Passport Holder - Graphite,TripNest,490.50,69,2024-03-13,,true
+PRD0226,CAT014,EC-14-00226,TripNest TSA Combination Luggage Lock - Olive,TripNest,430.00,69,2023-07-15,,true
+PRD0227,CAT014,EC-14-00227,Wanderly Foldable Daypack - Graphite,Wanderly,790.00,35,2023-06-20,,true
+PRD0228,CAT014,EC-14-00228,Roamcraft Packing Cube Set of 4 - Teal,Roamcraft,850.00,0,2024-07-20,2026-07-18,false
+PRD0229,CAT014,EC-14-00229,TripNest Memory Foam Travel Pillow - Sand,TripNest,610.99,101,2025-03-30,,true
+PRD0230,CAT014,EC-14-00230,TripNest Memory Foam Travel Pillow - Olive,TripNest,1550.90,11,2024-11-30,,true
+PRD0231,CAT014,EC-14-00231,Wanderly Toiletry Travel Pouch - Navy,Wanderly,660.00,17,2024-07-22,,true
+PRD0232,CAT014,EC-14-00232,Roamcraft Luggage Tag Set - Navy,Roamcraft,430.00,17,2023-01-06,,true
+PRD0233,CAT014,EC-14-00233,Wanderly Toiletry Travel Pouch - Graphite,Wanderly,620.00,90,2025-01-13,,true
+PRD0234,CAT014,EC-14-00234,TripNest Foldable Daypack - Graphite,TripNest,750.90,110,2024-01-31,,true
+PRD0235,CAT014,EC-14-00235,Wanderly Packing Cube Set of 4 - Navy,Wanderly,1250.49,116,2024-09-23,,true
+PRD0236,CAT014,EC-14-00236,TripNest TSA Combination Luggage Lock - Navy,TripNest,840.00,9,2023-11-26,,true
+PRD0237,CAT015,EC-15-00237,Deskwise A4 Printer Paper 500 Sheets - Black,Deskwise,350.49,88,2023-12-05,,true
+PRD0238,CAT015,EC-15-00238,Deskwise Whiteboard Marker Set of 6 - Refill Pack,Deskwise,230.49,45,2024-03-15,,true
+PRD0239,CAT015,EC-15-00239,PaperPilot Desk Document Tray - Black,PaperPilot,860.00,13,2025-03-01,,true
+PRD0240,CAT015,EC-15-00240,WorkNest USB Desk Fan - Blue,WorkNest,920.90,11,2023-04-06,,true
+PRD0241,CAT015,EC-15-00241,PaperPilot Desk Document Tray - Refill Pack,PaperPilot,450.00,49,2024-05-03,,true
+PRD0242,CAT015,EC-15-00242,WorkNest Metal Stapler Set - Refill Pack,WorkNest,470.00,84,2023-11-15,,true
+PRD0243,CAT015,EC-15-00243,WorkNest Adhesive Tape Multipack - Black,WorkNest,350.00,74,2023-05-21,,true
+PRD0244,CAT015,EC-15-00244,WorkNest USB Desk Fan - Office Pack,WorkNest,730.00,30,2023-01-25,,true
+PRD0245,CAT015,EC-15-00245,WorkNest Expanding File Folder - Refill Pack,WorkNest,790.99,17,2023-01-10,,true
+PRD0246,CAT015,EC-15-00246,PaperPilot Metal Stapler Set - Black,PaperPilot,340.00,90,2024-04-24,,true
+PRD0247,CAT015,EC-15-00247,WorkNest Expanding File Folder - Classic,WorkNest,670.99,66,2024-05-12,,true
+PRD0248,CAT015,EC-15-00248,Deskwise Adhesive Tape Multipack - Blue,Deskwise,210.00,73,2023-03-11,,true
+PRD0249,CAT015,EC-15-00249,PaperPilot A4 Printer Paper 500 Sheets - Office Pack,PaperPilot,580.49,105,2024-05-08,,true
+PRD0250,CAT015,EC-15-00250,PaperPilot Whiteboard Marker Set of 6 - Classic,PaperPilot,410.99,38,2024-09-26,,true

@@ -1,0 +1,16 @@
+category_id,category_name,department,is_active
+CAT001,Electronics,Technology,true
+CAT002,Home & Kitchen,Home,true
+CAT003,Books,Media,true
+CAT004,Stationery,Office & School,true
+CAT005,Fashion,Lifestyle,true
+CAT006,Footwear,Lifestyle,true
+CAT007,Beauty & Personal Care,Wellness,true
+CAT008,Fitness,Sports & Outdoors,true
+CAT009,Groceries,Essentials,true
+CAT010,Toys & Games,Kids & Family,true
+CAT011,Automotive,Auto,true
+CAT012,Pet Supplies,Pet Care,true
+CAT013,Gardening,Home,true
+CAT014,Travel Accessories,Travel,true
+CAT015,Office Supplies,Office & School,true
