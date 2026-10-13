@@ -1,0 +1,20 @@
+commands to run the different stage modules individually
+run in order
+
+# 1. Dataset Discovery
+python -m app.services.dataset_discovery
+
+# 2. Statistical Profiling
+python -m app.services.statistical_profiler
+
+# 3. Semantic Profiling
+python -m app.services.semantic_profiler
+
+# 4. Individual-Table YAML Consolidation
+python -m app.services.consolidated_profiler --artifacts-root artifacts/workspace.data_quality_rules
+
+# 5. Inter-Table YAML Consolidation
+python -m app.services.inter_table_profiler --artifacts-root artifacts/workspace.data_quality_rules --relationships-json artifacts/workspace.data_quality_rules/discovery/configs/relationships.json
+
+# 6. Individual-Table LLM Recommendations
+python -m app.services.table_llm_recommender_service --artifacts-root artifacts/workspace.data_quality_rules
