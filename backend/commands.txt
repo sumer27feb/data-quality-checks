@@ -18,3 +18,6 @@ python -m app.services.inter_table_profiler --artifacts-root artifacts/workspace
 
 # 6. Individual-Table LLM Recommendations
 python -m app.services.table_llm_recommender_service --artifacts-root artifacts/workspace.data_quality_rules
+
+# 7. Inter-Table LLM Recommendations
+python -m app.services.inter_table_llm_recommender_service --artifacts-root artifacts/workspace.data_quality_rules
