@@ -1,1 +1,33 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.api.routes import router as runs_router
+
+app = FastAPI(
+    title="Automated Data Quality Rule Recommendation",
+    description="API for generating and managing data quality rule recommendations.",
+    version="1.0.0",
+)
+
+# Allow local frontend applications to communicate with FastAPI.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",  # Next.js
+        "http://localhost:5173",  # React / Vite
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(runs_router)
+
+@app.get("/api/v1/health", tags=["Health"])
+def health_check():
+    return {
+        "status": "healthy",
+        "service": "data-quality-recommendation-api",
+    }
+
+
 # python -m uvicorn app.main:app --reload
