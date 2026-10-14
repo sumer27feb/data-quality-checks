@@ -5,14 +5,11 @@ uvicorn[standard]
 # Workflow orchestration
 langgraph
 langchain-core
-
-# LLM integration
-langchain-openai
+openai
 
 # Databricks
 databricks-sql-connector
 databricks-sdk
-databricks-langchain
 
 # Data validation and configuration
 pydantic

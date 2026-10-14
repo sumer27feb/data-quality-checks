@@ -359,7 +359,10 @@ def _check_cross_table_rules(
         if len(referenced_tables) < 2:
             raise InterTableRuleInferenceError(
                 f"rules[{index}]: "
-                "inter-table rules must reference two distinct tables"
+                "inter-table rules must reference two distinct tables. "
+                f"Detected tables: {sorted(referenced_tables)!r}. "
+                f"Detected references: {references!r}. "
+                f"Rejected predicate: {rule!r}"
             )
 
         relation = recommendation.proposed_relation
