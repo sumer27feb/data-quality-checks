@@ -1,21 +1,18 @@
-"""LangGraph node. Add it to a StateGraph when building workflow.py."""
+"""Starting LangGraph node for dataset discovery."""
 
-from typing import Any
-
+from app.graph.state import DQState
 from app.services.dataset_discovery import discover_dataset
 
 
-def dataset_discovery_node(state: dict[str, Any]) -> dict[str, Any]:
-    """Return only artifact paths and status, not the full discovered metadata."""
+def dataset_discovery_node(state: DQState) -> DQState:
+    """Return artifact paths and counts, not full metadata."""
     result = discover_dataset(
-        catalog=state.get("catalog", "workspace"),
-        schema=state.get("schema", "data_quality_rules"),
-        config_dir=state.get(
-            "config_volume_path",
-            "/Volumes/workspace/data_quality_rules/dataset/config/",
-        ),
-        artifacts_root=state.get("artifacts_root"),
+        catalog=state["catalog"],
+        schema=state["schema"],
+        config_dir=state["config_volume_path"],
+        artifacts_root=state["artifacts_root"],
     )
+
     return {
         "discovery_path": result["discovery_path"],
         "matching_results_path": result["matching_results_path"],

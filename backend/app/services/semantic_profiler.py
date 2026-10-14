@@ -20,8 +20,7 @@ from typing import Any
 from pydantic import ValidationError
 
 from app.config import (
-    DATABRICKS_CATALOG,
-    DATABRICKS_SCHEMA,
+    ARTIFACTS_ROOT,
     DATABRICKS_MODEL_ENDPOINT,
 )
 from app.schemas.semantic_profiles import TableSemanticProfile, response_json_schema
@@ -210,54 +209,102 @@ def _write_profiles(destination: Path, profiles: dict[str, dict]) -> None:
 def profile_semantics(
     *,
     artifacts_root: str | Path | None = None,
+    model: str | None = None,
     client: Any = None,
     max_output_tokens: int = 8192,
 ) -> dict[str, Any]:
     """Generate one validated semantic JSON per matched table.
 
-    Uses fixed catalog/schema/model from app.config, not LangGraph state.
-    If any table fails, keeps the previously saved semantic profiles untouched.
+    artifacts_root is the dataset directory itself, for example:
+        artifacts/workspace.data_quality_rules
+
+    If any table fails, the previous semantic profiles remain untouched.
     """
-    if not isinstance(max_output_tokens, int) or max_output_tokens <= 0:
+    if (
+        not isinstance(max_output_tokens, int)
+        or max_output_tokens <= 0
+    ):
         raise ValueError("max_output_tokens must be positive")
 
-    catalog, schema, model = DATABRICKS_CATALOG, DATABRICKS_SCHEMA, DATABRICKS_MODEL_ENDPOINT
-    if not all(isinstance(x, str) and x.strip() for x in (catalog, schema, model)):
-        raise ValueError("Set DATABRICKS_CATALOG, DATABRICKS_SCHEMA, and DATABRICKS_MODEL_ENDPOINT in app.config")
+    model_name = (
+        model if model is not None else DATABRICKS_MODEL_ENDPOINT
+    )
+    if not isinstance(model_name, str) or not model_name.strip():
+        raise ValueError(
+            "Provide a model or configure DATABRICKS_MODEL_ENDPOINT."
+        )
 
-    root = Path(artifacts_root) if artifacts_root is not None else BACKEND_ROOT / "artifacts"
-    dataset_dir = root / f"{catalog}.{schema}"
+    # The supplied root already identifies the dataset directory.
+    dataset_dir = Path(
+        artifacts_root
+        if artifacts_root is not None
+        else ARTIFACTS_ROOT
+    )
+
     table_inputs = _discover_inputs(dataset_dir)
 
     if client is None:
-        # The LLM client is purely a connection factory; prompt logic remains here.
         from app.services.llm_client import get_llm_client
+
         client = get_llm_client()
 
     profiles: dict[str, dict] = {}
+
     for table_input in table_inputs:
         table = table_input["table_name"]
-        profiles[table] = _profile_table(client, table_input, model, max_output_tokens)
+
+        profiles[table] = _profile_table(
+            client,
+            table_input,
+            model_name,
+            max_output_tokens,
+        )
+
         print(f"Semantic profile validated: {table}")
 
     destination = dataset_dir / "semantic_profiles"
     _write_profiles(destination, profiles)
+
     return {
         "semantic_profiles_path": str(destination.resolve()),
         "table_count": len(profiles),
-        "column_count": sum(len(p["columns"]) for p in profiles.values()),
+        "column_count": sum(
+            len(profile["columns"])
+            for profile in profiles.values()
+        ),
     }
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate semantic profiles with Databricks AI Gateway")
-    parser.add_argument("--artifacts-root", default=str(BACKEND_ROOT / "artifacts"))
-    parser.add_argument("--max-output-tokens", type=int, default=8192)
+    parser = argparse.ArgumentParser(
+        description=(
+            "Generate semantic profiles with Databricks AI Gateway"
+        )
+    )
+    parser.add_argument(
+        "--artifacts-root",
+        default=ARTIFACTS_ROOT,
+        help="Dataset artifacts directory",
+    )
+    parser.add_argument(
+        "--model",
+        default=None,
+        help="Override DATABRICKS_MODEL_ENDPOINT",
+    )
+    parser.add_argument(
+        "--max-output-tokens",
+        type=int,
+        default=8192,
+    )
+
     args = parser.parse_args()
+
     result = profile_semantics(
         artifacts_root=args.artifacts_root,
+        model=args.model,
         max_output_tokens=args.max_output_tokens,
     )
+
     print(json.dumps(result, indent=2))
 
 

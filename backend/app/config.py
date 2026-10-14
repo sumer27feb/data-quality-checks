@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -10,3 +11,7 @@ DATABRICKS_CATALOG=os.getenv("DATABRICKS_CATALOG")
 DATABRICKS_SCHEMA=os.getenv("DATABRICKS_SCHEMA")
 DATABRICKS_CONFIG_DIR=os.getenv("DATABRICKS_CONFIG_DIR")
 DATABRICKS_MODEL_ENDPOINT=os.getenv("DATABRICKS_MODEL_ENDPOINT")
+ARTIFACTS_ROOT = os.getenv(
+    "ARTIFACTS_ROOT",
+    "artifacts/workspace.data_quality_rules",
+)

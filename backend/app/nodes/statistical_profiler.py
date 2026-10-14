@@ -1,16 +1,15 @@
 """LangGraph node wrapping the read-only statistical profiling service."""
 
-from typing import Any
-
+from app.graph.state import DQState
 from app.services.statistical_profiler import profile_dataset
 
 
-def statistical_profiler_node(state: dict[str, Any]) -> dict[str, Any]:
+def statistical_profiler_node(state: DQState) -> DQState:
     """Use a small graph state: pass artifact paths rather than JSON contents."""
     result = profile_dataset(
-        catalog=state.get("catalog"),
-        schema=state.get("schema"),
-        artifacts_root=state.get("artifacts_root"),
+        catalog=state["catalog"],
+        schema=state["schema"],
+        artifacts_root=state["artifacts_root"],
     )
     return {
         "statistical_profiles_path": result["statistical_profiles_path"],
