@@ -183,10 +183,15 @@ def build_consolidated_profile(
                 )
 
         consolidated["columns"][column_name] = {
-            # Use the configured expected type.
+            # Keep the expected type under `datatype` for existing consumers.
             "datatype": _required_text(
                 stats_column,
                 "expected_type",
+                stats_location,
+            ),
+            "physical_datatype": _required_text(
+                stats_column,
+                "physical_type",
                 stats_location,
             ),
             "description": _required_text(
