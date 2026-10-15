@@ -42,52 +42,61 @@ dist/
 /backend/artifacts/
 
 # ==========================================
-# FRONTEND - REACT / NEXT.JS / VITE
+# FRONTEND - VITE / REACT / TYPESCRIPT
 # ==========================================
 
 # Dependencies
 node_modules/
 
-# Framework build outputs
-.next/
-.nuxt/
-.vite/
-.turbo/
-
-# Static build outputs
+# Build outputs
 dist/
-out/
+dist-ssr/
 
-# Frontend coverage
+# Vite cache
+.vite/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Test coverage
 coverage/
+
+# Local overrides
+*.local
+
 
 # ==========================================
 # LOGS AND TEMPORARY FILES
 # ==========================================
+
+# Application and package manager logs
 *.log
+
+# Temporary and backup files
 *.tmp
 *.bak
 *.swp
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
 # ==========================================
 # JUPYTER NOTEBOOKS
 # ==========================================
+
 .ipynb_checkpoints/
+
 
 # ==========================================
 # IDE / EDITOR
 # ==========================================
+
 .vscode/
 .idea/
+
 
 # ==========================================
 # OPERATING SYSTEM
 # ==========================================
+
 .DS_Store
 Thumbs.db
 desktop.ini
