@@ -1,0 +1,44 @@
+{
+  "table_name": "payments",
+  "expected_row_count": 880,
+  "primary_key": [
+    "payment_id"
+  ],
+  "columns": [
+    {
+      "name": "payment_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "order_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "payment_date",
+      "datatype": "DATE",
+      "nullable": false
+    },
+    {
+      "name": "payment_amount",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    },
+    {
+      "name": "payment_method",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "payment_status",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "refund_date",
+      "datatype": "DATE",
+      "nullable": true
+    }
+  ]
+}

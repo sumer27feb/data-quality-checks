@@ -1,0 +1,36 @@
+{
+  "catalog": "workspace",
+  "schema": "data_quality_rules",
+  "table_name": "order_items",
+  "full_name": "workspace.data_quality_rules.order_items",
+  "columns": [
+    {
+      "name": "order_item_id",
+      "ordinal_position": 0
+    },
+    {
+      "name": "order_id",
+      "ordinal_position": 1
+    },
+    {
+      "name": "product_id",
+      "ordinal_position": 2
+    },
+    {
+      "name": "quantity",
+      "ordinal_position": 3
+    },
+    {
+      "name": "unit_price",
+      "ordinal_position": 4
+    },
+    {
+      "name": "item_discount",
+      "ordinal_position": 5
+    },
+    {
+      "name": "line_amount",
+      "ordinal_position": 6
+    }
+  ]
+}

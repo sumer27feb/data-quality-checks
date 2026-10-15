@@ -1,0 +1,67 @@
+{
+  "rules": [
+    {
+      "rule": "products.list_price IS NULL OR products.list_price >= 0",
+      "description": "Ensures list price is not negative",
+      "proposed_relation": null,
+      "impact": {
+        "level": "high",
+        "reason": "Negative prices can cause revenue and reporting errors"
+      }
+    },
+    {
+      "rule": "products.stock_quantity IS NULL OR products.stock_quantity >= 0",
+      "description": "Ensures stock quantity is not negative",
+      "proposed_relation": null,
+      "impact": {
+        "level": "medium",
+        "reason": "Negative inventory breaks fulfillment and allocation logic"
+      }
+    },
+    {
+      "rule": "products.launch_date IS NULL OR products.launch_date <= CURRENT_DATE",
+      "description": "Launch date must not be in the future",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Future launch dates distort product availability reporting"
+      }
+    },
+    {
+      "rule": "(products.launch_date IS NULL OR products.discontinued_date IS NULL) OR (products.launch_date <= products.discontinued_date)",
+      "description": "Launch date must precede or equal discontinued date when both are present",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Inconsistent timeline makes product lifecycle analysis unreliable"
+      }
+    },
+    {
+      "rule": "products.is_active = false OR products.discontinued_date IS NULL",
+      "description": "Active products cannot have a discontinuation date",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Discrepancy between status and discontinuation can lead to incorrect catalog exposure"
+      }
+    },
+    {
+      "rule": "products.discontinued_date IS NULL OR products.is_active = false",
+      "description": "Products with a discontinuation date must be marked inactive",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Ensures catalog reflects true product availability"
+      }
+    },
+    {
+      "rule": "products.is_active = false OR (products.launch_date IS NOT NULL AND products.launch_date <= CURRENT_DATE)",
+      "description": "Active products must have a launch date that is not in the future",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Prevents products from being shown as active before they exist"
+      }
+    }
+  ]
+}

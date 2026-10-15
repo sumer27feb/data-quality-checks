@@ -1,0 +1,67 @@
+{
+  "rules": [
+    {
+      "rule": "orders.order_date <= shipments.shipped_date OR shipments.shipped_date IS NULL",
+      "description": "Ensures a shipment cannot be dispatched before the order is created.",
+      "proposed_relation": "cross_table_temporal_ordering",
+      "impact": {
+        "level": "high",
+        "reason": "Incorrect shipping dates can cause customer dissatisfaction and logistics failures."
+      }
+    },
+    {
+      "rule": "orders.items_subtotal = (SELECT SUM(order_items.line_amount) FROM order_items WHERE order_items.order_id = orders.order_id) AND orders.total_amount = orders.items_subtotal + orders.shipping_fee - orders.order_discount",
+      "description": "Validates that the items subtotal matches the sum of line amounts and that the final total amount is correctly derived.",
+      "proposed_relation": "cross_table_aggregation",
+      "impact": {
+        "level": "high",
+        "reason": "Financial miscalculations affect revenue reporting and customer billing."
+      }
+    },
+    {
+      "rule": "payments.payment_date >= orders.order_date",
+      "description": "Prevents a payment record from being dated earlier than its corresponding order.",
+      "proposed_relation": "cross_table_temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Payments recorded before orders indicate data entry or integration errors."
+      }
+    },
+    {
+      "rule": "NOT (orders.order_status = 'CANCELLED' AND payments.payment_status <> 'REFUNDED')",
+      "description": "Requires cancelled orders to have a refunded payment status.",
+      "proposed_relation": "cross_table_conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Failure to refund cancelled orders leads to compliance and customer trust issues."
+      }
+    },
+    {
+      "rule": "(order_items.order_id = orders.order_id AND order_items.product_id = products.product_id) AND (products.discontinued_date IS NULL OR orders.order_date <= products.discontinued_date)",
+      "description": "Ensures no orders are placed for products after their discontinuation date.",
+      "proposed_relation": "cross_table_conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Selling discontinued items can breach contracts and cause inventory mismatches."
+      }
+    },
+    {
+      "rule": "customers.signup_date <= orders.order_date AND orders.customer_id = customers.customer_id",
+      "description": "Verifies that a customer cannot place an order before signing up.",
+      "proposed_relation": "cross_table_temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Chronological inconsistencies may indicate data loading or identity errors."
+      }
+    },
+    {
+      "rule": "NOT (orders.order_status = 'DELIVERED' AND (shipments.shipment_status <> 'DELIVERED' OR shipments.delivered_date IS NULL))",
+      "description": "Confirms that a delivered order has a corresponding shipment marked delivered with a delivery date.",
+      "proposed_relation": "cross_table_conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Mismatched delivery status can result in inaccurate fulfillment reporting and customer disputes."
+      }
+    }
+  ]
+}

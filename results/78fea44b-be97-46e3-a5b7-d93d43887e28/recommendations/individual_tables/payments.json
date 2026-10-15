@@ -1,0 +1,40 @@
+{
+  "rules": [
+    {
+      "rule": "payments.payment_amount >= 0",
+      "description": "Ensures payment amounts are not negative.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "medium",
+        "reason": "Negative amounts would corrupt revenue reporting."
+      }
+    },
+    {
+      "rule": "payments.payment_date <= CURRENT_DATE()",
+      "description": "Verifies payment dates are not in the future.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "low",
+        "reason": "Future dates may indicate data entry errors."
+      }
+    },
+    {
+      "rule": "(payments.payment_status = 'REFUNDED' AND payments.refund_date IS NOT NULL) OR (payments.payment_status <> 'REFUNDED' AND payments.refund_date IS NULL)",
+      "description": "Refund date must be present only when status is REFUNDED.",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Mismatched status/refund dates break financial reconciliation."
+      }
+    },
+    {
+      "rule": "payments.refund_date IS NULL OR payments.refund_date >= payments.payment_date",
+      "description": "When a refund occurs, the refund date cannot precede the payment date.",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Inconsistent temporal order could lead to incorrect audit trails."
+      }
+    }
+  ]
+}

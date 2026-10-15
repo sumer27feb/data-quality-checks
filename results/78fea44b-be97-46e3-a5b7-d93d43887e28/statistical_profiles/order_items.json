@@ -1,0 +1,166 @@
+{
+  "table_name": "order_items",
+  "row_count": 2563,
+  "column_count": 7,
+  "columns": {
+    "order_item_id": {
+      "column_name": "order_item_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 2563,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 9,
+        "max_length": 9,
+        "avg_length": 9.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 2563,
+        "top_values": []
+      }
+    },
+    "order_id": {
+      "column_name": "order_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 2563,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 8,
+        "max_length": 8,
+        "avg_length": 8.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 900,
+        "top_values": []
+      }
+    },
+    "product_id": {
+      "column_name": "product_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 2563,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 7,
+        "max_length": 7,
+        "avg_length": 7.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 250,
+        "top_values": []
+      }
+    },
+    "quantity": {
+      "column_name": "quantity",
+      "expected_type": "INTEGER",
+      "physical_type": "INTEGER",
+      "expected_type_raw": "INTEGER",
+      "physical_type_raw": "int",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 2563,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": 1,
+        "max": 4,
+        "mean": 1.2742879438158408,
+        "stddev": 0.5927533946298611,
+        "p25": 1,
+        "p50": 1,
+        "p75": 1,
+        "zero_count": 0,
+        "negative_count": 0,
+        "distinct_count": 4
+      }
+    },
+    "unit_price": {
+      "column_name": "unit_price",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 2563,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "120.99",
+        "max": "6740.99",
+        "mean": "938.659130",
+        "stddev": 852.1347223945554,
+        "p25": "430.00",
+        "p50": "640.50",
+        "p75": "1170.00",
+        "zero_count": 0,
+        "negative_count": 0,
+        "distinct_count": 579
+      }
+    },
+    "item_discount": {
+      "column_name": "item_discount",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 2563,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "0.00",
+        "max": "1125.00",
+        "mean": "15.512505",
+        "stddev": 61.05429973880546,
+        "p25": "0.00",
+        "p50": "0.00",
+        "p75": "0.00",
+        "zero_count": 2157,
+        "negative_count": 0,
+        "distinct_count": 312
+      }
+    },
+    "line_amount": {
+      "column_name": "line_amount",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 2563,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "108.89",
+        "max": "17974.00",
+        "mean": "1174.513172",
+        "stddev": 1316.8797442013697,
+        "p25": "465.98",
+        "p50": "747.00",
+        "p75": "1400.49",
+        "zero_count": 0,
+        "negative_count": 0,
+        "distinct_count": 1029
+      }
+    }
+  }
+}

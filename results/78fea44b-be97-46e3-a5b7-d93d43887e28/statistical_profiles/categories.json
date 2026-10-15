@@ -1,0 +1,209 @@
+{
+  "table_name": "categories",
+  "row_count": 15,
+  "column_count": 4,
+  "columns": {
+    "category_id": {
+      "column_name": "category_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 15,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 6,
+        "max_length": 6,
+        "avg_length": 6.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 15,
+        "top_values": [
+          {
+            "value": "CAT001",
+            "count": 1
+          },
+          {
+            "value": "CAT002",
+            "count": 1
+          },
+          {
+            "value": "CAT003",
+            "count": 1
+          },
+          {
+            "value": "CAT004",
+            "count": 1
+          },
+          {
+            "value": "CAT005",
+            "count": 1
+          },
+          {
+            "value": "CAT006",
+            "count": 1
+          },
+          {
+            "value": "CAT007",
+            "count": 1
+          },
+          {
+            "value": "CAT008",
+            "count": 1
+          },
+          {
+            "value": "CAT009",
+            "count": 1
+          },
+          {
+            "value": "CAT010",
+            "count": 1
+          }
+        ]
+      }
+    },
+    "category_name": {
+      "column_name": "category_name",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 15,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 5,
+        "max_length": 22,
+        "avg_length": 11.266666666666667,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 15,
+        "top_values": [
+          {
+            "value": "Automotive",
+            "count": 1
+          },
+          {
+            "value": "Beauty & Personal Care",
+            "count": 1
+          },
+          {
+            "value": "Books",
+            "count": 1
+          },
+          {
+            "value": "Electronics",
+            "count": 1
+          },
+          {
+            "value": "Fashion",
+            "count": 1
+          },
+          {
+            "value": "Fitness",
+            "count": 1
+          },
+          {
+            "value": "Footwear",
+            "count": 1
+          },
+          {
+            "value": "Gardening",
+            "count": 1
+          },
+          {
+            "value": "Groceries",
+            "count": 1
+          },
+          {
+            "value": "Home & Kitchen",
+            "count": 1
+          }
+        ]
+      }
+    },
+    "department": {
+      "column_name": "department",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 15,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 4,
+        "max_length": 17,
+        "avg_length": 9.133333333333333,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 12,
+        "top_values": [
+          {
+            "value": "Home",
+            "count": 2
+          },
+          {
+            "value": "Lifestyle",
+            "count": 2
+          },
+          {
+            "value": "Office & School",
+            "count": 2
+          },
+          {
+            "value": "Auto",
+            "count": 1
+          },
+          {
+            "value": "Essentials",
+            "count": 1
+          },
+          {
+            "value": "Kids & Family",
+            "count": 1
+          },
+          {
+            "value": "Media",
+            "count": 1
+          },
+          {
+            "value": "Pet Care",
+            "count": 1
+          },
+          {
+            "value": "Sports & Outdoors",
+            "count": 1
+          },
+          {
+            "value": "Technology",
+            "count": 1
+          }
+        ]
+      }
+    },
+    "is_active": {
+      "column_name": "is_active",
+      "expected_type": "BOOLEAN",
+      "physical_type": "BOOLEAN",
+      "expected_type_raw": "BOOLEAN",
+      "physical_type_raw": "boolean",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 15,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "true_count": 15,
+        "false_count": 0
+      }
+    }
+  }
+}

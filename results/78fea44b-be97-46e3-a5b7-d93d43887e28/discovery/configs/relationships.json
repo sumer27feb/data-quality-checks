@@ -1,0 +1,46 @@
+{
+  "foreign_keys": [
+    {
+      "from_table": "products",
+      "from_column": "category_id",
+      "to_table": "categories",
+      "to_column": "category_id",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from_table": "orders",
+      "from_column": "customer_id",
+      "to_table": "customers",
+      "to_column": "customer_id",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from_table": "order_items",
+      "from_column": "order_id",
+      "to_table": "orders",
+      "to_column": "order_id",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from_table": "order_items",
+      "from_column": "product_id",
+      "to_table": "products",
+      "to_column": "product_id",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from_table": "payments",
+      "from_column": "order_id",
+      "to_table": "orders",
+      "to_column": "order_id",
+      "cardinality": "zero-or-one-to-one"
+    },
+    {
+      "from_table": "shipments",
+      "from_column": "order_id",
+      "to_table": "orders",
+      "to_column": "order_id",
+      "cardinality": "zero-or-one-to-one"
+    }
+  ]
+}

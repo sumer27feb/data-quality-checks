@@ -1,0 +1,78 @@
+table_name: customers
+table_semantics:
+  description: Master record of individual customers with personal and contact details
+  business_entity: customer
+  row_grain: one row per customer
+columns:
+  customer_id:
+    datatype: STRING
+    description: Unique identifier for each customer
+    semantic_role: identifier
+    semantic_type: customer_id
+    entity: customer
+  first_name:
+    datatype: STRING
+    description: Customer's given name
+    semantic_role: descriptive_text
+    semantic_type: first_name
+    entity: customer
+  last_name:
+    datatype: STRING
+    description: Customer's family name
+    semantic_role: descriptive_text
+    semantic_type: last_name
+    entity: customer
+  email:
+    datatype: STRING
+    description: Customer's email address
+    semantic_role: descriptive_text
+    semantic_type: email_address
+    entity: customer
+  phone:
+    datatype: STRING
+    description: Customer's phone number (optional)
+    semantic_role: descriptive_text
+    semantic_type: phone_number
+    entity: customer
+  city:
+    datatype: STRING
+    description: City of the customer's address
+    semantic_role: categorical
+    semantic_type: city_name
+    entity: customer
+  state:
+    datatype: STRING
+    description: State/region of the customer's address
+    semantic_role: categorical
+    semantic_type: state_name
+    entity: customer
+  postal_code:
+    datatype: STRING
+    description: Postal/ZIP code of the customer's address
+    semantic_role: categorical
+    semantic_type: postal_code
+    entity: customer
+  country:
+    datatype: STRING
+    description: Country of the customer's address
+    semantic_role: categorical
+    semantic_type: country_name
+    entity: customer
+  date_of_birth:
+    datatype: DATE
+    description: Customer's date of birth
+    semantic_role: temporal
+    semantic_type: date_of_birth
+    entity: customer
+  signup_date:
+    datatype: DATE
+    description: Date when the customer signed up
+    semantic_role: temporal
+    semantic_type: signup_date
+    entity: customer
+  customer_status:
+    datatype: STRING
+    description: Current status of the customer (ACTIVE/INACTIVE)
+    semantic_role: boolean_flag
+    semantic_type: customer_status
+    entity: customer

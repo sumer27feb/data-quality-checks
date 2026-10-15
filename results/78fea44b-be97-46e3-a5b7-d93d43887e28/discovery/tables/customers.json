@@ -1,0 +1,56 @@
+{
+  "catalog": "workspace",
+  "schema": "data_quality_rules",
+  "table_name": "customers",
+  "full_name": "workspace.data_quality_rules.customers",
+  "columns": [
+    {
+      "name": "customer_id",
+      "ordinal_position": 0
+    },
+    {
+      "name": "first_name",
+      "ordinal_position": 1
+    },
+    {
+      "name": "last_name",
+      "ordinal_position": 2
+    },
+    {
+      "name": "email",
+      "ordinal_position": 3
+    },
+    {
+      "name": "phone",
+      "ordinal_position": 4
+    },
+    {
+      "name": "city",
+      "ordinal_position": 5
+    },
+    {
+      "name": "state",
+      "ordinal_position": 6
+    },
+    {
+      "name": "postal_code",
+      "ordinal_position": 7
+    },
+    {
+      "name": "country",
+      "ordinal_position": 8
+    },
+    {
+      "name": "date_of_birth",
+      "ordinal_position": 9
+    },
+    {
+      "name": "signup_date",
+      "ordinal_position": 10
+    },
+    {
+      "name": "customer_status",
+      "ordinal_position": 11
+    }
+  ]
+}

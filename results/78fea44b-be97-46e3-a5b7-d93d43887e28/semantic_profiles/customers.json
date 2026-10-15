@@ -1,0 +1,106 @@
+{
+  "table_name": "customers",
+  "table_semantics": {
+    "description": "Master record of individual customers with personal and contact details",
+    "business_entity": "customer",
+    "row_grain": "one row per customer"
+  },
+  "columns": {
+    "customer_id": {
+      "column_name": "customer_id",
+      "description": "Unique identifier for each customer",
+      "semantic_role": "identifier",
+      "semantic_type": "customer_id",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "first_name": {
+      "column_name": "first_name",
+      "description": "Customer's given name",
+      "semantic_role": "descriptive_text",
+      "semantic_type": "first_name",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "last_name": {
+      "column_name": "last_name",
+      "description": "Customer's family name",
+      "semantic_role": "descriptive_text",
+      "semantic_type": "last_name",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "email": {
+      "column_name": "email",
+      "description": "Customer's email address",
+      "semantic_role": "descriptive_text",
+      "semantic_type": "email_address",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "phone": {
+      "column_name": "phone",
+      "description": "Customer's phone number (optional)",
+      "semantic_role": "descriptive_text",
+      "semantic_type": "phone_number",
+      "entity": "customer",
+      "confidence": "medium"
+    },
+    "city": {
+      "column_name": "city",
+      "description": "City of the customer's address",
+      "semantic_role": "categorical",
+      "semantic_type": "city_name",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "state": {
+      "column_name": "state",
+      "description": "State/region of the customer's address",
+      "semantic_role": "categorical",
+      "semantic_type": "state_name",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "postal_code": {
+      "column_name": "postal_code",
+      "description": "Postal/ZIP code of the customer's address",
+      "semantic_role": "categorical",
+      "semantic_type": "postal_code",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "country": {
+      "column_name": "country",
+      "description": "Country of the customer's address",
+      "semantic_role": "categorical",
+      "semantic_type": "country_name",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "date_of_birth": {
+      "column_name": "date_of_birth",
+      "description": "Customer's date of birth",
+      "semantic_role": "temporal",
+      "semantic_type": "date_of_birth",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "signup_date": {
+      "column_name": "signup_date",
+      "description": "Date when the customer signed up",
+      "semantic_role": "temporal",
+      "semantic_type": "signup_date",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "customer_status": {
+      "column_name": "customer_status",
+      "description": "Current status of the customer (ACTIVE/INACTIVE)",
+      "semantic_role": "boolean_flag",
+      "semantic_type": "customer_status",
+      "entity": "customer",
+      "confidence": "high"
+    }
+  }
+}

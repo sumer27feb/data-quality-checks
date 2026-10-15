@@ -1,0 +1,67 @@
+{
+  "rules": [
+    {
+      "rule": "orders.order_date <= current_date()",
+      "description": "Ensures order date is not in the future.",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Future dates indicate data entry or timing errors affecting reporting."
+      }
+    },
+    {
+      "rule": "orders.items_subtotal >= 0",
+      "description": "Items subtotal must be non‑negative.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "low",
+        "reason": "Negative subtotal is unrealistic for sales data."
+      }
+    },
+    {
+      "rule": "orders.shipping_fee >= 0",
+      "description": "Shipping fee must be non‑negative.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "low",
+        "reason": "Negative shipping fees are not business‑logical."
+      }
+    },
+    {
+      "rule": "orders.order_discount >= 0",
+      "description": "Order discount must be non‑negative.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "low",
+        "reason": "Discounts cannot be negative values."
+      }
+    },
+    {
+      "rule": "orders.total_amount >= 0",
+      "description": "Total amount charged to the customer must be non‑negative.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "medium",
+        "reason": "Negative charges indicate calculation or data errors."
+      }
+    },
+    {
+      "rule": "(orders.items_subtotal IS NULL OR orders.shipping_fee IS NULL OR orders.order_discount IS NULL) OR (orders.order_discount <= orders.items_subtotal + orders.shipping_fee)",
+      "description": "Discount cannot exceed the sum of items subtotal and shipping fee.",
+      "proposed_relation": "arithmetic",
+      "impact": {
+        "level": "medium",
+        "reason": "Excessive discounts could produce invalid negative totals."
+      }
+    },
+    {
+      "rule": "(orders.items_subtotal IS NULL OR orders.shipping_fee IS NULL OR orders.order_discount IS NULL OR orders.total_amount IS NULL) OR (orders.total_amount = orders.items_subtotal + orders.shipping_fee - orders.order_discount)",
+      "description": "Total amount must equal subtotal plus shipping fee minus discount.",
+      "proposed_relation": "arithmetic",
+      "impact": {
+        "level": "high",
+        "reason": "Core financial consistency; mismatches break revenue calculations."
+      }
+    }
+  ]
+}

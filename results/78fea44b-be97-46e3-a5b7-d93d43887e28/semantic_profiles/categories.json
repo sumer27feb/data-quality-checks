@@ -1,0 +1,42 @@
+{
+  "table_name": "categories",
+  "table_semantics": {
+    "description": "Lookup table defining product categories and their parent department.",
+    "business_entity": "Category",
+    "row_grain": "One row per distinct product category."
+  },
+  "columns": {
+    "category_id": {
+      "column_name": "category_id",
+      "description": "Unique identifier for the category.",
+      "semantic_role": "identifier",
+      "semantic_type": "category_id",
+      "entity": "Category",
+      "confidence": "high"
+    },
+    "category_name": {
+      "column_name": "category_name",
+      "description": "Human‑readable name of the category.",
+      "semantic_role": "categorical",
+      "semantic_type": "category_name",
+      "entity": "Category",
+      "confidence": "high"
+    },
+    "department": {
+      "column_name": "department",
+      "description": "Name of the department to which the category belongs.",
+      "semantic_role": "categorical",
+      "semantic_type": "department_name",
+      "entity": "Department",
+      "confidence": "medium"
+    },
+    "is_active": {
+      "column_name": "is_active",
+      "description": "Flag indicating whether the category is currently active.",
+      "semantic_role": "boolean_flag",
+      "semantic_type": "is_active",
+      "entity": "Category",
+      "confidence": "high"
+    }
+  }
+}

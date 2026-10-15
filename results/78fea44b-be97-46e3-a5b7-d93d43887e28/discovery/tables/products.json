@@ -1,0 +1,48 @@
+{
+  "catalog": "workspace",
+  "schema": "data_quality_rules",
+  "table_name": "products",
+  "full_name": "workspace.data_quality_rules.products",
+  "columns": [
+    {
+      "name": "product_id",
+      "ordinal_position": 0
+    },
+    {
+      "name": "category_id",
+      "ordinal_position": 1
+    },
+    {
+      "name": "sku",
+      "ordinal_position": 2
+    },
+    {
+      "name": "product_name",
+      "ordinal_position": 3
+    },
+    {
+      "name": "brand",
+      "ordinal_position": 4
+    },
+    {
+      "name": "list_price",
+      "ordinal_position": 5
+    },
+    {
+      "name": "stock_quantity",
+      "ordinal_position": 6
+    },
+    {
+      "name": "launch_date",
+      "ordinal_position": 7
+    },
+    {
+      "name": "discontinued_date",
+      "ordinal_position": 8
+    },
+    {
+      "name": "is_active",
+      "ordinal_position": 9
+    }
+  ]
+}

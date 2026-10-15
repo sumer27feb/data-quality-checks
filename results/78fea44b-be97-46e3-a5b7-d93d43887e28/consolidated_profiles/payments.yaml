@@ -1,0 +1,49 @@
+table_name: payments
+table_semantics:
+  description: Records each payment transaction associated with an order, capturing amount, method, status, and optional refund
+    information.
+  business_entity: payment
+  row_grain: one row per payment transaction
+columns:
+  payment_id:
+    datatype: STRING
+    description: Unique identifier for the payment transaction.
+    semantic_role: identifier
+    semantic_type: payment_id
+    entity: payment
+  order_id:
+    datatype: STRING
+    description: Identifier of the order linked to the payment.
+    semantic_role: identifier
+    semantic_type: order_id
+    entity: order
+  payment_date:
+    datatype: DATE
+    description: Date when the payment was made.
+    semantic_role: temporal
+    semantic_type: payment_date
+    entity: payment
+  payment_amount:
+    datatype: DECIMAL(12,2)
+    description: Monetary amount of the payment.
+    semantic_role: measure
+    semantic_type: payment_amount
+    entity: payment
+  payment_method:
+    datatype: STRING
+    description: Method used for the payment (e.g., UPI, CARD, NET_BANKING, WALLET).
+    semantic_role: categorical
+    semantic_type: payment_method
+    entity: payment
+  payment_status:
+    datatype: STRING
+    description: Current status of the payment (PAID or REFUNDED).
+    semantic_role: categorical
+    semantic_type: payment_status
+    entity: payment
+  refund_date:
+    datatype: DATE
+    description: Date when the payment was refunded, if applicable.
+    semantic_role: temporal
+    semantic_type: refund_date
+    entity: payment

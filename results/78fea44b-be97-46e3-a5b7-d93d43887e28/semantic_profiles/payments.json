@@ -1,0 +1,66 @@
+{
+  "table_name": "payments",
+  "table_semantics": {
+    "description": "Records each payment transaction associated with an order, capturing amount, method, status, and optional refund information.",
+    "business_entity": "payment",
+    "row_grain": "one row per payment transaction"
+  },
+  "columns": {
+    "payment_id": {
+      "column_name": "payment_id",
+      "description": "Unique identifier for the payment transaction.",
+      "semantic_role": "identifier",
+      "semantic_type": "payment_id",
+      "entity": "payment",
+      "confidence": "high"
+    },
+    "order_id": {
+      "column_name": "order_id",
+      "description": "Identifier of the order linked to the payment.",
+      "semantic_role": "identifier",
+      "semantic_type": "order_id",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "payment_date": {
+      "column_name": "payment_date",
+      "description": "Date when the payment was made.",
+      "semantic_role": "temporal",
+      "semantic_type": "payment_date",
+      "entity": "payment",
+      "confidence": "high"
+    },
+    "payment_amount": {
+      "column_name": "payment_amount",
+      "description": "Monetary amount of the payment.",
+      "semantic_role": "measure",
+      "semantic_type": "payment_amount",
+      "entity": "payment",
+      "confidence": "high"
+    },
+    "payment_method": {
+      "column_name": "payment_method",
+      "description": "Method used for the payment (e.g., UPI, CARD, NET_BANKING, WALLET).",
+      "semantic_role": "categorical",
+      "semantic_type": "payment_method",
+      "entity": "payment",
+      "confidence": "high"
+    },
+    "payment_status": {
+      "column_name": "payment_status",
+      "description": "Current status of the payment (PAID or REFUNDED).",
+      "semantic_role": "categorical",
+      "semantic_type": "payment_status",
+      "entity": "payment",
+      "confidence": "high"
+    },
+    "refund_date": {
+      "column_name": "refund_date",
+      "description": "Date when the payment was refunded, if applicable.",
+      "semantic_role": "temporal",
+      "semantic_type": "refund_date",
+      "entity": "payment",
+      "confidence": "high"
+    }
+  }
+}

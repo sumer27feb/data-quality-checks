@@ -1,0 +1,472 @@
+{
+  "table_name": "customers",
+  "row_count": 350,
+  "column_count": 12,
+  "columns": {
+    "customer_id": {
+      "column_name": "customer_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 7,
+        "max_length": 7,
+        "avg_length": 7.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 350,
+        "top_values": []
+      }
+    },
+    "first_name": {
+      "column_name": "first_name",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 2,
+        "max_length": 8,
+        "avg_length": 5.1657142857142855,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 60,
+        "top_values": [
+          {
+            "value": "Vivek",
+            "count": 11
+          },
+          {
+            "value": "Akhil",
+            "count": 10
+          },
+          {
+            "value": "Farhan",
+            "count": 10
+          },
+          {
+            "value": "Fatima",
+            "count": 10
+          },
+          {
+            "value": "Aarav",
+            "count": 9
+          },
+          {
+            "value": "Kiran",
+            "count": 9
+          },
+          {
+            "value": "Manav",
+            "count": 9
+          },
+          {
+            "value": "Arjun",
+            "count": 8
+          },
+          {
+            "value": "Ira",
+            "count": 8
+          },
+          {
+            "value": "Jhanvi",
+            "count": 8
+          }
+        ]
+      }
+    },
+    "last_name": {
+      "column_name": "last_name",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 3,
+        "max_length": 10,
+        "avg_length": 5.137142857142857,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 34,
+        "top_values": [
+          {
+            "value": "Rao",
+            "count": 16
+          },
+          {
+            "value": "Khan",
+            "count": 15
+          },
+          {
+            "value": "Iyer",
+            "count": 14
+          },
+          {
+            "value": "Gupta",
+            "count": 13
+          },
+          {
+            "value": "Malhotra",
+            "count": 13
+          },
+          {
+            "value": "Mishra",
+            "count": 13
+          },
+          {
+            "value": "Sharma",
+            "count": 13
+          },
+          {
+            "value": "Chopra",
+            "count": 12
+          },
+          {
+            "value": "Dubey",
+            "count": 12
+          },
+          {
+            "value": "Jain",
+            "count": 12
+          }
+        ]
+      }
+    },
+    "email": {
+      "column_name": "email",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 25,
+        "max_length": 35,
+        "avg_length": 29.302857142857142,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 350,
+        "top_values": []
+      }
+    },
+    "phone": {
+      "column_name": "phone",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 53,
+      "valid_count": 297,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 10,
+        "max_length": 10,
+        "avg_length": 10.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 297,
+        "top_values": []
+      }
+    },
+    "city": {
+      "column_name": "city",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 4,
+        "max_length": 13,
+        "avg_length": 7.722857142857142,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 18,
+        "top_values": [
+          {
+            "value": "Mumbai",
+            "count": 46
+          },
+          {
+            "value": "Hyderabad",
+            "count": 44
+          },
+          {
+            "value": "Bengaluru",
+            "count": 39
+          },
+          {
+            "value": "Pune",
+            "count": 27
+          },
+          {
+            "value": "Delhi",
+            "count": 25
+          },
+          {
+            "value": "Visakhapatnam",
+            "count": 24
+          },
+          {
+            "value": "Chennai",
+            "count": 18
+          },
+          {
+            "value": "Kochi",
+            "count": 17
+          },
+          {
+            "value": "Kolkata",
+            "count": 17
+          },
+          {
+            "value": "Ahmedabad",
+            "count": 15
+          }
+        ]
+      }
+    },
+    "state": {
+      "column_name": "state",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 5,
+        "max_length": 14,
+        "avg_length": 9.685714285714285,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 14,
+        "top_values": [
+          {
+            "value": "Maharashtra",
+            "count": 73
+          },
+          {
+            "value": "Telangana",
+            "count": 44
+          },
+          {
+            "value": "Karnataka",
+            "count": 39
+          },
+          {
+            "value": "Andhra Pradesh",
+            "count": 35
+          },
+          {
+            "value": "Tamil Nadu",
+            "count": 33
+          },
+          {
+            "value": "Delhi",
+            "count": 25
+          },
+          {
+            "value": "Gujarat",
+            "count": 21
+          },
+          {
+            "value": "Kerala",
+            "count": 17
+          },
+          {
+            "value": "West Bengal",
+            "count": 17
+          },
+          {
+            "value": "Odisha",
+            "count": 12
+          }
+        ]
+      }
+    },
+    "postal_code": {
+      "column_name": "postal_code",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 6,
+        "max_length": 6,
+        "avg_length": 6.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 18,
+        "top_values": [
+          {
+            "value": "400001",
+            "count": 46
+          },
+          {
+            "value": "500081",
+            "count": 44
+          },
+          {
+            "value": "560001",
+            "count": 39
+          },
+          {
+            "value": "411001",
+            "count": 27
+          },
+          {
+            "value": "110001",
+            "count": 25
+          },
+          {
+            "value": "530003",
+            "count": 24
+          },
+          {
+            "value": "600001",
+            "count": 18
+          },
+          {
+            "value": "682001",
+            "count": 17
+          },
+          {
+            "value": "700001",
+            "count": 17
+          },
+          {
+            "value": "380001",
+            "count": 15
+          }
+        ]
+      }
+    },
+    "country": {
+      "column_name": "country",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 5,
+        "max_length": 5,
+        "avg_length": 5.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 1,
+        "top_values": [
+          {
+            "value": "India",
+            "count": 350
+          }
+        ]
+      }
+    },
+    "date_of_birth": {
+      "column_name": "date_of_birth",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "1956-09-17",
+        "max_date": "2006-08-13",
+        "distinct_count": 347,
+        "date_range_days": 18227
+      }
+    },
+    "signup_date": {
+      "column_name": "signup_date",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "2023-01-04",
+        "max_date": "2026-09-23",
+        "distinct_count": 313,
+        "date_range_days": 1358
+      }
+    },
+    "customer_status": {
+      "column_name": "customer_status",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 350,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 6,
+        "max_length": 8,
+        "avg_length": 6.582857142857143,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 2,
+        "top_values": [
+          {
+            "value": "ACTIVE",
+            "count": 248
+          },
+          {
+            "value": "INACTIVE",
+            "count": 102
+          }
+        ]
+      }
+    }
+  }
+}

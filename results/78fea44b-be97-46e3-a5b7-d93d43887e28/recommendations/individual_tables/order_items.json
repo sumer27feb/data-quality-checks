@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "rule": "order_items.quantity > 0",
+      "description": "Quantity must be a positive integer.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "high",
+        "reason": "Zero or negative quantities invalidate the order line."
+      }
+    },
+    {
+      "rule": "order_items.unit_price >= 0",
+      "description": "Unit price must be non‑negative.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "medium",
+        "reason": "Negative pricing would distort revenue calculations."
+      }
+    },
+    {
+      "rule": "order_items.item_discount >= 0",
+      "description": "Discount amount must be non‑negative.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "low",
+        "reason": "Negative discounts would increase billed amount incorrectly."
+      }
+    },
+    {
+      "rule": "(order_items.item_discount IS NULL OR order_items.quantity IS NULL OR order_items.unit_price IS NULL OR order_items.item_discount <= order_items.quantity * order_items.unit_price)",
+      "description": "Discount cannot exceed the line's gross subtotal.",
+      "proposed_relation": "arithmetic",
+      "impact": {
+        "level": "medium",
+        "reason": "Over‑discounting creates negative or unrealistic line totals."
+      }
+    },
+    {
+      "rule": "(order_items.line_amount IS NULL OR order_items.quantity IS NULL OR order_items.unit_price IS NULL OR order_items.item_discount IS NULL OR order_items.line_amount = order_items.quantity * order_items.unit_price - order_items.item_discount)",
+      "description": "Line amount must equal quantity × unit_price − discount.",
+      "proposed_relation": "arithmetic",
+      "impact": {
+        "level": "high",
+        "reason": "Incorrect line totals affect billing and financial reporting."
+      }
+    },
+    {
+      "rule": "order_items.line_amount >= 0",
+      "description": "Line amount must be non‑negative.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "high",
+        "reason": "Negative line totals indicate data or calculation errors."
+      }
+    }
+  ]
+}

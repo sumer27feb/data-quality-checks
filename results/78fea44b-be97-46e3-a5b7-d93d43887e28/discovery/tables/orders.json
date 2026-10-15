@@ -1,0 +1,56 @@
+{
+  "catalog": "workspace",
+  "schema": "data_quality_rules",
+  "table_name": "orders",
+  "full_name": "workspace.data_quality_rules.orders",
+  "columns": [
+    {
+      "name": "order_id",
+      "ordinal_position": 0
+    },
+    {
+      "name": "customer_id",
+      "ordinal_position": 1
+    },
+    {
+      "name": "order_date",
+      "ordinal_position": 2
+    },
+    {
+      "name": "sales_channel",
+      "ordinal_position": 3
+    },
+    {
+      "name": "order_status",
+      "ordinal_position": 4
+    },
+    {
+      "name": "items_subtotal",
+      "ordinal_position": 5
+    },
+    {
+      "name": "shipping_fee",
+      "ordinal_position": 6
+    },
+    {
+      "name": "order_discount",
+      "ordinal_position": 7
+    },
+    {
+      "name": "total_amount",
+      "ordinal_position": 8
+    },
+    {
+      "name": "currency",
+      "ordinal_position": 9
+    },
+    {
+      "name": "shipping_city",
+      "ordinal_position": 10
+    },
+    {
+      "name": "shipping_state",
+      "ordinal_position": 11
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "catalog": "workspace",
+  "schema": "data_quality_rules",
+  "table_name": "shipments",
+  "full_name": "workspace.data_quality_rules.shipments",
+  "columns": [
+    {
+      "name": "shipment_id",
+      "ordinal_position": 0
+    },
+    {
+      "name": "order_id",
+      "ordinal_position": 1
+    },
+    {
+      "name": "tracking_number",
+      "ordinal_position": 2
+    },
+    {
+      "name": "carrier",
+      "ordinal_position": 3
+    },
+    {
+      "name": "shipped_date",
+      "ordinal_position": 4
+    },
+    {
+      "name": "delivered_date",
+      "ordinal_position": 5
+    },
+    {
+      "name": "shipment_status",
+      "ordinal_position": 6
+    }
+  ]
+}

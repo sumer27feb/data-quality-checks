@@ -1,0 +1,49 @@
+table_name: shipments
+table_semantics:
+  description: Records of individual shipments linked to orders, including carrier, tracking number, shipping and delivery
+    dates, and status.
+  business_entity: shipment
+  row_grain: one row per shipment (unique shipment_id)
+columns:
+  shipment_id:
+    datatype: STRING
+    description: Unique identifier for the shipment record.
+    semantic_role: identifier
+    semantic_type: shipment_id
+    entity: shipment
+  order_id:
+    datatype: STRING
+    description: Identifier of the order associated with the shipment.
+    semantic_role: identifier
+    semantic_type: order_id
+    entity: order
+  tracking_number:
+    datatype: STRING
+    description: Carrier‑provided tracking number for the shipment.
+    semantic_role: identifier
+    semantic_type: tracking_number
+    entity: shipment
+  carrier:
+    datatype: STRING
+    description: Name of the shipping carrier handling the shipment.
+    semantic_role: categorical
+    semantic_type: carrier_name
+    entity: carrier
+  shipped_date:
+    datatype: DATE
+    description: Date when the shipment was dispatched.
+    semantic_role: temporal
+    semantic_type: shipped_date
+    entity: shipment
+  delivered_date:
+    datatype: DATE
+    description: Date when the shipment was delivered to the customer (nullable).
+    semantic_role: temporal
+    semantic_type: delivered_date
+    entity: shipment
+  shipment_status:
+    datatype: STRING
+    description: Current status of the shipment (e.g., SHIPPED, DELIVERED).
+    semantic_role: categorical
+    semantic_type: shipment_status
+    entity: shipment

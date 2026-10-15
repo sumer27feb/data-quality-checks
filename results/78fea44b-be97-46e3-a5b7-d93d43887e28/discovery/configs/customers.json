@@ -1,0 +1,69 @@
+{
+  "table_name": "customers",
+  "expected_row_count": 350,
+  "primary_key": [
+    "customer_id"
+  ],
+  "columns": [
+    {
+      "name": "customer_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "first_name",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "last_name",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "email",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "phone",
+      "datatype": "STRING",
+      "nullable": true
+    },
+    {
+      "name": "city",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "state",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "postal_code",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "country",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "date_of_birth",
+      "datatype": "DATE",
+      "nullable": false
+    },
+    {
+      "name": "signup_date",
+      "datatype": "DATE",
+      "nullable": false
+    },
+    {
+      "name": "customer_status",
+      "datatype": "STRING",
+      "nullable": false
+    }
+  ]
+}

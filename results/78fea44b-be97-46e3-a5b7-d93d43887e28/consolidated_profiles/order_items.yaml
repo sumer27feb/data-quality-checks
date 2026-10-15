@@ -1,0 +1,49 @@
+table_name: order_items
+table_semantics:
+  description: Line items belonging to orders, each row representing a product purchased within an order with quantity, pricing,
+    discounts, and total line amount.
+  business_entity: order_line_item
+  row_grain: one row per product line within an order
+columns:
+  order_item_id:
+    datatype: STRING
+    description: Unique identifier for the order line item.
+    semantic_role: identifier
+    semantic_type: order_item_id
+    entity: order_line_item
+  order_id:
+    datatype: STRING
+    description: Identifier of the order to which this line item belongs.
+    semantic_role: identifier
+    semantic_type: order_id
+    entity: order
+  product_id:
+    datatype: STRING
+    description: Identifier of the product being purchased.
+    semantic_role: identifier
+    semantic_type: product_id
+    entity: product
+  quantity:
+    datatype: INTEGER
+    description: Number of units of the product ordered.
+    semantic_role: measure
+    semantic_type: quantity
+    entity: order_line_item
+  unit_price:
+    datatype: DECIMAL(12,2)
+    description: Price per single unit of the product at the time of the order.
+    semantic_role: measure
+    semantic_type: unit_price
+    entity: order_line_item
+  item_discount:
+    datatype: DECIMAL(12,2)
+    description: Discount amount applied to this line item.
+    semantic_role: measure
+    semantic_type: discount_amount
+    entity: order_line_item
+  line_amount:
+    datatype: DECIMAL(12,2)
+    description: Total monetary amount for the line item after discount (quantity * unit_price - discount).
+    semantic_role: measure
+    semantic_type: line_total_amount
+    entity: order_line_item

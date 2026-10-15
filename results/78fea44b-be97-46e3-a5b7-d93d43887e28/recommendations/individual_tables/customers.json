@@ -1,0 +1,49 @@
+{
+  "rules": [
+    {
+      "rule": "customers.signup_date >= customers.date_of_birth",
+      "description": "Signup date must not be earlier than the customer's date of birth",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "A sign‑up before birth indicates a critical data entry error"
+      }
+    },
+    {
+      "rule": "customers.signup_date <= CURRENT_DATE()",
+      "description": "Signup date cannot be in the future",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Future dates break downstream age and activity calculations"
+      }
+    },
+    {
+      "rule": "customers.date_of_birth <= CURRENT_DATE()",
+      "description": "Date of birth must not be in the future",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Future birth dates are impossible and affect age‑based logic"
+      }
+    },
+    {
+      "rule": "(customers.email IS NULL) OR (customers.email LIKE '%@%')",
+      "description": "Email, when present, must contain an '@' character",
+      "proposed_relation": "comparison",
+      "impact": {
+        "level": "low",
+        "reason": "Incorrect email format hampers communications"
+      }
+    },
+    {
+      "rule": "(customers.customer_status != 'ACTIVE') OR (customers.signup_date <= CURRENT_DATE())",
+      "description": "Active customers must have a signup date that is not in the future",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "medium",
+        "reason": "Future signup dates for active accounts distort activity metrics"
+      }
+    }
+  ]
+}

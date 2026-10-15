@@ -1,0 +1,389 @@
+{
+  "table_name": "orders",
+  "row_count": 900,
+  "column_count": 12,
+  "columns": {
+    "order_id": {
+      "column_name": "order_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 8,
+        "max_length": 8,
+        "avg_length": 8.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 900,
+        "top_values": []
+      }
+    },
+    "customer_id": {
+      "column_name": "customer_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 7,
+        "max_length": 7,
+        "avg_length": 7.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 250,
+        "top_values": []
+      }
+    },
+    "order_date": {
+      "column_name": "order_date",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "2025-02-01",
+        "max_date": "2026-09-30",
+        "distinct_count": 451,
+        "date_range_days": 606
+      }
+    },
+    "sales_channel": {
+      "column_name": "sales_channel",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 3,
+        "max_length": 10,
+        "avg_length": 3.661111111111111,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 3,
+        "top_values": [
+          {
+            "value": "APP",
+            "count": 519
+          },
+          {
+            "value": "WEB",
+            "count": 296
+          },
+          {
+            "value": "MOBILE_WEB",
+            "count": 85
+          }
+        ]
+      }
+    },
+    "order_status": {
+      "column_name": "order_status",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 6,
+        "max_length": 10,
+        "avg_length": 8.952222222222222,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 5,
+        "top_values": [
+          {
+            "value": "DELIVERED",
+            "count": 817
+          },
+          {
+            "value": "CANCELLED",
+            "count": 48
+          },
+          {
+            "value": "SHIPPED",
+            "count": 18
+          },
+          {
+            "value": "PROCESSING",
+            "count": 11
+          },
+          {
+            "value": "PLACED",
+            "count": 6
+          }
+        ]
+      }
+    },
+    "items_subtotal": {
+      "column_name": "items_subtotal",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "120.99",
+        "max": "19890.73",
+        "mean": "3344.752511",
+        "stddev": 2865.4283089577257,
+        "p25": "1307.50",
+        "p50": "2609.98",
+        "p75": "4290.85",
+        "zero_count": 0,
+        "negative_count": 0,
+        "distinct_count": 880
+      }
+    },
+    "shipping_fee": {
+      "column_name": "shipping_fee",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "0.00",
+        "max": "79.00",
+        "mean": "17.967778",
+        "stddev": 29.393991682023078,
+        "p25": "0.00",
+        "p50": "0.00",
+        "p75": "49.00",
+        "zero_count": 641,
+        "negative_count": 0,
+        "distinct_count": 3
+      }
+    },
+    "order_discount": {
+      "column_name": "order_discount",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "0.00",
+        "max": "500.00",
+        "mean": "42.340311",
+        "stddev": 108.5907376980535,
+        "p25": "0.00",
+        "p50": "0.00",
+        "p75": "0.00",
+        "zero_count": 722,
+        "negative_count": 0,
+        "distinct_count": 160
+      }
+    },
+    "total_amount": {
+      "column_name": "total_amount",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "193.94",
+        "max": "19890.73",
+        "mean": "3320.379978",
+        "stddev": 2825.3530176729505,
+        "p25": "1359.90",
+        "p50": "2572.30",
+        "p75": "4249.59",
+        "zero_count": 0,
+        "negative_count": 0,
+        "distinct_count": 882
+      }
+    },
+    "currency": {
+      "column_name": "currency",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 3,
+        "max_length": 3,
+        "avg_length": 3.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 1,
+        "top_values": [
+          {
+            "value": "INR",
+            "count": 900
+          }
+        ]
+      }
+    },
+    "shipping_city": {
+      "column_name": "shipping_city",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 4,
+        "max_length": 13,
+        "avg_length": 7.565555555555555,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 18,
+        "top_values": [
+          {
+            "value": "Mumbai",
+            "count": 108
+          },
+          {
+            "value": "Bengaluru",
+            "count": 85
+          },
+          {
+            "value": "Kolkata",
+            "count": 83
+          },
+          {
+            "value": "Hyderabad",
+            "count": 78
+          },
+          {
+            "value": "Delhi",
+            "count": 74
+          },
+          {
+            "value": "Visakhapatnam",
+            "count": 53
+          },
+          {
+            "value": "Chennai",
+            "count": 52
+          },
+          {
+            "value": "Kochi",
+            "count": 50
+          },
+          {
+            "value": "Ahmedabad",
+            "count": 46
+          },
+          {
+            "value": "Indore",
+            "count": 46
+          }
+        ]
+      }
+    },
+    "shipping_state": {
+      "column_name": "shipping_state",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 900,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 5,
+        "max_length": 14,
+        "avg_length": 9.721111111111112,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 14,
+        "top_values": [
+          {
+            "value": "Maharashtra",
+            "count": 154
+          },
+          {
+            "value": "Karnataka",
+            "count": 85
+          },
+          {
+            "value": "Tamil Nadu",
+            "count": 85
+          },
+          {
+            "value": "West Bengal",
+            "count": 83
+          },
+          {
+            "value": "Andhra Pradesh",
+            "count": 78
+          },
+          {
+            "value": "Telangana",
+            "count": 78
+          },
+          {
+            "value": "Delhi",
+            "count": 74
+          },
+          {
+            "value": "Gujarat",
+            "count": 66
+          },
+          {
+            "value": "Kerala",
+            "count": 50
+          },
+          {
+            "value": "Madhya Pradesh",
+            "count": 46
+          }
+        ]
+      }
+    }
+  }
+}

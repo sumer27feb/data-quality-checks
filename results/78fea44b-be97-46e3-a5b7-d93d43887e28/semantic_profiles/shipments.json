@@ -1,0 +1,66 @@
+{
+  "table_name": "shipments",
+  "table_semantics": {
+    "description": "Records of individual shipments linked to orders, including carrier, tracking number, shipping and delivery dates, and status.",
+    "business_entity": "shipment",
+    "row_grain": "one row per shipment (unique shipment_id)"
+  },
+  "columns": {
+    "shipment_id": {
+      "column_name": "shipment_id",
+      "description": "Unique identifier for the shipment record.",
+      "semantic_role": "identifier",
+      "semantic_type": "shipment_id",
+      "entity": "shipment",
+      "confidence": "high"
+    },
+    "order_id": {
+      "column_name": "order_id",
+      "description": "Identifier of the order associated with the shipment.",
+      "semantic_role": "identifier",
+      "semantic_type": "order_id",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "tracking_number": {
+      "column_name": "tracking_number",
+      "description": "Carrier‑provided tracking number for the shipment.",
+      "semantic_role": "identifier",
+      "semantic_type": "tracking_number",
+      "entity": "shipment",
+      "confidence": "high"
+    },
+    "carrier": {
+      "column_name": "carrier",
+      "description": "Name of the shipping carrier handling the shipment.",
+      "semantic_role": "categorical",
+      "semantic_type": "carrier_name",
+      "entity": "carrier",
+      "confidence": "high"
+    },
+    "shipped_date": {
+      "column_name": "shipped_date",
+      "description": "Date when the shipment was dispatched.",
+      "semantic_role": "temporal",
+      "semantic_type": "shipped_date",
+      "entity": "shipment",
+      "confidence": "high"
+    },
+    "delivered_date": {
+      "column_name": "delivered_date",
+      "description": "Date when the shipment was delivered to the customer (nullable).",
+      "semantic_role": "temporal",
+      "semantic_type": "delivered_date",
+      "entity": "shipment",
+      "confidence": "high"
+    },
+    "shipment_status": {
+      "column_name": "shipment_status",
+      "description": "Current status of the shipment (e.g., SHIPPED, DELIVERED).",
+      "semantic_role": "categorical",
+      "semantic_type": "shipment_status",
+      "entity": "shipment",
+      "confidence": "high"
+    }
+  }
+}

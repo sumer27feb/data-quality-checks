@@ -1,0 +1,44 @@
+{
+  "table_name": "shipments",
+  "expected_row_count": 835,
+  "primary_key": [
+    "shipment_id"
+  ],
+  "columns": [
+    {
+      "name": "shipment_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "order_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "tracking_number",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "carrier",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "shipped_date",
+      "datatype": "DATE",
+      "nullable": false
+    },
+    {
+      "name": "delivered_date",
+      "datatype": "DATE",
+      "nullable": true
+    },
+    {
+      "name": "shipment_status",
+      "datatype": "STRING",
+      "nullable": false
+    }
+  ]
+}

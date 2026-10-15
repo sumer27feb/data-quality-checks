@@ -1,0 +1,44 @@
+{
+  "table_name": "order_items",
+  "expected_row_count": 2563,
+  "primary_key": [
+    "order_item_id"
+  ],
+  "columns": [
+    {
+      "name": "order_item_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "order_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "product_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "quantity",
+      "datatype": "INTEGER",
+      "nullable": false
+    },
+    {
+      "name": "unit_price",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    },
+    {
+      "name": "item_discount",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    },
+    {
+      "name": "line_amount",
+      "datatype": "DECIMAL(12,2)",
+      "nullable": false
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "rules": [
+    {
+      "rule": "shipments.shipped_date IS NULL OR shipments.shipped_date <= CURRENT_DATE",
+      "description": "Shipped date must not be in the future.",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Future dispatch dates break logistics scheduling."
+      }
+    },
+    {
+      "rule": "shipments.delivered_date IS NULL OR (shipments.shipped_date IS NOT NULL AND shipments.delivered_date >= shipments.shipped_date)",
+      "description": "Delivered date cannot precede shipped date.",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "high",
+        "reason": "Delivery before shipment is logically impossible."
+      }
+    },
+    {
+      "rule": "shipments.delivered_date IS NULL OR shipments.delivered_date <= CURRENT_DATE",
+      "description": "Delivered date must not be in the future.",
+      "proposed_relation": "temporal_ordering",
+      "impact": {
+        "level": "medium",
+        "reason": "Future delivery dates indicate data timing errors."
+      }
+    },
+    {
+      "rule": "shipments.shipment_status <> 'DELIVERED' OR shipments.delivered_date IS NOT NULL",
+      "description": "If status is DELIVERED, a delivery date must be present.",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Missing delivery date for delivered shipments obscures order completion."
+      }
+    },
+    {
+      "rule": "shipments.delivered_date IS NULL OR shipments.shipment_status = 'DELIVERED'",
+      "description": "A delivery date implies the status must be DELIVERED.",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Inconsistent status misleads downstream tracking and reporting."
+      }
+    }
+  ]
+}

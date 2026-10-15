@@ -1,0 +1,177 @@
+{
+  "table_name": "payments",
+  "row_count": 880,
+  "column_count": 7,
+  "columns": {
+    "payment_id": {
+      "column_name": "payment_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 880,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 8,
+        "max_length": 8,
+        "avg_length": 8.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 880,
+        "top_values": []
+      }
+    },
+    "order_id": {
+      "column_name": "order_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 880,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 8,
+        "max_length": 8,
+        "avg_length": 8.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 880,
+        "top_values": []
+      }
+    },
+    "payment_date": {
+      "column_name": "payment_date",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 880,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "2025-02-01",
+        "max_date": "2026-09-30",
+        "distinct_count": 447,
+        "date_range_days": 606
+      }
+    },
+    "payment_amount": {
+      "column_name": "payment_amount",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 880,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "193.94",
+        "max": "19890.73",
+        "mean": "3332.040864",
+        "stddev": 2842.2887643456115,
+        "p25": "1365.70",
+        "p50": "2572.30",
+        "p75": "4249.59",
+        "zero_count": 0,
+        "negative_count": 0,
+        "distinct_count": 863
+      }
+    },
+    "payment_method": {
+      "column_name": "payment_method",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 880,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 3,
+        "max_length": 11,
+        "avg_length": 4.1840909090909095,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 4,
+        "top_values": [
+          {
+            "value": "UPI",
+            "count": 478
+          },
+          {
+            "value": "CARD",
+            "count": 267
+          },
+          {
+            "value": "NET_BANKING",
+            "count": 74
+          },
+          {
+            "value": "WALLET",
+            "count": 61
+          }
+        ]
+      }
+    },
+    "payment_status": {
+      "column_name": "payment_status",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 880,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 4,
+        "max_length": 8,
+        "avg_length": 4.127272727272727,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 2,
+        "top_values": [
+          {
+            "value": "PAID",
+            "count": 852
+          },
+          {
+            "value": "REFUNDED",
+            "count": 28
+          }
+        ]
+      }
+    },
+    "refund_date": {
+      "column_name": "refund_date",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 852,
+      "valid_count": 28,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "2025-04-02",
+        "max_date": "2026-09-22",
+        "distinct_count": 28,
+        "date_range_days": 538
+      }
+    }
+  }
+}

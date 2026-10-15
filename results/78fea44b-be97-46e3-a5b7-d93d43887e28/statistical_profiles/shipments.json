@@ -1,0 +1,178 @@
+{
+  "table_name": "shipments",
+  "row_count": 835,
+  "column_count": 7,
+  "columns": {
+    "shipment_id": {
+      "column_name": "shipment_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 835,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 8,
+        "max_length": 8,
+        "avg_length": 8.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 835,
+        "top_values": []
+      }
+    },
+    "order_id": {
+      "column_name": "order_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 835,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 8,
+        "max_length": 8,
+        "avg_length": 8.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 835,
+        "top_values": []
+      }
+    },
+    "tracking_number": {
+      "column_name": "tracking_number",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 835,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 15,
+        "max_length": 15,
+        "avg_length": 15.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 835,
+        "top_values": []
+      }
+    },
+    "carrier": {
+      "column_name": "carrier",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 835,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 4,
+        "max_length": 10,
+        "avg_length": 8.572455089820359,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 5,
+        "top_values": [
+          {
+            "value": "Delhivery",
+            "count": 263
+          },
+          {
+            "value": "Blue Dart",
+            "count": 197
+          },
+          {
+            "value": "Xpressbees",
+            "count": 130
+          },
+          {
+            "value": "India Post",
+            "count": 123
+          },
+          {
+            "value": "DTDC",
+            "count": 122
+          }
+        ]
+      }
+    },
+    "shipped_date": {
+      "column_name": "shipped_date",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 835,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "2025-02-03",
+        "max_date": "2026-09-30",
+        "distinct_count": 432,
+        "date_range_days": 604
+      }
+    },
+    "delivered_date": {
+      "column_name": "delivered_date",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 18,
+      "valid_count": 817,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "2025-02-06",
+        "max_date": "2026-09-30",
+        "distinct_count": 430,
+        "date_range_days": 601
+      }
+    },
+    "shipment_status": {
+      "column_name": "shipment_status",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 835,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 7,
+        "max_length": 9,
+        "avg_length": 8.95688622754491,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 2,
+        "top_values": [
+          {
+            "value": "DELIVERED",
+            "count": 817
+          },
+          {
+            "value": "SHIPPED",
+            "count": 18
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "table_name": "products",
+  "table_semantics": {
+    "description": "Catalog of products offered by the company",
+    "business_entity": "product",
+    "row_grain": "one row per distinct product (including its SKU)"
+  },
+  "columns": {
+    "product_id": {
+      "column_name": "product_id",
+      "description": "Unique identifier for the product",
+      "semantic_role": "identifier",
+      "semantic_type": "product_id",
+      "entity": "product",
+      "confidence": "high"
+    },
+    "category_id": {
+      "column_name": "category_id",
+      "description": "Identifier of the product's category",
+      "semantic_role": "identifier",
+      "semantic_type": "category_id",
+      "entity": "category",
+      "confidence": "high"
+    },
+    "sku": {
+      "column_name": "sku",
+      "description": "Stock Keeping Unit code for the product",
+      "semantic_role": "identifier",
+      "semantic_type": "sku",
+      "entity": "product",
+      "confidence": "high"
+    },
+    "product_name": {
+      "column_name": "product_name",
+      "description": "Full name of the product",
+      "semantic_role": "descriptive_text",
+      "semantic_type": "product_name",
+      "entity": "product",
+      "confidence": "high"
+    },
+    "brand": {
+      "column_name": "brand",
+      "description": "Brand name of the product",
+      "semantic_role": "categorical",
+      "semantic_type": "brand_name",
+      "entity": "brand",
+      "confidence": "high"
+    },
+    "list_price": {
+      "column_name": "list_price",
+      "description": "Standard list price of the product",
+      "semantic_role": "measure",
+      "semantic_type": "list_price",
+      "entity": "product",
+      "confidence": "high"
+    },
+    "stock_quantity": {
+      "column_name": "stock_quantity",
+      "description": "Current inventory count for the product",
+      "semantic_role": "measure",
+      "semantic_type": "stock_quantity",
+      "entity": "product",
+      "confidence": "high"
+    },
+    "launch_date": {
+      "column_name": "launch_date",
+      "description": "Date the product was launched",
+      "semantic_role": "temporal",
+      "semantic_type": "launch_date",
+      "entity": "product",
+      "confidence": "high"
+    },
+    "discontinued_date": {
+      "column_name": "discontinued_date",
+      "description": "Date the product was discontinued (if applicable)",
+      "semantic_role": "temporal",
+      "semantic_type": "discontinued_date",
+      "entity": "product",
+      "confidence": "high"
+    },
+    "is_active": {
+      "column_name": "is_active",
+      "description": "Flag indicating whether the product is currently active",
+      "semantic_role": "boolean_flag",
+      "semantic_type": "is_active",
+      "entity": "product",
+      "confidence": "high"
+    }
+  }
+}

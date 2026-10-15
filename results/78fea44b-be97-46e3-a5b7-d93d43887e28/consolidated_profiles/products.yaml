@@ -1,0 +1,66 @@
+table_name: products
+table_semantics:
+  description: Catalog of products offered by the company
+  business_entity: product
+  row_grain: one row per distinct product (including its SKU)
+columns:
+  product_id:
+    datatype: STRING
+    description: Unique identifier for the product
+    semantic_role: identifier
+    semantic_type: product_id
+    entity: product
+  category_id:
+    datatype: STRING
+    description: Identifier of the product's category
+    semantic_role: identifier
+    semantic_type: category_id
+    entity: category
+  sku:
+    datatype: STRING
+    description: Stock Keeping Unit code for the product
+    semantic_role: identifier
+    semantic_type: sku
+    entity: product
+  product_name:
+    datatype: STRING
+    description: Full name of the product
+    semantic_role: descriptive_text
+    semantic_type: product_name
+    entity: product
+  brand:
+    datatype: STRING
+    description: Brand name of the product
+    semantic_role: categorical
+    semantic_type: brand_name
+    entity: brand
+  list_price:
+    datatype: DECIMAL(12,2)
+    description: Standard list price of the product
+    semantic_role: measure
+    semantic_type: list_price
+    entity: product
+  stock_quantity:
+    datatype: INTEGER
+    description: Current inventory count for the product
+    semantic_role: measure
+    semantic_type: stock_quantity
+    entity: product
+  launch_date:
+    datatype: DATE
+    description: Date the product was launched
+    semantic_role: temporal
+    semantic_type: launch_date
+    entity: product
+  discontinued_date:
+    datatype: DATE
+    description: Date the product was discontinued (if applicable)
+    semantic_role: temporal
+    semantic_type: discontinued_date
+    entity: product
+  is_active:
+    datatype: BOOLEAN
+    description: Flag indicating whether the product is currently active
+    semantic_role: boolean_flag
+    semantic_type: is_active
+    entity: product

@@ -1,0 +1,106 @@
+{
+  "table_name": "orders",
+  "table_semantics": {
+    "description": "Transactional record of each customer order with dates, channels, status, monetary amounts and shipping location.",
+    "business_entity": "order",
+    "row_grain": "one row per order"
+  },
+  "columns": {
+    "order_id": {
+      "column_name": "order_id",
+      "description": "Unique identifier for the order.",
+      "semantic_role": "identifier",
+      "semantic_type": "order_id",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "customer_id": {
+      "column_name": "customer_id",
+      "description": "Identifier of the customer who placed the order.",
+      "semantic_role": "identifier",
+      "semantic_type": "customer_id",
+      "entity": "customer",
+      "confidence": "high"
+    },
+    "order_date": {
+      "column_name": "order_date",
+      "description": "Date when the order was created.",
+      "semantic_role": "temporal",
+      "semantic_type": "order_date",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "sales_channel": {
+      "column_name": "sales_channel",
+      "description": "Channel through which the order was placed (e.g., APP, WEB, MOBILE_WEB).",
+      "semantic_role": "categorical",
+      "semantic_type": "sales_channel",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "order_status": {
+      "column_name": "order_status",
+      "description": "Current status of the order (e.g., DELIVERED, CANCELLED).",
+      "semantic_role": "categorical",
+      "semantic_type": "order_status",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "items_subtotal": {
+      "column_name": "items_subtotal",
+      "description": "Total price of items before fees and discounts.",
+      "semantic_role": "measure",
+      "semantic_type": "items_subtotal",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "shipping_fee": {
+      "column_name": "shipping_fee",
+      "description": "Fee charged for shipping the order.",
+      "semantic_role": "measure",
+      "semantic_type": "shipping_fee",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "order_discount": {
+      "column_name": "order_discount",
+      "description": "Discount amount applied to the order.",
+      "semantic_role": "measure",
+      "semantic_type": "order_discount",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "total_amount": {
+      "column_name": "total_amount",
+      "description": "Final amount charged to the customer (subtotal + fees – discounts).",
+      "semantic_role": "measure",
+      "semantic_type": "total_amount",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "currency": {
+      "column_name": "currency",
+      "description": "Currency code of monetary values (e.g., INR).",
+      "semantic_role": "categorical",
+      "semantic_type": "currency_code",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "shipping_city": {
+      "column_name": "shipping_city",
+      "description": "City to which the order is shipped.",
+      "semantic_role": "categorical",
+      "semantic_type": "shipping_city",
+      "entity": "order",
+      "confidence": "high"
+    },
+    "shipping_state": {
+      "column_name": "shipping_state",
+      "description": "State to which the order is shipped.",
+      "semantic_role": "categorical",
+      "semantic_type": "shipping_state",
+      "entity": "order",
+      "confidence": "high"
+    }
+  }
+}

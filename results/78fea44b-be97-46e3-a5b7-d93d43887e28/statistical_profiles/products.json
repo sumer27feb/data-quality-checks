@@ -1,0 +1,294 @@
+{
+  "table_name": "products",
+  "row_count": 250,
+  "column_count": 10,
+  "columns": {
+    "product_id": {
+      "column_name": "product_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 7,
+        "max_length": 7,
+        "avg_length": 7.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 250,
+        "top_values": []
+      }
+    },
+    "category_id": {
+      "column_name": "category_id",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 6,
+        "max_length": 6,
+        "avg_length": 6.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 15,
+        "top_values": [
+          {
+            "value": "CAT001",
+            "count": 26
+          },
+          {
+            "value": "CAT005",
+            "count": 26
+          },
+          {
+            "value": "CAT002",
+            "count": 24
+          },
+          {
+            "value": "CAT006",
+            "count": 22
+          },
+          {
+            "value": "CAT007",
+            "count": 17
+          },
+          {
+            "value": "CAT008",
+            "count": 16
+          },
+          {
+            "value": "CAT009",
+            "count": 16
+          },
+          {
+            "value": "CAT003",
+            "count": 15
+          },
+          {
+            "value": "CAT004",
+            "count": 15
+          },
+          {
+            "value": "CAT010",
+            "count": 15
+          }
+        ]
+      }
+    },
+    "sku": {
+      "column_name": "sku",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 11,
+        "max_length": 11,
+        "avg_length": 11.0,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 250,
+        "top_values": []
+      }
+    },
+    "product_name": {
+      "column_name": "product_name",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 25,
+        "max_length": 66,
+        "avg_length": 43.14,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 250,
+        "top_values": []
+      }
+    },
+    "brand": {
+      "column_name": "brand",
+      "expected_type": "STRING",
+      "physical_type": "STRING",
+      "expected_type_raw": "STRING",
+      "physical_type_raw": "string",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_length": 6,
+        "max_length": 16,
+        "avg_length": 9.516,
+        "empty_count": 0,
+        "whitespace_only_count": 0,
+        "distinct_count": 44,
+        "top_values": [
+          {
+            "value": "CasaVerde",
+            "count": 13
+          },
+          {
+            "value": "Threadlane",
+            "count": 13
+          },
+          {
+            "value": "EverMove",
+            "count": 9
+          },
+          {
+            "value": "Northstep",
+            "count": 9
+          },
+          {
+            "value": "NovaCircuit",
+            "count": 9
+          },
+          {
+            "value": "Orbito",
+            "count": 9
+          },
+          {
+            "value": "PaperPilot",
+            "count": 9
+          },
+          {
+            "value": "Nexfield",
+            "count": 8
+          },
+          {
+            "value": "HarvestTrail",
+            "count": 7
+          },
+          {
+            "value": "Morning Basket",
+            "count": 7
+          }
+        ]
+      }
+    },
+    "list_price": {
+      "column_name": "list_price",
+      "expected_type": "DECIMAL(12,2)",
+      "physical_type": "DECIMAL(12,2)",
+      "expected_type_raw": "DECIMAL(12,2)",
+      "physical_type_raw": "decimal(12,2)",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": "120.99",
+        "max": "6740.99",
+        "mean": "1101.916160",
+        "stddev": 1024.4431465157188,
+        "p25": "470.00",
+        "p50": "730.00",
+        "p75": "1400.49",
+        "zero_count": 0,
+        "negative_count": 0,
+        "distinct_count": 212
+      }
+    },
+    "stock_quantity": {
+      "column_name": "stock_quantity",
+      "expected_type": "INTEGER",
+      "physical_type": "INTEGER",
+      "expected_type_raw": "INTEGER",
+      "physical_type_raw": "int",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min": 0,
+        "max": 190,
+        "mean": 62.596,
+        "stddev": 48.11900391895709,
+        "p25": 20,
+        "p50": 59,
+        "p75": 94,
+        "zero_count": 28,
+        "negative_count": 0,
+        "distinct_count": 118
+      }
+    },
+    "launch_date": {
+      "column_name": "launch_date",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "2023-01-01",
+        "max_date": "2025-03-30",
+        "distinct_count": 219,
+        "date_range_days": 819
+      }
+    },
+    "discontinued_date": {
+      "column_name": "discontinued_date",
+      "expected_type": "DATE",
+      "physical_type": "DATE",
+      "expected_type_raw": "DATE",
+      "physical_type_raw": "date",
+      "profiling_status": "DIRECT",
+      "null_count": 229,
+      "valid_count": 21,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "min_date": "2026-01-15",
+        "max_date": "2026-07-29",
+        "distinct_count": 20,
+        "date_range_days": 195
+      }
+    },
+    "is_active": {
+      "column_name": "is_active",
+      "expected_type": "BOOLEAN",
+      "physical_type": "BOOLEAN",
+      "expected_type_raw": "BOOLEAN",
+      "physical_type_raw": "boolean",
+      "profiling_status": "DIRECT",
+      "null_count": 0,
+      "valid_count": 250,
+      "invalid_count": 0,
+      "conversion_success_rate": null,
+      "statistics": {
+        "true_count": 229,
+        "false_count": 21
+      }
+    }
+  }
+}

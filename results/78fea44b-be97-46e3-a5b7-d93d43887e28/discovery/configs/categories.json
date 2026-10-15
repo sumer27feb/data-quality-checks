@@ -1,0 +1,29 @@
+{
+  "table_name": "categories",
+  "expected_row_count": 15,
+  "primary_key": [
+    "category_id"
+  ],
+  "columns": [
+    {
+      "name": "category_id",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "category_name",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "department",
+      "datatype": "STRING",
+      "nullable": false
+    },
+    {
+      "name": "is_active",
+      "datatype": "BOOLEAN",
+      "nullable": false
+    }
+  ]
+}

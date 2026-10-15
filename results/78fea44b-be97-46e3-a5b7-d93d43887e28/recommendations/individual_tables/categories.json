@@ -1,0 +1,40 @@
+{
+  "rules": [
+    {
+      "rule": "(categories.category_id IS NULL) OR (categories.category_id != '')",
+      "description": "Ensures category identifiers are not empty strings when present.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "medium",
+        "reason": "Empty identifiers break lookups and downstream joins."
+      }
+    },
+    {
+      "rule": "(categories.category_name IS NULL) OR (categories.category_name != '')",
+      "description": "Ensures category names contain at least one character when present.",
+      "proposed_relation": null,
+      "impact": {
+        "level": "medium",
+        "reason": "Blank names hinder reporting and UI display."
+      }
+    },
+    {
+      "rule": "(categories.is_active = false) OR (categories.department IS NOT NULL AND categories.department != '')",
+      "description": "Active categories must have a department assigned.",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Missing department for active categories impedes hierarchy and routing logic."
+      }
+    },
+    {
+      "rule": "(categories.is_active = false) OR (categories.category_name IS NOT NULL AND categories.category_name != '')",
+      "description": "Active categories must have a non‑empty name.",
+      "proposed_relation": "conditional_dependency",
+      "impact": {
+        "level": "high",
+        "reason": "Unnamed active categories cause confusion in catalogs and analytics."
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "catalog": "workspace",
+  "schema": "data_quality_rules",
+  "table_name": "payments",
+  "full_name": "workspace.data_quality_rules.payments",
+  "columns": [
+    {
+      "name": "payment_id",
+      "ordinal_position": 0
+    },
+    {
+      "name": "order_id",
+      "ordinal_position": 1
+    },
+    {
+      "name": "payment_date",
+      "ordinal_position": 2
+    },
+    {
+      "name": "payment_amount",
+      "ordinal_position": 3
+    },
+    {
+      "name": "payment_method",
+      "ordinal_position": 4
+    },
+    {
+      "name": "payment_status",
+      "ordinal_position": 5
+    },
+    {
+      "name": "refund_date",
+      "ordinal_position": 6
+    }
+  ]
+}

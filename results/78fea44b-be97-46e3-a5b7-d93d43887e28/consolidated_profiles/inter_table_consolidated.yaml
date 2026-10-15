@@ -1,0 +1,241 @@
+tables:
+  categories:
+    description: Lookup table defining product categories and their parent department.
+    row_grain: One row per distinct product category.
+    columns:
+      category_id:
+        datatype: STRING
+        description: Unique identifier for the category.
+      category_name:
+        datatype: STRING
+        description: Human‑readable name of the category.
+      department:
+        datatype: STRING
+        description: Name of the department to which the category belongs.
+      is_active:
+        datatype: BOOLEAN
+        description: Flag indicating whether the category is currently active.
+  customers:
+    description: Master record of individual customers with personal and contact details
+    row_grain: one row per customer
+    columns:
+      customer_id:
+        datatype: STRING
+        description: Unique identifier for each customer
+      first_name:
+        datatype: STRING
+        description: Customer's given name
+      last_name:
+        datatype: STRING
+        description: Customer's family name
+      email:
+        datatype: STRING
+        description: Customer's email address
+      phone:
+        datatype: STRING
+        description: Customer's phone number (optional)
+      city:
+        datatype: STRING
+        description: City of the customer's address
+      state:
+        datatype: STRING
+        description: State/region of the customer's address
+      postal_code:
+        datatype: STRING
+        description: Postal/ZIP code of the customer's address
+      country:
+        datatype: STRING
+        description: Country of the customer's address
+      date_of_birth:
+        datatype: DATE
+        description: Customer's date of birth
+      signup_date:
+        datatype: DATE
+        description: Date when the customer signed up
+      customer_status:
+        datatype: STRING
+        description: Current status of the customer (ACTIVE/INACTIVE)
+  order_items:
+    description: Line items belonging to orders, each row representing a product purchased within an order with quantity,
+      pricing, discounts, and total line amount.
+    row_grain: one row per product line within an order
+    columns:
+      order_item_id:
+        datatype: STRING
+        description: Unique identifier for the order line item.
+      order_id:
+        datatype: STRING
+        description: Identifier of the order to which this line item belongs.
+      product_id:
+        datatype: STRING
+        description: Identifier of the product being purchased.
+      quantity:
+        datatype: INTEGER
+        description: Number of units of the product ordered.
+      unit_price:
+        datatype: DECIMAL(12,2)
+        description: Price per single unit of the product at the time of the order.
+      item_discount:
+        datatype: DECIMAL(12,2)
+        description: Discount amount applied to this line item.
+      line_amount:
+        datatype: DECIMAL(12,2)
+        description: Total monetary amount for the line item after discount (quantity * unit_price - discount).
+  orders:
+    description: Transactional record of each customer order with dates, channels, status, monetary amounts and shipping location.
+    row_grain: one row per order
+    columns:
+      order_id:
+        datatype: STRING
+        description: Unique identifier for the order.
+      customer_id:
+        datatype: STRING
+        description: Identifier of the customer who placed the order.
+      order_date:
+        datatype: DATE
+        description: Date when the order was created.
+      sales_channel:
+        datatype: STRING
+        description: Channel through which the order was placed (e.g., APP, WEB, MOBILE_WEB).
+      order_status:
+        datatype: STRING
+        description: Current status of the order (e.g., DELIVERED, CANCELLED).
+      items_subtotal:
+        datatype: DECIMAL(12,2)
+        description: Total price of items before fees and discounts.
+      shipping_fee:
+        datatype: DECIMAL(12,2)
+        description: Fee charged for shipping the order.
+      order_discount:
+        datatype: DECIMAL(12,2)
+        description: Discount amount applied to the order.
+      total_amount:
+        datatype: DECIMAL(12,2)
+        description: Final amount charged to the customer (subtotal + fees – discounts).
+      currency:
+        datatype: STRING
+        description: Currency code of monetary values (e.g., INR).
+      shipping_city:
+        datatype: STRING
+        description: City to which the order is shipped.
+      shipping_state:
+        datatype: STRING
+        description: State to which the order is shipped.
+  payments:
+    description: Records each payment transaction associated with an order, capturing amount, method, status, and optional
+      refund information.
+    row_grain: one row per payment transaction
+    columns:
+      payment_id:
+        datatype: STRING
+        description: Unique identifier for the payment transaction.
+      order_id:
+        datatype: STRING
+        description: Identifier of the order linked to the payment.
+      payment_date:
+        datatype: DATE
+        description: Date when the payment was made.
+      payment_amount:
+        datatype: DECIMAL(12,2)
+        description: Monetary amount of the payment.
+      payment_method:
+        datatype: STRING
+        description: Method used for the payment (e.g., UPI, CARD, NET_BANKING, WALLET).
+      payment_status:
+        datatype: STRING
+        description: Current status of the payment (PAID or REFUNDED).
+      refund_date:
+        datatype: DATE
+        description: Date when the payment was refunded, if applicable.
+  products:
+    description: Catalog of products offered by the company
+    row_grain: one row per distinct product (including its SKU)
+    columns:
+      product_id:
+        datatype: STRING
+        description: Unique identifier for the product
+      category_id:
+        datatype: STRING
+        description: Identifier of the product's category
+      sku:
+        datatype: STRING
+        description: Stock Keeping Unit code for the product
+      product_name:
+        datatype: STRING
+        description: Full name of the product
+      brand:
+        datatype: STRING
+        description: Brand name of the product
+      list_price:
+        datatype: DECIMAL(12,2)
+        description: Standard list price of the product
+      stock_quantity:
+        datatype: INTEGER
+        description: Current inventory count for the product
+      launch_date:
+        datatype: DATE
+        description: Date the product was launched
+      discontinued_date:
+        datatype: DATE
+        description: Date the product was discontinued (if applicable)
+      is_active:
+        datatype: BOOLEAN
+        description: Flag indicating whether the product is currently active
+  shipments:
+    description: Records of individual shipments linked to orders, including carrier, tracking number, shipping and delivery
+      dates, and status.
+    row_grain: one row per shipment (unique shipment_id)
+    columns:
+      shipment_id:
+        datatype: STRING
+        description: Unique identifier for the shipment record.
+      order_id:
+        datatype: STRING
+        description: Identifier of the order associated with the shipment.
+      tracking_number:
+        datatype: STRING
+        description: Carrier‑provided tracking number for the shipment.
+      carrier:
+        datatype: STRING
+        description: Name of the shipping carrier handling the shipment.
+      shipped_date:
+        datatype: DATE
+        description: Date when the shipment was dispatched.
+      delivered_date:
+        datatype: DATE
+        description: Date when the shipment was delivered to the customer (nullable).
+      shipment_status:
+        datatype: STRING
+        description: Current status of the shipment (e.g., SHIPPED, DELIVERED).
+relationships:
+  foreign_keys:
+  - from_table: products
+    from_column: category_id
+    to_table: categories
+    to_column: category_id
+    cardinality: many-to-one
+  - from_table: orders
+    from_column: customer_id
+    to_table: customers
+    to_column: customer_id
+    cardinality: many-to-one
+  - from_table: order_items
+    from_column: order_id
+    to_table: orders
+    to_column: order_id
+    cardinality: many-to-one
+  - from_table: order_items
+    from_column: product_id
+    to_table: products
+    to_column: product_id
+    cardinality: many-to-one
+  - from_table: payments
+    from_column: order_id
+    to_table: orders
+    to_column: order_id
+    cardinality: zero-or-one-to-one
+  - from_table: shipments
+    from_column: order_id
+    to_table: orders
+    to_column: order_id
+    cardinality: zero-or-one-to-one
