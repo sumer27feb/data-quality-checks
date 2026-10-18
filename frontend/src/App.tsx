@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router";
 
 import AppLayout from "./components/layout/AppLayout";
 import OverviewPage from "./pages/OverviewPage";
+import PipelinePage from "./pages/PipelinePage";
+import ProfilesPage from "./pages/ProfilesPage";
 
 function PageHeading({ title }: { title: string }) {
   return (
@@ -16,11 +18,8 @@ export default function App() {
     <Routes>
       <Route element={<AppLayout />}>
         <Route index element={<OverviewPage />} />
-
-        <Route path="pipeline" element={<PageHeading title="Pipeline" />} />
-
-        <Route path="profiles" element={<PageHeading title="Profiles" />} />
-
+        <Route path="pipeline" element={<PipelinePage />} />
+        <Route path="profiles" element={<ProfilesPage />} />
         <Route
           path="recommendations"
           element={<PageHeading title="Recommendations" />}

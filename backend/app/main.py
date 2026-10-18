@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import router as runs_router
+from app.api.profile_routes import router as profiles_router
 
 app = FastAPI(
     title="Automated Data Quality Rule Recommendation",
@@ -12,8 +13,8 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",  # Next.js
-        "http://localhost:5173",  # React / Vite
+        "http://localhost:3000",
+        "http://localhost:5173",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -21,6 +22,8 @@ app.add_middleware(
 )
 
 app.include_router(runs_router)
+app.include_router(profiles_router)
+
 
 @app.get("/api/v1/health", tags=["Health"])
 def health_check():
