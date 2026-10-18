@@ -4,14 +4,7 @@ import AppLayout from "./components/layout/AppLayout";
 import OverviewPage from "./pages/OverviewPage";
 import PipelinePage from "./pages/PipelinePage";
 import ProfilesPage from "./pages/ProfilesPage";
-
-function PageHeading({ title }: { title: string }) {
-  return (
-    <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
-      {title}
-    </h1>
-  );
-}
+import RecommendationsPage from "./pages/RecommendationsPage";
 
 export default function App() {
   return (
@@ -20,10 +13,7 @@ export default function App() {
         <Route index element={<OverviewPage />} />
         <Route path="pipeline" element={<PipelinePage />} />
         <Route path="profiles" element={<ProfilesPage />} />
-        <Route
-          path="recommendations"
-          element={<PageHeading title="Recommendations" />}
-        />
+        <Route path="recommendations" element={<RecommendationsPage />} />
       </Route>
     </Routes>
   );
