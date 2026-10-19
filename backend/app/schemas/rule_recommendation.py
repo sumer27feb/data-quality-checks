@@ -1,10 +1,10 @@
-"""Common LLM recommendation schema for individual- and inter-table rule inference.
+"""Shared structured LLM output contract for data quality recommendations.
 
-This module is the single source of truth for the *model output* contract:
-Pydantic classes validate responses, and RESPONSE_JSON_SCHEMA is submitted to
-Databricks' OpenAI-compatible Responses API as a strict structured-output format.
+The LLM supplies BOTH a logical constraint and, when possible, a complete
+Spark SQL query returning exactly one row with a ``violation_count`` column.
 
-It does not attempt to parse or execute the SQL-compatible predicates in `rule`.
+This schema only validates JSON shape and basic field types; it does NOT
+parse, verify, or execute generated SQL. SQL analysis is a separate stage.
 """
 
 from __future__ import annotations
@@ -19,32 +19,40 @@ class _StrictModel(BaseModel):
 
 
 class Impact(_StrictModel):
-    """Estimated consequence of a violation, not an observed failure rate."""
+    """Estimated consequence of violating the rule, not a measured failure."""
 
     level: Literal["low", "medium", "high"]
     reason: str = Field(min_length=1)
 
 
 class RecommendedRule(_StrictModel):
-    """A proposed check; `rule` is a SQL-compatible boolean predicate."""
+    """One recommended invariant and its proposed Spark SQL implementation.
+
+    ``rule`` stays a BOOLEAN predicate for backward compatibility with the
+    existing lightweight reference validators and selection fingerprint.
+
+    ``validation_sql`` is NOT considered verified simply because it is present.
+    If the LLM cannot give a defensible query, it must be null and the reason
+    should be supplied in ``sql_generation_note``.
+    """
 
     rule: str = Field(min_length=1)
+    validation_sql: str | None = Field(min_length=1)
+    sql_generation_note: str | None = Field(min_length=1)
     description: str = Field(min_length=1)
-    proposed_relation: str | None  # null when there is no column relationship
+    proposed_relation: str | None
     impact: Impact
 
 
 class RuleRecommendations(_StrictModel):
-    """An empty list is valid when no defensible recommendations were found."""
+    """An empty set of defensible rules is a legitimate model response."""
 
     rules: list[RecommendedRule]
 
 
-# Kept explicit and flat to avoid $defs/$ref compatibility issues with model
-# serving implementations that accept a restricted JSON Schema subset.
-# Required fields and additionalProperties mirror the Pydantic models above.
-# Nonblank-string checks are enforced by Pydantic after inference rather than
-# adding format constraints that some serving endpoints may not accept.
+# Explicit schema avoids $defs/$ref for hosted structured-output providers.
+# All properties are required, including nullable ones, for strict mode.
+# Pydantic enforces non-blank strings after inference, not JSON Schema.
 RESPONSE_JSON_SCHEMA: dict[str, Any] = {
     "type": "object",
     "properties": {
@@ -54,6 +62,8 @@ RESPONSE_JSON_SCHEMA: dict[str, Any] = {
                 "type": "object",
                 "properties": {
                     "rule": {"type": "string"},
+                    "validation_sql": {"type": ["string", "null"]},
+                    "sql_generation_note": {"type": ["string", "null"]},
                     "description": {"type": "string"},
                     "proposed_relation": {"type": ["string", "null"]},
                     "impact": {
@@ -69,7 +79,14 @@ RESPONSE_JSON_SCHEMA: dict[str, Any] = {
                         "additionalProperties": False,
                     },
                 },
-                "required": ["rule", "description", "proposed_relation", "impact"],
+                "required": [
+                    "rule",
+                    "validation_sql",
+                    "sql_generation_note",
+                    "description",
+                    "proposed_relation",
+                    "impact",
+                ],
                 "additionalProperties": False,
             },
         },
