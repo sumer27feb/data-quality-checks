@@ -49,7 +49,7 @@ export default function RuleCard({
           <Check
             size={14}
             strokeWidth={3}
-            className="pointer-events-none absolute left-[3px] top-[3px] text-white opacity-0 peer-checked:opacity-100"
+            className="pointer-events-none absolute left-0.75 top-0.75 text-white opacity-0 peer-checked:opacity-100"
           />
         </label>
         <div className="min-w-0 flex-1">
@@ -61,6 +61,11 @@ export default function RuleCard({
             </span>
             <span className="rounded-full bg-slate-100 px-2.5 py-1 font-mono text-[11px] font-semibold text-slate-600">
               {rule.scope === "individual" ? rule.table_name : "Cross-table"}
+            </span>
+            <span
+              className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${rule.validation_sql ? "bg-blue-50 text-blue-700" : "bg-slate-100 text-slate-500"}`}
+            >
+              {rule.validation_sql ? "Spark SQL generated" : "SQL unavailable"}
             </span>
             {checked && (
               <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">

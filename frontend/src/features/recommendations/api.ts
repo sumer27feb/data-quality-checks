@@ -5,6 +5,8 @@ export type RuleScope = "individual" | "inter_table";
 
 export interface RecommendedRule {
   rule: string;
+  validation_sql: string | null;
+  sql_generation_note: string | null;
   description: string;
   proposed_relation: string | null;
   impact: {
@@ -62,6 +64,8 @@ export function normalizeRecommendations(
     recommendations.forEach((recommendation, index) => {
       rules.push({
         ...recommendation,
+        validation_sql: recommendation.validation_sql ?? null,
+        sql_generation_note: recommendation.sql_generation_note ?? null,
         id: `individual:${table}:${index + 1}:${fingerprint(recommendation.rule)}`,
         scope: "individual",
         table_name: table,
@@ -73,6 +77,8 @@ export function normalizeRecommendations(
   (payload.inter_table_rules ?? []).forEach((recommendation, index) => {
     rules.push({
       ...recommendation,
+      validation_sql: recommendation.validation_sql ?? null,
+      sql_generation_note: recommendation.sql_generation_note ?? null,
       id: `inter_table:${index + 1}:${fingerprint(recommendation.rule)}`,
       scope: "inter_table",
       table_name: null,

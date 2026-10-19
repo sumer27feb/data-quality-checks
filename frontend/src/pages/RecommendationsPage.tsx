@@ -28,6 +28,7 @@ import {
   type RuleScope,
 } from "@/features/recommendations/api";
 import { exportSelection } from "@/features/recommendations/export";
+import { useSqlDrafts } from "@/features/recommendations/useSqlDrafts";
 import RuleCard, { humanize } from "@/features/recommendations/RuleCard";
 import RuleInspector from "@/features/recommendations/RuleInspector";
 
@@ -143,6 +144,10 @@ export default function RecommendationsPage() {
     () => (data ? normalizeRecommendations(data) : []),
     [data],
   );
+  const sqlDrafts = useSqlDrafts(runId);
+  const generatedSqlCount = rules.filter((r) =>
+    Boolean(r.validation_sql?.trim()),
+  ).length;
   const knownIds = useMemo(() => new Set(rules.map((r) => r.id)), [rules]);
   const savedIds =
     sessionSelections.runId === runId
@@ -208,6 +213,8 @@ export default function RecommendationsPage() {
         return [
           rule.description,
           rule.rule,
+          rule.validation_sql ?? "",
+          rule.sql_generation_note ?? "",
           rule.impact.reason,
           rule.table_name ?? "",
           rule.proposed_relation ?? "",
@@ -234,6 +241,13 @@ export default function RecommendationsPage() {
     () => rules.filter((r) => selectedIds.has(r.id)),
     [rules, selectedIds],
   );
+  const selectedExportRules = selectedRules.map((r) => ({
+    ...r,
+    reviewed_sql: sqlDrafts.currentSql(r).trim() || null,
+  }));
+  const selectedWithSql = selectedExportRules.filter(
+    (r) => r.reviewed_sql,
+  ).length;
   const inspectedRule = rules.find((rule) => rule.id === inspectedId) ?? null;
   const allVisibleSelected =
     visibleRules.length > 0 && visibleRules.every((r) => selectedIds.has(r.id));
@@ -672,6 +686,10 @@ export default function RecommendationsPage() {
                     </select>
                   </div>
 
+                  <div className="text-xs font-medium text-slate-500">
+                    {generatedSqlCount} of {rules.length} recommendations have
+                    generated Spark SQL · not validated
+                  </div>
                   <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
                     <label className="flex cursor-pointer items-center gap-2 text-xs font-semibold text-slate-600">
                       <input
@@ -754,6 +772,15 @@ export default function RecommendationsPage() {
                 </section>
                 <RuleInspector
                   rule={inspectedRule}
+                  currentSql={
+                    inspectedRule ? sqlDrafts.currentSql(inspectedRule) : ""
+                  }
+                  onSqlChange={(sql) => {
+                    if (inspectedRule) sqlDrafts.setDraft(inspectedRule, sql);
+                  }}
+                  onRestoreSql={() => {
+                    if (inspectedRule) sqlDrafts.restore(inspectedRule);
+                  }}
                   selected={
                     inspectedRule ? selectedIds.has(inspectedRule.id) : false
                   }
@@ -812,7 +839,7 @@ export default function RecommendationsPage() {
                       type="button"
                       disabled={selectedRules.length === 0}
                       onClick={() =>
-                        exportSelection(runId, selectedRules, "csv")
+                        exportSelection(runId, selectedExportRules, "csv")
                       }
                       className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2.5 text-xs font-bold text-white hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
                     >
@@ -820,9 +847,20 @@ export default function RecommendationsPage() {
                     </button>
                     <button
                       type="button"
+                      disabled={selectedWithSql === 0}
+                      onClick={() =>
+                        exportSelection(runId, selectedExportRules, "sql")
+                      }
+                      className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2.5 text-xs font-bold text-white hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+                      title="Export selected Spark SQL drafts; SQL is unverified"
+                    >
+                      <Download size={16} /> Export SQL ({selectedWithSql})
+                    </button>
+                    <button
+                      type="button"
                       disabled={selectedRules.length === 0}
                       onClick={() =>
-                        exportSelection(runId, selectedRules, "json")
+                        exportSelection(runId, selectedExportRules, "json")
                       }
                       className="inline-flex items-center gap-2 rounded-xl bg-blue-500 px-4 py-2.5 text-xs font-bold text-white hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-40"
                     >
@@ -834,11 +872,11 @@ export default function RecommendationsPage() {
 
               <p className="flex items-start gap-2 text-xs leading-5 text-slate-500">
                 <Info size={16} className="mt-0.5 shrink-0" />
-                JSON preserves exact generated predicates and nested metadata
-                for future processing. CSV is intended for spreadsheet review
-                and applies formula-injection escaping. Selection stays in this
-                browser for each run; there is no server-side approval or rule
-                execution.
+                JSON exports original predicates, generated SQL, generation
+                notes and locally edited SQL; CSV includes these fields with
+                spreadsheet-formula escaping. SQL export includes only selected
+                rules with SQL. All SQL is unverified. Edits and selections stay
+                in this browser and are never executed or submitted.
               </p>
             </>
           )}
