@@ -26,11 +26,13 @@ import {
   recommendationsApi,
   type ImpactLevel,
   type RuleScope,
+  type TraditionalChecksResponse,
 } from "@/features/recommendations/api";
 import { exportSelection } from "@/features/recommendations/export";
 import { useSqlDrafts } from "@/features/recommendations/useSqlDrafts";
 import RuleCard, { humanize } from "@/features/recommendations/RuleCard";
 import RuleInspector from "@/features/recommendations/RuleInspector";
+import TraditionalChecksPanel from "@/features/traditional/TraditionalChecksPanel";
 
 const LAST_RUN_KEY = "dq-studio:latest-run-id";
 const SELECTION_PREFIX = "dq-studio:kept-rules:";
@@ -105,6 +107,7 @@ export default function RecommendationsPage() {
   const [relationFilter, setRelationFilter] = useState("all");
   const [showOnlySelected, setShowOnlySelected] = useState(false);
   const [inspectedId, setInspectedId] = useState<string | null>(null);
+  const [traditionalOpen, setTraditionalOpen] = useState(false);
   const [sessionSelections, setSessionSelections] = useState<{
     runId: string | null;
     ids: string[];
@@ -164,6 +167,7 @@ export default function RecommendationsPage() {
       all: rules.length,
       individual: rules.filter((rule) => rule.scope === "individual").length,
       inter_table: rules.filter((rule) => rule.scope === "inter_table").length,
+      traditional: rules.filter((rule) => rule.scope === "traditional").length,
     }),
     [rules],
   );
@@ -266,6 +270,13 @@ export default function RecommendationsPage() {
     localStorage.setItem(SELECTION_PREFIX + runId, JSON.stringify(ids));
     setSessionSelections({ runId, ids });
   }
+  function onTraditionalSaved(result: TraditionalChecksResponse) {
+    const next = new Set([...selectedIds].filter((id) => !id.startsWith("traditional:")));
+    for (const item of result.rules) next.add(item.id);
+    updateSelection(next);
+    setTraditionalOpen(false);
+    void recommendationsQuery.refetch();
+  }
   function toggleRule(id: string) {
     const next = new Set(selectedIds);
     if (next.has(id)) next.delete(id);
@@ -290,6 +301,7 @@ export default function RecommendationsPage() {
     localStorage.setItem(LAST_RUN_KEY, id);
     setLocallySelectedRun(id);
     setInspectedId(null);
+    setTraditionalOpen(false);
     setShowOnlySelected(false);
     setSearch("");
     setScope("all");
@@ -308,6 +320,14 @@ export default function RecommendationsPage() {
 
   return (
     <div className="space-y-6 pb-28">
+      {traditionalOpen && runId && (
+        <TraditionalChecksPanel
+          key={runId}
+          runId={runId}
+          onClose={() => setTraditionalOpen(false)}
+          onSaved={onTraditionalSaved}
+        />
+      )}
       <header className="flex flex-col justify-between gap-5 xl:flex-row xl:items-end">
         <div>
           <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-blue-700">
@@ -575,6 +595,7 @@ export default function RecommendationsPage() {
                         Filter and inspect before selecting the rules to keep.
                       </p>
                     </div>
+                    <button type="button" onClick={() => setTraditionalOpen(true)} className="rounded-lg bg-blue-700 px-4 py-2.5 text-xs font-semibold text-white hover:bg-blue-800">Configure traditional checks</button>
                     {hasFilters && (
                       <button
                         type="button"
@@ -608,6 +629,7 @@ export default function RecommendationsPage() {
                           label: "Inter-table",
                           value: scopeCounts.inter_table,
                         },
+                        { id: "traditional", label: "Traditional", value: scopeCounts.traditional },
                       ] as { id: ScopeFilter; label: string; value: number }[]
                     ).map((tab) => (
                       <button

@@ -37,6 +37,10 @@ export function exportSelection(
     id: r.id,
     scope: r.scope,
     table_name: r.table_name,
+    column_name: r.column_name ?? null,
+    check_type: r.check_type ?? null,
+    origin: r.scope === "traditional" ? "deterministic" : "llm",
+    sql_result_mode: r.scope === "traditional" ? "violation_rows" : "violation_count",
     rule: r.rule,
     validation_sql: r.validation_sql,
     sql_generation_note: r.sql_generation_note,
@@ -84,6 +88,10 @@ export function exportSelection(
       "reviewed_sql",
       "sql_modified",
       "impact_reason",
+      "origin",
+      "column_name",
+      "check_type",
+      "sql_result_mode",
     ];
     const lines = [fields.map(csvCell).join(",")];
     for (const r of items) {
@@ -101,6 +109,10 @@ export function exportSelection(
           r.reviewed_sql,
           String(r.sql_modified),
           r.impact.reason,
+          r.origin,
+          r.column_name,
+          r.check_type,
+          r.sql_result_mode,
         ]
           .map(csvCell)
           .join(","),
@@ -131,7 +143,7 @@ export function exportSelection(
     parts.push(
       "",
       `-- Rule: ${r.id}`,
-      `-- Source: ${r.sql_modified ? "locally edited" : "LLM generated"}`,
+      `-- Source: ${r.sql_modified ? "locally edited" : r.scope === "traditional" ? "deterministic template" : "LLM generated"}`,
       `${r.reviewed_sql!.trim().replace(/;+\s*$/, "")};`,
     );
   }

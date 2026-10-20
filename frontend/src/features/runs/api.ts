@@ -74,6 +74,7 @@ export async function request<T>(
   path: string,
   method: "GET" | "POST" = "GET",
   signal?: AbortSignal,
+  body?: unknown,
 ): Promise<T> {
   if (!API_BASE_URL) {
     throw new Error("VITE_API_BASE_URL is not configured.");
@@ -87,7 +88,9 @@ export async function request<T>(
       signal,
       headers: {
         Accept: "application/json",
+        ...(body !== undefined ? { "Content-Type": "application/json" } : {}),
       },
+      body: body === undefined ? undefined : JSON.stringify(body),
     });
   } catch {
     throw new Error(

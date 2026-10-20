@@ -60,12 +60,12 @@ export default function RuleCard({
               {rule.impact.level} impact
             </span>
             <span className="rounded-full bg-slate-100 px-2.5 py-1 font-mono text-[11px] font-semibold text-slate-600">
-              {rule.scope === "individual" ? rule.table_name : "Cross-table"}
+              {rule.scope === "individual" || rule.scope === "traditional" ? rule.table_name : "Cross-table"}
             </span>
             <span
               className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${rule.validation_sql ? "bg-blue-50 text-blue-700" : "bg-slate-100 text-slate-500"}`}
             >
-              {rule.validation_sql ? "Spark SQL generated" : "SQL unavailable"}
+              {rule.scope === "traditional" ? "SELECT * · violation rows" : rule.validation_sql ? "Spark SQL generated" : "SQL unavailable"}
             </span>
             {checked && (
               <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
@@ -91,7 +91,7 @@ export default function RuleCard({
       </div>
       <div className="mt-4 flex items-center justify-between border-t border-slate-100 px-5 py-3">
         <span className="text-xs text-slate-400">
-          {rule.scope === "individual" ? "Table rule" : "Inter-table rule"} · #
+          {rule.scope === "traditional" ? "Traditional check" : rule.scope === "individual" ? "Table rule" : "Inter-table rule"} · #
           {rule.position}
         </span>
         <button
