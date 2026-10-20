@@ -24,6 +24,7 @@ import { runsApi } from "@/features/runs/api";
 import {
   normalizeRecommendations,
   recommendationsApi,
+  traditionalChecksApi,
   type ImpactLevel,
   type RuleScope,
   type TraditionalChecksResponse,
@@ -33,6 +34,7 @@ import { exportSelection } from "@/features/recommendations/export";
 import { useSqlDrafts } from "@/features/recommendations/useSqlDrafts";
 import RuleCard, { humanize } from "@/features/recommendations/RuleCard";
 import RuleInspector from "@/features/recommendations/RuleInspector";
+import SqlReviewEditor from "@/features/recommendations/SqlReviewEditor";
 import TraditionalChecksPanel from "@/features/traditional/TraditionalChecksPanel";
 
 const LAST_RUN_KEY = "dq-studio:latest-run-id";
@@ -109,6 +111,7 @@ export default function RecommendationsPage() {
   const [relationFilter, setRelationFilter] = useState("all");
   const [showOnlySelected, setShowOnlySelected] = useState(false);
   const [inspectedId, setInspectedId] = useState<string | null>(null);
+  const [editingRuleId, setEditingRuleId] = useState<string | null>(null);
   const [traditionalOpen, setTraditionalOpen] = useState(false);
   const [sessionSelections, setSessionSelections] = useState<{
     runId: string | null;
@@ -144,11 +147,47 @@ export default function RecommendationsPage() {
     refetchInterval: isRunning ? 4000 : false,
   });
 
-  const data = recommendationsQuery.data;
-  const rules = useMemo(
-    () => (data ? normalizeRecommendations(data) : []),
-    [data],
-  );
+  // Traditional checks are run-scoped and independent of the LLM branch.
+  // Reading the dedicated API prevents traditional-only review from depending
+  // on the recommendations aggregator or its cache.
+  const traditionalQuery = useQuery({
+    queryKey: ["traditional-checks", runId],
+    queryFn: ({ signal }) => traditionalChecksApi.get(runId!, signal),
+    enabled: Boolean(runId),
+    retry: 1,
+  });
+  const traditionalData = traditionalQuery.data;
+  const data: RecommendationsResponse | undefined =
+    recommendationsQuery.data ??
+    (traditionalData?.rules.length
+      ? {
+          run_id: runId!,
+          status: runQuery.data?.status ?? "archived",
+          available: { individual: false, inter_table: false, traditional: true },
+          individual_rules: {},
+          inter_table_rules: [],
+          traditional_rules: {},
+        }
+      : undefined);
+  const rules = useMemo(() => {
+    const combined = data ? normalizeRecommendations(data) : [];
+    if (!traditionalData) return combined;
+    const aiRules = combined.filter((item) => item.scope !== "traditional");
+    const traditionalRules = traditionalData.rules.map((item, index) => ({
+      ...item,
+      id: item.id,
+      scope: "traditional" as const,
+      table_name: item.table_name,
+      column_name: item.column_name,
+      check_type: item.check_type,
+      sql_result_mode: "violation_rows" as const,
+      validation_sql: item.validation_sql ?? null,
+      sql_generation_note: item.sql_generation_note ?? null,
+      position: index + 1,
+    }));
+    // Never collapse distinct per-column checks into a table-level rule.
+    return [...aiRules, ...traditionalRules];
+  }, [data, traditionalData]);
   const sqlDrafts = useSqlDrafts(runId);
   const generatedSqlCount = rules.filter((r) =>
     Boolean(r.validation_sql?.trim()),
@@ -255,6 +294,7 @@ export default function RecommendationsPage() {
     (r) => r.reviewed_sql,
   ).length;
   const inspectedRule = rules.find((rule) => rule.id === inspectedId) ?? null;
+  const editingRule = rules.find((rule) => rule.id === editingRuleId) ?? null;
   const allVisibleSelected =
     visibleRules.length > 0 && visibleRules.every((r) => selectedIds.has(r.id));
   const hasFilters = Boolean(
@@ -273,36 +313,36 @@ export default function RecommendationsPage() {
     setSessionSelections({ runId, ids });
   }
   function onTraditionalSaved(result: TraditionalChecksResponse) {
-    // The POST response already contains the complete generated rules. Update
-    // React Query immediately so IDs are known BEFORE selection is refreshed.
+    // The POST response is authoritative: update both caches immediately.
+    // In particular, do not wait for the LLM recommendations query to finish.
+    queryClient.setQueryData(["traditional-checks", runId], result);
     const grouped: NonNullable<RecommendationsResponse["traditional_rules"]> = {};
     for (const rule of result.rules) {
       (grouped[rule.table_name] ??= []).push(rule);
     }
     queryClient.setQueryData<RecommendationsResponse>(
       ["recommendations", runId],
-      (previous) => previous && ({
+      (previous) => previous ? ({
         ...previous,
         available: { ...previous.available, traditional: true },
         traditional_rules: grouped,
-      }),
+      }) : previous,
     );
 
-    // Existing checks keep their selected/unselected review state. New checks
-    // are selected automatically; removed checks are dropped from selection.
-    const previousTrad = new Set(
-      rules.filter((rule) => rule.scope === "traditional").map((rule) => rule.id),
-    );
-    const nextIds = new Set(result.rules.map((rule) => rule.id));
-    const next = new Set(selectedIds);
-    for (const id of previousTrad) {
-      if (!nextIds.has(id)) next.delete(id);
-    }
-    for (const id of nextIds) {
-      if (!previousTrad.has(id)) next.add(id);
-    }
+    // A saved traditional configuration explicitly requests EACH check.
+    // Preserve selected AI rules, replace former traditional IDs, and select
+    // every newly generated rule ID (not just the first ID per table).
+    const next = new Set([...selectedIds].filter((id) => !id.startsWith("traditional:")));
+    for (const item of result.rules) next.add(item.id);
     updateSelection(next);
     setTraditionalOpen(false);
+    setScope("traditional");
+    setShowOnlySelected(false);
+    setTableFilter("all");
+    setImpactFilter("all");
+    setRelationFilter("all");
+    setSearch("");
+    void traditionalQuery.refetch();
     void recommendationsQuery.refetch();
   }
   function toggleRule(id: string) {
@@ -329,6 +369,7 @@ export default function RecommendationsPage() {
     localStorage.setItem(LAST_RUN_KEY, id);
     setLocallySelectedRun(id);
     setInspectedId(null);
+    setEditingRuleId(null);
     setTraditionalOpen(false);
     setShowOnlySelected(false);
     setSearch("");
@@ -347,13 +388,25 @@ export default function RecommendationsPage() {
   }
 
   return (
-    <div className="space-y-6 pb-28">
+    <div className="space-y-6 pb-12">
       {traditionalOpen && runId && (
         <TraditionalChecksPanel
           key={runId}
           runId={runId}
           onClose={() => setTraditionalOpen(false)}
           onSaved={onTraditionalSaved}
+        />
+      )}
+      {editingRule && (
+        <SqlReviewEditor
+          key={`${runId}:${editingRule.id}`}
+          ruleId={editingRule.id}
+          description={editingRule.description}
+          sourceSql={editingRule.validation_sql}
+          reviewedSql={sqlDrafts.currentSql(editingRule)}
+          resultMode={editingRule.scope === "traditional" ? "violation_rows" : "violation_count"}
+          onSave={(sql) => sqlDrafts.setDraft(editingRule, sql)}
+          onClose={() => setEditingRuleId(null)}
         />
       )}
       <header className="flex flex-col justify-between gap-5 xl:flex-row xl:items-end">
@@ -816,6 +869,8 @@ export default function RecommendationsPage() {
                         focused={inspectedId === rule.id}
                         onToggle={toggleRule}
                         onInspect={setInspectedId}
+                        onEditSql={setEditingRuleId}
+                        currentSql={sqlDrafts.currentSql(rule)}
                       />
                     ))
                   )}
@@ -856,7 +911,7 @@ export default function RecommendationsPage() {
                 </div>
               )}
 
-              <section className="sticky bottom-4 z-30 rounded-2xl border border-[#274d87] bg-[#111e35] p-4 text-white shadow-xl shadow-slate-500/20 sm:px-5">
+              <section className="rounded-2xl border border-[#274d87] bg-[#111e35] p-4 text-white shadow-xl shadow-slate-500/20 sm:px-5">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex min-w-0 items-center gap-3">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 text-blue-200">

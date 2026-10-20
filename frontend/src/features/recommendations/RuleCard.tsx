@@ -18,6 +18,8 @@ interface RuleCardProps {
   focused: boolean;
   onToggle: (id: string) => void;
   onInspect: (id: string) => void;
+  onEditSql: (id: string) => void;
+  currentSql: string;
 }
 
 export default function RuleCard({
@@ -26,6 +28,8 @@ export default function RuleCard({
   focused,
   onToggle,
   onInspect,
+  onEditSql,
+  currentSql,
 }: RuleCardProps) {
   return (
     <article
@@ -89,11 +93,27 @@ export default function RuleCard({
           {rule.rule}
         </p>
       </div>
+      <details className="mx-5 mt-3 overflow-hidden rounded-xl border border-blue-100 bg-slate-50">
+        <summary className="cursor-pointer px-4 py-2.5 text-xs font-semibold text-blue-700 hover:bg-blue-50">
+          View reviewed SQL {currentSql !== (rule.validation_sql ?? "") ? "· locally edited" : rule.scope === "traditional" ? "· SELECT * violation rows" : "· violation count"}
+        </summary>
+        <pre className="max-h-64 overflow-auto whitespace-pre-wrap break-words border-t border-blue-100 px-4 py-3 font-mono text-xs leading-5 text-slate-700">
+          {currentSql || "No SQL available for this rule."}
+        </pre>
+      </details>
       <div className="mt-4 flex items-center justify-between border-t border-slate-100 px-5 py-3">
         <span className="text-xs text-slate-400">
           {rule.scope === "traditional" ? "Traditional check" : rule.scope === "individual" ? "Table rule" : "Inter-table rule"} · #
           {rule.position}
         </span>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => onEditSql(rule.id)}
+            className="rounded-lg bg-blue-700 px-3 py-2 text-xs font-semibold text-white hover:bg-blue-600"
+          >
+            View / edit SQL
+          </button>
         <button
           type="button"
           onClick={() => onInspect(rule.id)}
@@ -101,6 +121,7 @@ export default function RuleCard({
         >
           Inspect rule <ArrowUpRight size={15} />
         </button>
+        </div>
       </div>
     </article>
   );
