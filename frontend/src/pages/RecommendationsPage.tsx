@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useSearchParams } from "react-router";
 import {
   AlertCircle,
@@ -27,6 +27,7 @@ import {
   type ImpactLevel,
   type RuleScope,
   type TraditionalChecksResponse,
+  type RecommendationsResponse,
 } from "@/features/recommendations/api";
 import { exportSelection } from "@/features/recommendations/export";
 import { useSqlDrafts } from "@/features/recommendations/useSqlDrafts";
@@ -93,6 +94,7 @@ function StatCard({
 }
 
 export default function RecommendationsPage() {
+  const queryClient = useQueryClient();
   const [params, setParams] = useSearchParams();
   const urlRunId = params.get("run");
   const [locallySelectedRun, setLocallySelectedRun] = useState<string | null>(
@@ -271,8 +273,34 @@ export default function RecommendationsPage() {
     setSessionSelections({ runId, ids });
   }
   function onTraditionalSaved(result: TraditionalChecksResponse) {
-    const next = new Set([...selectedIds].filter((id) => !id.startsWith("traditional:")));
-    for (const item of result.rules) next.add(item.id);
+    // The POST response already contains the complete generated rules. Update
+    // React Query immediately so IDs are known BEFORE selection is refreshed.
+    const grouped: NonNullable<RecommendationsResponse["traditional_rules"]> = {};
+    for (const rule of result.rules) {
+      (grouped[rule.table_name] ??= []).push(rule);
+    }
+    queryClient.setQueryData<RecommendationsResponse>(
+      ["recommendations", runId],
+      (previous) => previous && ({
+        ...previous,
+        available: { ...previous.available, traditional: true },
+        traditional_rules: grouped,
+      }),
+    );
+
+    // Existing checks keep their selected/unselected review state. New checks
+    // are selected automatically; removed checks are dropped from selection.
+    const previousTrad = new Set(
+      rules.filter((rule) => rule.scope === "traditional").map((rule) => rule.id),
+    );
+    const nextIds = new Set(result.rules.map((rule) => rule.id));
+    const next = new Set(selectedIds);
+    for (const id of previousTrad) {
+      if (!nextIds.has(id)) next.delete(id);
+    }
+    for (const id of nextIds) {
+      if (!previousTrad.has(id)) next.add(id);
+    }
     updateSelection(next);
     setTraditionalOpen(false);
     void recommendationsQuery.refetch();

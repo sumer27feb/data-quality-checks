@@ -1,4 +1,3 @@
-
 import json
 import logging
 from copy import deepcopy
@@ -319,9 +318,11 @@ def get_recommendations(run_id: str):
 
     individual = {}
     inter_table = []
+    traditional: dict[str, list[dict]] = {}
 
     individual_dir = root / "individual_tables"
     inter_table_path = root / "inter_table.json"
+    traditional_path = root / "traditional.json"
 
     if run["status"] == "archived":
         # Files show artifact availability, not historical stage success.
@@ -347,15 +348,42 @@ def get_recommendations(run_id: str):
         content = json.loads(inter_table_path.read_text(encoding="utf-8"))
         inter_table = content["rules"]
 
+    # Traditional check generation is a separate run-scoped operation. The
+    # generated artifact is NOT a LangGraph stage and must not be stage-gated.
+    if traditional_path.is_file():
+        try:
+            artifact = json.loads(traditional_path.read_text(encoding="utf-8"))
+            if not isinstance(artifact, dict) or not isinstance(artifact.get("rules"), list):
+                raise ValueError("Invalid traditional rules artifact")
+            for item in artifact["rules"]:
+                if (
+                    not isinstance(item, dict)
+                    or not isinstance(item.get("id"), str)
+                    or not item["id"].startswith("traditional:")
+                    or not isinstance(item.get("table_name"), str)
+                    or not item["table_name"]
+                    or not isinstance(item.get("rule"), str)
+                ):
+                    raise ValueError("Invalid traditional rule record")
+                traditional.setdefault(item["table_name"], []).append(item)
+        except (OSError, UnicodeError, json.JSONDecodeError, ValueError) as exc:
+            logger.exception("Invalid traditional rules artifact for run %s", run_id)
+            raise HTTPException(
+                status_code=500,
+                detail="Cannot read traditional recommendations",
+            ) from exc
+
     return {
         "run_id": run_id,
         "status": run["status"],
         "available": {
             "individual": individual_ready,
             "inter_table": inter_table_ready,
+            "traditional": traditional_path.is_file(),
         },
         "individual_rules": individual,
         "inter_table_rules": inter_table,
+        "traditional_rules": traditional,
     }
 
 
