@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router";
 
 import {
   Activity,
@@ -203,23 +204,33 @@ export default function OverviewPage() {
 
   const isActive = run?.status === "queued" || run?.status === "running";
 
+  const isDiscoveryActive = isActive && run?.kind === "discovery";
+
   const isRestoringRun = Boolean(runId) && runQuery.isPending && !run;
 
+  // A recommendation run executing in the background does not
+  // prevent the user from starting a new discovery run.
   const canStart =
     workspace?.configured === true &&
-    !isActive &&
+    !isDiscoveryActive &&
     !isRestoringRun &&
-    !runQuery.isError &&
     !startMutation.isPending;
 
   const stages = Object.values(run?.stages ?? {});
   const totalStages = stages.length;
+
   const completedStages = stages.filter(
     (status) => status === "completed",
   ).length;
 
+  // Skipped recommendation branches are terminal states.
+  // They count towards finished workflow progress.
+  const finishedStages = stages.filter(
+    (status) => status === "completed" || status === "skipped",
+  ).length;
+
   const completionPercentage =
-    totalStages > 0 ? (completedStages / totalStages) * 100 : 0;
+    totalStages > 0 ? (finishedStages / totalStages) * 100 : 0;
 
   const metrics = run?.metrics ?? {};
 
@@ -251,8 +262,9 @@ export default function OverviewPage() {
         </h1>
 
         <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">
-          Discover existing Databricks tables, generate statistical and semantic
-          profiles, and recommend meaningful data quality checks.
+          Discover and profile your Databricks dataset once, then reuse its
+          saved profiles for multiple independent data quality rule
+          recommendation runs.
         </p>
       </div>
 
@@ -350,14 +362,15 @@ export default function OverviewPage() {
             <div className="flex items-center gap-2">
               <Activity size={19} className="text-blue-700" />
               <h2 className="text-lg font-semibold text-slate-900">
-                Analysis Execution
+                Discovery & Profiling
               </h2>
             </div>
 
             <p className="mt-2 text-sm leading-6 text-slate-500">
-              Start the existing LangGraph workflow using the configured
-              Databricks dataset. Source tables and configuration files are
-              discovered directly from Databricks; no file upload is required.
+              Execute Graph 1 to discover the configured Databricks tables,
+              calculate statistical profiles, infer column semantics, and
+              generate consolidated table profiles. The completed discovery run
+              can be reused without repeating these stages.
             </p>
           </div>
 
@@ -374,12 +387,10 @@ export default function OverviewPage() {
             )}
 
             {startMutation.isPending
-              ? "Starting..."
-              : isActive
-                ? "Analysis Running"
-                : run
-                  ? "Start New Analysis"
-                  : "Start Analysis"}
+              ? "Starting Discovery..."
+              : isDiscoveryActive
+                ? "Discovery Running"
+                : "New Discovery Run"}
           </button>
         </div>
 
@@ -497,6 +508,42 @@ export default function OverviewPage() {
               </span>
             </div>
 
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link
+                to={`/pipeline?run=${encodeURIComponent(run.run_id)}`}
+                className="inline-flex items-center rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-100"
+              >
+                View Pipeline
+              </Link>
+
+              <Link
+                to={`/profiles?run=${encodeURIComponent(run.run_id)}`}
+                className="inline-flex items-center rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              >
+                View Profiles
+              </Link>
+
+              {run.kind === "discovery" && run.status === "completed" && (
+                <Link
+                  to={`/reusable-runs?discovery=${encodeURIComponent(run.run_id)}`}
+                  className="inline-flex items-center rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
+                >
+                  Create Recommendation Run
+                </Link>
+              )}
+
+              {run.kind === "recommendation" && (
+                <Link
+                  to={`/scoped-recommendations?discovery=${encodeURIComponent(
+                    run.run_id.split("::")[0],
+                  )}&rec=${encodeURIComponent(run.run_id.split("::")[1])}`}
+                  className="inline-flex items-center rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
+                >
+                  Review Recommendations
+                </Link>
+              )}
+            </div>
+
             <div className="mt-5 flex flex-wrap items-center gap-2 text-sm text-slate-500">
               <Clock3 size={15} />
               Created:{" "}
@@ -508,10 +555,10 @@ export default function OverviewPage() {
             <div className="mt-6">
               <div className="mb-2 flex items-center justify-between gap-3 text-sm">
                 <span className="font-medium text-slate-700">
-                  Pipeline stages completed
+                  Workflow stages finished
                 </span>
                 <span className="font-semibold text-slate-900">
-                  {completedStages} / {totalStages}
+                  {finishedStages} / {totalStages}
                 </span>
               </div>
 
@@ -525,8 +572,8 @@ export default function OverviewPage() {
               </div>
 
               <p className="mt-2 text-xs text-slate-500">
-                Progress represents completed processing stages, not estimated
-                execution time.
+                Finished stages include successfully completed stages and
+                branches intentionally skipped by the workflow.
               </p>
             </div>
 
@@ -567,9 +614,9 @@ export default function OverviewPage() {
 
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               <MetricCard
-                title="Completed Stages"
-                value={`${completedStages} / ${totalStages}`}
-                description="Reported by LangGraph execution tracking"
+                title="Stages Finished"
+                value={`${finishedStages} / ${totalStages}`}
+                description="Completed stages and intentionally skipped branches"
               />
 
               {typeof metrics.discovered_table_count === "number" && (
@@ -588,7 +635,7 @@ export default function OverviewPage() {
                 />
               )}
 
-              {totalRules !== null && (
+              {run.kind !== "discovery" && totalRules !== null && (
                 <MetricCard
                   title="Recommended Rules"
                   value={totalRules}
@@ -629,18 +676,40 @@ export default function OverviewPage() {
                   label: "Consolidated table profiles",
                   value: metrics.consolidated_profile_count,
                 },
-                {
-                  label: "Declared foreign keys consolidated",
-                  value: metrics.inter_table_profile_foreign_key_count,
-                },
-                {
-                  label: "Individual-table recommendations",
-                  value: individualRules,
-                },
-                {
-                  label: "Inter-table recommendations",
-                  value: interTableRules,
-                },
+
+                ...(run.kind === "recommendation"
+                  ? [
+                      {
+                        label: "Selected tables",
+                        value: metrics.selected_table_count,
+                      },
+                      {
+                        label: "Selected columns",
+                        value: metrics.selected_column_count,
+                      },
+                      {
+                        label: "Included relationships",
+                        value: metrics.included_relationship_count,
+                      },
+                    ]
+                  : []),
+
+                ...(run.kind !== "discovery"
+                  ? [
+                      {
+                        label: "Declared foreign keys consolidated",
+                        value: metrics.inter_table_profile_foreign_key_count,
+                      },
+                      {
+                        label: "Individual-table recommendations",
+                        value: individualRules,
+                      },
+                      {
+                        label: "Inter-table recommendations",
+                        value: interTableRules,
+                      },
+                    ]
+                  : []),
               ]
                 .filter((item) => typeof item.value === "number")
                 .map((item) => (

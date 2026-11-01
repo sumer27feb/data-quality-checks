@@ -43,7 +43,12 @@ export interface ColumnMismatch {
   column: string;
   issue: string;
 }
-export type StatValue = string | number | boolean | null | Array<{value: string | number | boolean | null; count: number}>;
+export type StatValue =
+  | string
+  | number
+  | boolean
+  | null
+  | Array<{ value: string | number | boolean | null; count: number }>;
 export interface StatisticalColumn {
   column_name: string;
   expected_type: string;
@@ -103,22 +108,30 @@ export interface RelationshipsResponse {
   inter_table_yaml: string | null;
 }
 
+function profileBase(runId: string): string {
+  // A recommendation run uses its parent's full discovery profiles.
+  const sourceId = runId.split("::")[0];
+  const encoded = encodeURIComponent(sourceId);
+
+  return sourceId.startsWith("discovery_")
+    ? `/api/v1/discovery-runs/${encoded}`
+    : `/api/v1/runs/${encoded}`;
+}
+
 export const profilesApi = {
   list: (runId: string, signal?: AbortSignal) =>
-    request<ProfilesIndex>(
-      `/api/v1/runs/${encodeURIComponent(runId)}/profiles`,
-      "GET",
-      signal,
-    ),
+    request<ProfilesIndex>(`${profileBase(runId)}/profiles`, "GET", signal),
+
   getTable: (runId: string, table: string, signal?: AbortSignal) =>
     request<TableProfile>(
-      `/api/v1/runs/${encodeURIComponent(runId)}/profiles/${encodeURIComponent(table)}`,
+      `${profileBase(runId)}/profiles/${encodeURIComponent(table)}`,
       "GET",
       signal,
     ),
+
   getRelationships: (runId: string, signal?: AbortSignal) =>
     request<RelationshipsResponse>(
-      `/api/v1/runs/${encodeURIComponent(runId)}/relationships`,
+      `${profileBase(runId)}/relationships`,
       "GET",
       signal,
     ),

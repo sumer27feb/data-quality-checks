@@ -211,7 +211,13 @@ export default function ProfilesPage() {
   const [localRun, setLocalRun] = useState<string | null>(() =>
     localStorage.getItem(LAST_RUN_KEY),
   );
-  const runId = urlRun || localRun;
+
+  const selectedReference = urlRun || localRun;
+
+  // A recommendation run does not own statistical or semantic
+  // profiles. Its parent discovery run owns those artifacts.
+  const runId = selectedReference?.split("::")[0] ?? null;
+
   const [view, setView] = useState<View>("statistics");
   const [filter, setFilter] = useState("");
   const [tableSelection, setTableSelection] = useState<string | null>(null);
@@ -222,6 +228,13 @@ export default function ProfilesPage() {
     queryFn: ({ signal }) => runsApi.listRuns(signal),
     retry: 1,
   });
+
+  // Recommendation runs share their parent's discovery profiles.
+  // Therefore they should not appear as separate datasets here.
+  const profileRuns = (historyQuery.data?.runs ?? []).filter(
+    (item) => item.kind !== "recommendation",
+  );
+
   const runQuery = useQuery({
     queryKey: ["run", runId],
     queryFn: ({ signal }) => runsApi.getRun(runId!, signal),
@@ -288,8 +301,10 @@ export default function ProfilesPage() {
   }
 
   useEffect(() => {
-    if (urlRun) localStorage.setItem(LAST_RUN_KEY, urlRun);
-  }, [urlRun]);
+    if (urlRun && runId) {
+      localStorage.setItem(LAST_RUN_KEY, runId);
+    }
+  }, [urlRun, runId]);
 
   return (
     <div className="space-y-6 pb-12">
@@ -321,16 +336,17 @@ export default function ProfilesPage() {
             }}
             className="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 font-mono text-xs text-slate-800 shadow-sm outline-none focus:border-blue-500"
           >
-            {!runId && <option value="">Select a run</option>}
-            {runId &&
-              !historyQuery.data?.runs.some(
-                (item) => item.run_id === runId,
-              ) && (
-                <option value={runId}>{runId.slice(0, 12)}… (selected)</option>
-              )}
-            {historyQuery.data?.runs.map((item) => (
+            {runId && !profileRuns.some((item) => item.run_id === runId) && (
+              <option value={runId}>{runId.slice(0, 20)}… (selected)</option>
+            )}
+
+            {profileRuns.map((item) => (
               <option key={item.run_id} value={item.run_id}>
-                {item.run_id.slice(0, 12)}… · {item.status}
+                {item.name ?? item.run_id.slice(0, 20)}
+                {" · "}
+                {item.kind === "discovery" ? "Discovery" : "Legacy"}
+                {" · "}
+                {item.status}
               </option>
             ))}
           </select>
@@ -543,6 +559,36 @@ export default function ProfilesPage() {
                       }
                     />
                   )}
+
+                  {runQuery.data?.kind === "discovery" && (
+                    <div className="rounded-xl border border-blue-200 bg-blue-50 p-4">
+                      <div className="flex items-center gap-2">
+                        <Info size={17} className="text-blue-700" />
+                        <p className="text-sm font-semibold text-blue-900">
+                          Reusable relationship metadata
+                        </p>
+                      </div>
+
+                      <p className="mt-2 text-sm leading-6 text-blue-800">
+                        These are the relationships discovered or supplied
+                        during Graph 1. Inter-table consolidation is not
+                        performed during profiling. Graph 2 creates its own
+                        scoped inter-table profile using the tables and columns
+                        selected for a recommendation run.
+                      </p>
+
+                      {runQuery.data.status === "completed" && (
+                        <Link
+                          to={`/reusable-runs?discovery=${encodeURIComponent(runId!)}`}
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue-700 hover:underline"
+                        >
+                          Create a recommendation run
+                          <ArrowRight size={15} />
+                        </Link>
+                      )}
+                    </div>
+                  )}
+
                   {relationsQuery.data.inter_table_yaml && (
                     <ArtifactYaml
                       content={relationsQuery.data.inter_table_yaml}

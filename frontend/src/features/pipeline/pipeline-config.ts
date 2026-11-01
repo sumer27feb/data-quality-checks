@@ -9,7 +9,9 @@ export type StageId =
   | "table_consolidation"
   | "individual_recommendations"
   | "inter_table_consolidation"
-  | "inter_table_recommendations";
+  | "inter_table_recommendations"
+  | "load_saved_profiles"
+  | "scoped_metadata";
 
 export type DisplayStageStatus = StageStatus | "unknown";
 
@@ -83,8 +85,14 @@ export const PIPELINE_STAGES: StageDefinition[] = [
     track: "Individual-table branch",
     position: { x: 17, y: 568 },
     metrics: [
-      { key: "individual_recommendation_table_count", label: "Tables with recommendations" },
-      { key: "individual_recommendation_rule_count", label: "Recommended rules" },
+      {
+        key: "individual_recommendation_table_count",
+        label: "Tables with recommendations",
+      },
+      {
+        key: "individual_recommendation_rule_count",
+        label: "Recommended rules",
+      },
     ],
   },
   {
@@ -96,7 +104,10 @@ export const PIPELINE_STAGES: StageDefinition[] = [
     position: { x: 547, y: 568 },
     metrics: [
       { key: "inter_table_profile_table_count", label: "Tables considered" },
-      { key: "inter_table_profile_foreign_key_count", label: "Foreign keys consolidated" },
+      {
+        key: "inter_table_profile_foreign_key_count",
+        label: "Foreign keys consolidated",
+      },
     ],
   },
   {
@@ -107,17 +118,85 @@ export const PIPELINE_STAGES: StageDefinition[] = [
     track: "Inter-table branch",
     position: { x: 547, y: 702 },
     metrics: [
-      { key: "inter_table_recommendation_rule_count", label: "Recommended rules" },
+      {
+        key: "inter_table_recommendation_rule_count",
+        label: "Recommended rules",
+      },
     ],
   },
 ];
 
-export const PIPELINE_CONNECTIONS: ReadonlyArray<readonly [StageId, StageId]> = [
+export const PIPELINE_CONNECTIONS: ReadonlyArray<readonly [StageId, StageId]> =
+  [
+    ["dataset_discovery", "statistical_profiling"],
+    ["statistical_profiling", "semantic_profiling"],
+    ["semantic_profiling", "table_consolidation"],
+    ["table_consolidation", "individual_recommendations"],
+    ["table_consolidation", "inter_table_consolidation"],
+    ["inter_table_consolidation", "inter_table_recommendations"],
+  ];
+
+// Graph 1: reusable discovery and profiling.
+export const DISCOVERY_PIPELINE_STAGES: StageDefinition[] =
+  PIPELINE_STAGES.slice(0, 4);
+
+export const DISCOVERY_PIPELINE_CONNECTIONS: ReadonlyArray<
+  readonly [StageId, StageId]
+> = [
   ["dataset_discovery", "statistical_profiling"],
   ["statistical_profiling", "semantic_profiling"],
   ["semantic_profiling", "table_consolidation"],
-  ["table_consolidation", "individual_recommendations"],
-  ["table_consolidation", "inter_table_consolidation"],
+];
+
+// Graph 2: scoped recommendation generation.
+export const RECOMMENDATION_PIPELINE_STAGES: StageDefinition[] = [
+  {
+    id: "load_saved_profiles",
+    title: "Load Saved Profiles",
+    description:
+      "Validate the completed discovery run and load the selected recommendation run configuration.",
+    track: "Shared pipeline",
+    position: { x: 282, y: 16 },
+    metrics: [],
+  },
+  {
+    id: "scoped_metadata",
+    title: "Prepare Scoped Metadata",
+    description:
+      "Prepare reduced table profiles using the selected columns and identify supporting relationships.",
+    track: "Shared pipeline",
+    position: { x: 282, y: 150 },
+    metrics: [
+      { key: "selected_table_count", label: "Selected tables" },
+      { key: "selected_column_count", label: "Selected columns" },
+      {
+        key: "included_relationship_count",
+        label: "Included relationships",
+      },
+    ],
+  },
+  {
+    ...PIPELINE_STAGES[4],
+    position: { x: 17, y: 300 },
+  },
+  {
+    ...PIPELINE_STAGES[5],
+    position: { x: 547, y: 300 },
+    description:
+      "Consolidate the selected tables and relevant relationships after scope preparation.",
+  },
+  {
+    ...PIPELINE_STAGES[6],
+    position: { x: 547, y: 434 },
+  },
+];
+
+export const RECOMMENDATION_PIPELINE_CONNECTIONS: ReadonlyArray<
+  readonly [StageId, StageId]
+> = [
+  ["load_saved_profiles", "scoped_metadata"],
+  ["scoped_metadata", "individual_recommendations"],
+  ["scoped_metadata", "inter_table_consolidation"],
   ["inter_table_consolidation", "inter_table_recommendations"],
 ];
 
@@ -127,4 +206,5 @@ export const STAGE_STATUS_LABELS: Record<DisplayStageStatus, string> = {
   completed: "Completed",
   interrupted: "Interrupted",
   unknown: "Unknown",
+  skipped: "Skipped",
 };

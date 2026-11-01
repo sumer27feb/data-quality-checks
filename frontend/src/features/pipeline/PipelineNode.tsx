@@ -39,6 +39,8 @@ const stageIcons: Record<StageId, LucideIcon> = {
   individual_recommendations: ListChecks,
   inter_table_consolidation: Network,
   inter_table_recommendations: ShieldCheck,
+  load_saved_profiles: DatabaseZap,
+  scoped_metadata: Layers3,
 };
 
 const statusTheme: Record<
@@ -80,6 +82,12 @@ const statusTheme: Record<
     icon: "bg-slate-100 text-slate-500",
     line: "bg-slate-400",
   },
+  skipped: {
+    border: "border-slate-200 border-dashed",
+    badge: "bg-slate-100 text-slate-500",
+    icon: "bg-slate-100 text-slate-400",
+    line: "bg-slate-300",
+  },
 };
 
 export default function PipelineNode({ data }: NodeProps<PipelineStageNode>) {
@@ -102,14 +110,15 @@ export default function PipelineNode({ data }: NodeProps<PipelineStageNode>) {
         status === "running" ? "shadow-blue-100" : "",
       ].join(" ")}
     >
-      {stage.id !== "dataset_discovery" && (
-        <Handle
-          type="target"
-          position={Position.Top}
-          isConnectable={false}
-          className="h-2.5 w-2.5 border-2 border-white bg-slate-400"
-        />
-      )}
+      {stage.id !== "dataset_discovery" &&
+        stage.id !== "load_saved_profiles" && (
+          <Handle
+            type="target"
+            position={Position.Top}
+            isConnectable={false}
+            className="h-2.5 w-2.5 border-2 border-white bg-slate-400"
+          />
+        )}
       {hasSource && (
         <Handle
           type="source"

@@ -4,7 +4,15 @@ export type RunStatus =
   | "completed"
   | "failed"
   | "archived";
-export type StageStatus = "pending" | "running" | "completed" | "interrupted";
+
+export type StageStatus =
+  | "pending"
+  | "running"
+  | "completed"
+  | "skipped"
+  | "interrupted";
+
+export type RunKind = "discovery" | "recommendation" | "legacy";
 
 export interface Workspace {
   source: string;
@@ -29,6 +37,9 @@ export interface RunMetrics {
   inter_table_profile_table_count?: number;
   inter_table_profile_foreign_key_count?: number;
   inter_table_recommendation_rule_count?: number;
+  selected_table_count?: number;
+  selected_column_count?: number;
+  included_relationship_count?: number;
 }
 
 export interface AnalysisRun {
@@ -39,6 +50,7 @@ export interface AnalysisRun {
   stages: Record<string, StageStatus>;
   metrics: RunMetrics;
   error: string | null;
+  kind?: RunKind;
 }
 
 export interface RunListItem {
@@ -47,6 +59,9 @@ export interface RunListItem {
   created_at: string | null;
   artifact_modified_at: string | null;
   completed_stages: number | null;
+  kind?: RunKind;
+  name?: string;
+  parent_discovery_id?: string;
 }
 
 export interface RunHistoryResponse {
@@ -117,19 +132,125 @@ export async function request<T>(
   return (await response.json()) as T;
 }
 
+interface WorkflowManifest {
+  status: "queued" | "running" | "completed" | "failed";
+  created_at: string;
+  stages: Record<string, StageStatus>;
+  metrics: RunMetrics;
+  error: string | null;
+}
+
+function asAnalysisRun(
+  runId: string,
+  kind: "discovery" | "recommendation",
+  manifest: WorkflowManifest,
+): AnalysisRun {
+  return {
+    run_id: runId,
+    kind,
+    status: manifest.status,
+    created_at: manifest.created_at,
+    artifact_modified_at: null,
+    stages: manifest.stages,
+    metrics: manifest.metrics ?? {},
+    error: manifest.error,
+  };
+}
+
+function recommendationReference(
+  runId: string,
+): { discoveryId: string; recommendationId: string } | null {
+  const parts = runId.split("::");
+
+  if (parts.length !== 2 || !parts[0].startsWith("discovery_")) {
+    return null;
+  }
+
+  if (!parts[1]) return null;
+
+  return {
+    discoveryId: parts[0],
+    recommendationId: parts[1],
+  };
+}
+
 export const runsApi = {
   getWorkspace: (signal?: AbortSignal) =>
     request<Workspace>("/api/v1/workspace", "GET", signal),
 
-  createRun: () => request<CreatedRun>("/api/v1/runs", "POST"),
+  // Overview now creates a reusable discovery run (Graph 1).
+  createRun: async (): Promise<CreatedRun> => {
+    const created = await request<{
+      discovery_id: string;
+      status: RunStatus;
+    }>("/api/v1/discovery-runs", "POST");
 
-  getRun: (runId: string, signal?: AbortSignal) =>
-    request<AnalysisRun>(
+    return {
+      run_id: created.discovery_id,
+      status: created.status,
+    };
+  },
+
+  getRun: async (runId: string, signal?: AbortSignal): Promise<AnalysisRun> => {
+    const recommendation = recommendationReference(runId);
+
+    if (recommendation) {
+      const { discoveryId, recommendationId } = recommendation;
+
+      const manifest = await request<WorkflowManifest>(
+        `/api/v1/discovery-runs/${encodeURIComponent(discoveryId)}` +
+          `/recommendation-runs/${encodeURIComponent(recommendationId)}`,
+        "GET",
+        signal,
+      );
+
+      return asAnalysisRun(runId, "recommendation", manifest);
+    }
+
+    if (runId.startsWith("discovery_")) {
+      const manifest = await request<WorkflowManifest>(
+        `/api/v1/discovery-runs/${encodeURIComponent(runId)}`,
+        "GET",
+        signal,
+      );
+
+      return asAnalysisRun(runId, "discovery", manifest);
+    }
+
+    // Historical UUID-based runs remain readable.
+    const legacy = await request<AnalysisRun>(
       `/api/v1/runs/${encodeURIComponent(runId)}`,
       "GET",
       signal,
-    ),
+    );
 
-  listRuns: (signal?: AbortSignal) =>
-    request<RunHistoryResponse>("/api/v1/runs?limit=20", "GET", signal),
+    return { ...legacy, kind: "legacy" };
+  },
+
+  listRuns: async (signal?: AbortSignal): Promise<RunHistoryResponse> => {
+    const [workflowHistory, legacyHistory] = await Promise.all([
+      request<RunHistoryResponse>(
+        "/api/v1/discovery-runs/history/all",
+        "GET",
+        signal,
+      ),
+      request<RunHistoryResponse>("/api/v1/runs?limit=20", "GET", signal),
+    ]);
+
+    const runs = [
+      ...workflowHistory.runs,
+      ...legacyHistory.runs.map((run) => ({
+        ...run,
+        kind: "legacy" as const,
+      })),
+    ];
+
+    runs.sort((a, b) =>
+      (b.created_at ?? b.artifact_modified_at ?? "").localeCompare(
+        a.created_at ?? a.artifact_modified_at ?? "",
+      ),
+    );
+
+    return { runs };
+  },
 };

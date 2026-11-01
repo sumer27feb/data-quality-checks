@@ -151,6 +151,56 @@ def list_discovery_runs():
     return {"discovery_runs": store.list_discoveries()}
 
 
+@router.get("/history/all")
+def list_workflow_run_history():
+    """Flatten discovery and recommendation runs for the UI."""
+
+    items = []
+
+    for discovery in store.list_discoveries():
+        discovery_id = discovery["discovery_id"]
+
+        items.append({
+            "run_id": discovery_id,
+            "name": discovery["name"],
+            "kind": "discovery",
+            "status": discovery["status"],
+            "created_at": discovery["created_at"],
+            "artifact_modified_at": None,
+            "completed_stages": sum(
+                value == "completed"
+                for value in discovery["stages"].values()
+            ),
+        })
+
+        for recommendation in store.list_recommendations(
+            discovery_id
+        ):
+            items.append({
+                "run_id": (
+                    f"{discovery_id}::"
+                    f"{recommendation['recommendation_id']}"
+                ),
+                "name": recommendation["name"],
+                "kind": "recommendation",
+                "parent_discovery_id": discovery_id,
+                "status": recommendation["status"],
+                "created_at": recommendation["created_at"],
+                "artifact_modified_at": None,
+                "completed_stages": sum(
+                    value == "completed"
+                    for value in recommendation["stages"].values()
+                ),
+            })
+
+    items.sort(
+        key=lambda item: item["created_at"],
+        reverse=True,
+    )
+
+    return {"runs": items}
+
+
 @router.post("", status_code=202)
 def create_discovery_run(background_tasks: BackgroundTasks):
     missing = [k for k, v in {

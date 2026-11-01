@@ -1,4 +1,5 @@
 import { History, RefreshCw } from "lucide-react";
+
 import type { RunListItem, RunStatus } from "./api";
 
 export interface SavedRun {
@@ -32,6 +33,19 @@ function displayDate(value: string | null) {
   return Number.isNaN(date.getTime()) ? "Unavailable" : date.toLocaleString();
 }
 
+function runKindLabel(run: RunListItem): string {
+  switch (run.kind) {
+    case "discovery":
+      return "Discovery & Profiling";
+
+    case "recommendation":
+      return "Rule Recommendation";
+
+    default:
+      return "Legacy Analysis";
+  }
+}
+
 export default function RecentRuns({
   runs,
   savedRuns,
@@ -50,10 +64,12 @@ export default function RecentRuns({
 
         <div>
           <h2 className="text-lg font-semibold text-slate-900">
-            Recent Analysis Runs
+            Recent Workflow Runs
           </h2>
+
           <p className="text-sm text-slate-500">
-            Runs recorded by FastAPI and available artifact folders
+            Discovery, recommendation, and historical analysis runs persisted by
+            the backend
           </p>
         </div>
       </div>
@@ -79,7 +95,7 @@ export default function RecentRuns({
 
       {!loading && !error && runs.length === 0 && (
         <div className="py-10 text-center text-sm text-slate-500">
-          No analysis runs found.
+          No workflow runs found.
         </div>
       )}
 
@@ -88,8 +104,8 @@ export default function RecentRuns({
           <table className="w-full text-left text-sm">
             <thead className="border-b border-slate-200 text-xs font-medium text-slate-500">
               <tr>
-                <th className="px-3 py-3">Run ID</th>
-                <th className="px-3 py-3">Timestamp</th>
+                <th className="px-3 py-3">Run</th>
+                <th className="px-3 py-3">Created</th>
                 <th className="px-3 py-3">Status</th>
                 <th className="px-3 py-3">Stages</th>
                 <th className="px-3 py-3 text-right">Action</th>
@@ -118,16 +134,27 @@ export default function RecentRuns({
                     key={run.run_id}
                     className="border-b border-slate-100 last:border-none hover:bg-slate-50"
                   >
-                    <td className="px-3 py-4 font-mono text-xs text-slate-700">
-                      <span title={run.run_id}>
-                        {run.run_id.slice(0, 12)}...
-                      </span>
+                    <td className="px-3 py-4">
+                      <div title={run.run_id} className="max-w-70">
+                        <p className="truncate text-sm font-semibold text-slate-800">
+                          {run.name ?? `${run.run_id.slice(0, 14)}...`}
+                        </p>
+
+                        <p className="mt-1 text-xs font-medium text-blue-700">
+                          {runKindLabel(run)}
+                        </p>
+
+                        <p className="mt-1 truncate font-mono text-[10px] text-slate-400">
+                          {run.run_id}
+                        </p>
+                      </div>
                     </td>
 
                     <td className="px-3 py-4">
                       <p className="text-slate-800">
                         {displayDate(timestamp ?? null)}
                       </p>
+
                       <p className="mt-1 text-xs text-slate-400">
                         {timestampSource}
                       </p>

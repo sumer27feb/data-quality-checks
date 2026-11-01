@@ -4,6 +4,7 @@ from app.api.routes import router as runs_router
 from app.api.profile_routes import router as profiles_router
 from app.api.traditional_routes import router as traditional_router
 from app.api.reusable_routes import router as reusable_runs_router
+from app.api.profile_routes import discovery_profiles_router
 
 app = FastAPI(
     title="Automated Data Quality Rule Recommendation",
@@ -23,6 +24,7 @@ app.include_router(runs_router)
 app.include_router(profiles_router)
 app.include_router(traditional_router)
 app.include_router(reusable_runs_router)
+app.include_router(discovery_profiles_router)
 
 
 @app.get("/api/v1/health", tags=["Health"])
