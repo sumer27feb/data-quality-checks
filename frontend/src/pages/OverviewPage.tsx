@@ -534,9 +534,7 @@ export default function OverviewPage() {
 
               {run.kind === "recommendation" && (
                 <Link
-                  to={`/scoped-recommendations?discovery=${encodeURIComponent(
-                    run.run_id.split("::")[0],
-                  )}&rec=${encodeURIComponent(run.run_id.split("::")[1])}`}
+                  to={`/recommendations?run=${encodeURIComponent(run.run_id)}`}
                   className="inline-flex items-center rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800"
                 >
                   Review Recommendations

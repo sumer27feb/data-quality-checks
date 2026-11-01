@@ -9,11 +9,6 @@ const navigation = [
     icon: LayoutDashboard,
   },
   {
-    name: "Reusable Runs",
-    path: "/reusable-runs",
-    icon: Database,
-  },
-  {
     name: "Pipeline",
     path: "/pipeline",
     icon: Workflow,
@@ -21,6 +16,11 @@ const navigation = [
   {
     name: "Profiles",
     path: "/profiles",
+    icon: Database,
+  },
+  {
+    name: "Reusable Runs",
+    path: "/reusable-runs",
     icon: Database,
   },
   {

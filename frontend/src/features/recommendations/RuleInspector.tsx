@@ -68,12 +68,16 @@ export default function RuleInspector({
     rule.sql_result_mode ??
     (rule.scope === "traditional" ? "violation_rows" : "violation_count");
   const edited = currentSql !== (rule.validation_sql ?? "");
+
   const scopeLabel =
-    rule.scope === "traditional"
-      ? "Traditional · deterministic"
-      : rule.scope === "inter_table"
-        ? "Cross-table · AI"
-        : "Individual · AI";
+    rule.scope === "custom"
+      ? "Custom rule"
+      : rule.scope === "traditional"
+        ? "Traditional check"
+        : rule.scope === "inter_table"
+          ? "Cross-table recommendation"
+          : "Individual-table recommendation";
+
   const copyKey = `${rule.id}:sql`;
 
   return (

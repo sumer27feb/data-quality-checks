@@ -101,9 +101,10 @@ export default function ReusableRunsPage() {
       void queryClient.invalidateQueries({
         queryKey: ["run-history"],
       });
-      navigate(
-        `/scoped-recommendations?discovery=${encodeURIComponent(activeId)}&rec=${encodeURIComponent(run.recommendation_id)}`,
-      );
+
+      const reference = `${activeId}::${run.recommendation_id}`;
+
+      navigate(`/recommendations?run=${encodeURIComponent(reference)}`);
     } catch (err) {
       setError(String(err));
     } finally {
@@ -360,7 +361,9 @@ export default function ReusableRunsPage() {
             <div className="space-y-2">
               {childQuery.data?.recommendation_runs.map((r) => (
                 <Link
-                  to={`/scoped-recommendations?discovery=${encodeURIComponent(activeId)}&rec=${encodeURIComponent(r.recommendation_id)}`}
+                  to={`/recommendations?run=${encodeURIComponent(
+                    `${activeId}::${r.recommendation_id}`,
+                  )}`}
                   key={r.recommendation_id}
                   className="flex items-center justify-between rounded-lg border border-slate-200 px-4 py-3 text-sm hover:border-blue-300 hover:bg-blue-50"
                 >
