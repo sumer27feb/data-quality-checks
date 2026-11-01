@@ -104,9 +104,9 @@ def test_schema_is_inline_strict_and_pydantic_validates():
 
 
 def test_one_inference_request_per_table(tmp_path):
-    setup_fixture(tmp_path)
+    dataset = setup_fixture(tmp_path)
     client, responses = mock_client(_response)
-    result = profile_semantics(artifacts_root=tmp_path, client=client)
+    result = profile_semantics(artifacts_root=dataset, client=client)
     assert result["table_count"] == 2
     assert result["column_count"] == 4
     assert len(responses.calls) == 2
@@ -169,7 +169,7 @@ def test_failure_keeps_old_snapshot(tmp_path):
 
     client, responses = mock_client(fail_second)
     with pytest.raises(RuntimeError, match="not completed"):
-        profile_semantics(artifacts_root=tmp_path, client=client)
+        profile_semantics(artifacts_root=dataset, client=client)
     assert len(responses.calls) == 2
     assert json.loads(output_path.read_text()) == {"older": True}
     assert not (dataset / "semantic_profiles" / "categories.json").exists()
@@ -180,7 +180,7 @@ def test_success_overwrites_old_snapshot(tmp_path):
     output_path = dataset / "semantic_profiles" / "stale.json"
     write_json(output_path, {"old": True})
     client, responses = mock_client(_response)
-    profile_semantics(artifacts_root=tmp_path, client=client)
+    profile_semantics(artifacts_root=dataset, client=client)
     assert not output_path.exists()
     assert sorted(p.name for p in (dataset / "semantic_profiles").glob("*.json")) == ["categories.json", "orders.json"]
 
@@ -194,7 +194,7 @@ def test_upstream_column_mismatch_aborts_before_any_call(tmp_path):
     write_json(file, prof)
     client, responses = mock_client(_response)
     with pytest.raises(ValueError, match="column mismatch"):
-        profile_semantics(artifacts_root=tmp_path, client=client)
+        profile_semantics(artifacts_root=dataset, client=client)
     assert len(responses.calls) == 0
 
 

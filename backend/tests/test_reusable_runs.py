@@ -6,7 +6,15 @@ import pytest
 import yaml
 
 from app.services import reusable_run_store as store
-from app.services.scoped_recommendation_inputs import SelectionError, prepare_inputs, validate_selection
+
+from app.services.scoped_recommendation_inputs import (
+    SelectionError,
+    prepare_inputs,
+    validate_selection,
+    prepare_scoped_inputs,
+    consolidate_scoped_inter_table,
+)
+
 
 
 @pytest.fixture()
@@ -96,3 +104,201 @@ def test_one_table_skips_cross_profile(parent_run):
     result = prepare_inputs(parent, child, selected)
     assert result["cross_table_ready"] is False
     assert not (child / "consolidated_profiles" / "inter_table_consolidated.yaml").exists()
+
+
+def test_scoped_preparation_does_not_run_inter_table(parent_run):
+    """The preparation stage must not perform consolidation."""
+
+    discovery_id, parent = parent_run
+
+    selections = {
+        "orders": ["total_amount"],
+        "payments": ["amount"],
+    }
+
+    run = store.new_recommendation(
+        discovery_id,
+        "Scoped Only",
+        selections,
+    )
+
+    child = store.recommendation_path(
+        discovery_id,
+        run["recommendation_id"],
+    )
+
+    summary = prepare_scoped_inputs(
+        parent,
+        child,
+        selections,
+    )
+
+    assert summary["cross_table_ready"] is True
+    assert summary["included_relationship_count"] == 1
+
+    # Individual profiles must exist.
+    assert (
+        child / "consolidated_profiles" / "orders.yaml"
+    ).is_file()
+
+    assert (
+        child / "consolidated_profiles" / "payments.yaml"
+    ).is_file()
+
+    # Inter-table consolidation must NOT have executed.
+    assert not (
+        child
+        / "consolidated_profiles"
+        / "inter_table_consolidated.yaml"
+    ).exists()
+
+    # Selection metadata is persisted.
+    snapshot = store.read_json(
+        child / "selection_snapshot.json"
+    )
+
+    assert snapshot["selections"] == selections
+
+
+def test_inter_table_consolidation_runs_separately(parent_run):
+    """Cross-table YAML should be generated only when requested."""
+
+    discovery_id, parent = parent_run
+
+    selections = {
+        "orders": ["total_amount"],
+        "payments": ["amount"],
+    }
+
+    run = store.new_recommendation(
+        discovery_id,
+        "Cross Table",
+        selections,
+    )
+
+    child = store.recommendation_path(
+        discovery_id,
+        run["recommendation_id"],
+    )
+
+    prepare_scoped_inputs(
+        parent,
+        child,
+        selections,
+    )
+
+    result = consolidate_scoped_inter_table(
+        parent,
+        child,
+    )
+
+    assert result is not None
+    assert result["inter_table_profile_table_count"] == 2
+    assert result["inter_table_profile_foreign_key_count"] == 1
+
+    output = (
+        child
+        / "consolidated_profiles"
+        / "inter_table_consolidated.yaml"
+    )
+
+    assert output.is_file()
+
+    combined = yaml.safe_load(
+        output.read_text(encoding="utf-8")
+    )
+
+    # Selected business columns are recommendation targets.
+    assert (
+        combined["tables"]["orders"]["columns"]
+        ["total_amount"]["recommendation_target"]
+        is True
+    )
+
+    # The unselected join column is context only.
+    assert (
+        combined["tables"]["orders"]["columns"]
+        ["order_id"]["recommendation_target"]
+        is False
+    )
+
+
+def test_two_recommendation_runs_have_isolated_inputs(parent_run):
+    """Independent child runs cannot overwrite each other's scopes."""
+
+    discovery_id, parent = parent_run
+
+    original_path = (
+        parent / "consolidated_profiles" / "orders.yaml"
+    )
+    original_content = original_path.read_text(
+        encoding="utf-8"
+    )
+
+    first_selection = {
+        "orders": ["total_amount"],
+    }
+
+    second_selection = {
+        "orders": ["order_id"],
+    }
+
+    first = store.new_recommendation(
+        discovery_id,
+        "Amount Checks",
+        first_selection,
+    )
+
+    second = store.new_recommendation(
+        discovery_id,
+        "Identifier Checks",
+        second_selection,
+    )
+
+    first_dir = store.recommendation_path(
+        discovery_id,
+        first["recommendation_id"],
+    )
+
+    second_dir = store.recommendation_path(
+        discovery_id,
+        second["recommendation_id"],
+    )
+
+    prepare_scoped_inputs(
+        parent,
+        first_dir,
+        first_selection,
+    )
+
+    prepare_scoped_inputs(
+        parent,
+        second_dir,
+        second_selection,
+    )
+
+    first_yaml = yaml.safe_load(
+        (
+            first_dir / "consolidated_profiles" / "orders.yaml"
+        ).read_text(encoding="utf-8")
+    )
+
+    second_yaml = yaml.safe_load(
+        (
+            second_dir / "consolidated_profiles" / "orders.yaml"
+        ).read_text(encoding="utf-8")
+    )
+
+    assert set(first_yaml["columns"]) == {"total_amount"}
+    assert set(second_yaml["columns"]) == {"order_id"}
+
+    # Graph 1's original profile is unchanged.
+    assert original_path.read_text(
+        encoding="utf-8"
+    ) == original_content
+
+    # Neither one-table selection requires inter-table consolidation.
+    assert consolidate_scoped_inter_table(
+        parent,
+        first_dir,
+    ) is None

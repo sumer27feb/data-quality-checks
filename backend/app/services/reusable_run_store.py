@@ -13,12 +13,20 @@ from pathlib import Path
 from threading import RLock
 from typing import Any
 from uuid import uuid4
-
 from app.config import ARTIFACTS_ROOT
 
 _LOCK = RLock()
 _DISCOVERY_ID = re.compile(r"discovery_\d{8}_\d{6}_[a-f0-9]{8}\Z")
 _RECOMMENDATION_ID = re.compile(r"[a-z0-9][a-z0-9-]{0,63}__[a-f0-9]{8}\Z")
+
+
+RECOMMENDATION_STAGES = (
+    "load_saved_profiles",
+    "scoped_metadata",
+    "individual_recommendations",
+    "inter_table_consolidation",
+    "inter_table_recommendations",
+)
 
 
 def now() -> str:
@@ -73,8 +81,14 @@ def recommendation_path(discovery_id: str, recommendation_id: str) -> Path:
 
 
 def new_discovery(catalog: str, schema: str, config_dir: str) -> dict[str, Any]:
-    stages = ("dataset_discovery", "statistical_profiling", "semantic_profiling",
-              "table_consolidation", "inter_table_consolidation")
+    
+    stages = (
+        "dataset_discovery",
+        "statistical_profiling",
+        "semantic_profiling",
+        "table_consolidation",
+    )
+
     with _LOCK:
         while True:
             discovery_id = "discovery_" + datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S") + "_" + uuid4().hex[:8]
@@ -135,8 +149,10 @@ def new_recommendation(discovery_id: str, name: str, selections: dict[str, list[
             "kind": "recommendation", "discovery_id": discovery_id,
             "recommendation_id": recommendation_id, "name": name.strip(),
             "created_at": now(), "updated_at": now(), "status": "queued", "error": None,
-            "stages": {"scoped_metadata": "pending", "individual_recommendations": "pending",
-                       "inter_table_recommendations": "pending"},
+            "stages": {
+                stage: "pending"
+                for stage in RECOMMENDATION_STAGES
+            },
             "metrics": {},
         }
         write_json(path / "manifest.json", manifest)

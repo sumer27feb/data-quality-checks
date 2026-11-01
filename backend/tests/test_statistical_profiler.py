@@ -235,7 +235,7 @@ def test_integration_with_discovery_artifacts_mock_databricks(tmp_path):
         for p in make_plans()
     ]
     connection = MockConnection(metadata_rows=metadata_rows, aggregate_rows=[sample_agg()])
-    result = profile_dataset(artifacts_root=tmp_path, sql_connection=connection, top_values_limit=0)
+    result = profile_dataset(artifacts_root=discovery.parent,sql_connection=connection,top_values_limit=0,)
     assert result["table_count"] == 1
     assert result["column_count"] == 6
     assert result["status_counts"] == {"DIRECT": 3, "CONVERTED": 2, "UNSUPPORTED_TYPE_MISMATCH": 1}

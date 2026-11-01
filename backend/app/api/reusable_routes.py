@@ -15,7 +15,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from app.config import DATABRICKS_CATALOG, DATABRICKS_SCHEMA, DATABRICKS_CONFIG_DIR, DATABRICKS_MODEL_ENDPOINT
 from app.services import reusable_run_store as store
-from app.services.scoped_recommendation_inputs import SelectionError, prepare_inputs
+from app.services.scoped_recommendation_inputs import SelectionError
 from app.services.traditional_check_service import SelectionRequest, TraditionalCheckError, artifact
 
 router = APIRouter(prefix="/api/v1/discovery-runs", tags=["Reusable DQ runs"])
@@ -117,53 +117,33 @@ def _execute_discovery(discovery_id: str) -> None:
         logging.getLogger(__name__).exception("Discovery run failed: %s", discovery_id)
 
 
-def _execute_recommendation(discovery_id: str, rec_id: str) -> None:
+
+def _execute_recommendation(
+    discovery_id: str,
+    rec_id: str,
+) -> None:
+    """Execute Graph 2 as a FastAPI background task."""
+
     import logging
-    from app.services.table_llm_recommender_service import generate_individual_rule_recommendations
-    from app.services.inter_table_llm_recommender_service import generate_inter_table_rule_recommendations
-    child = store.recommendation_path(discovery_id, rec_id)
-    parent = store.discovery_path(discovery_id)
-    config = store.read_json(child / "run_config.json")
-    stages = ("scoped_metadata", "individual_recommendations", "inter_table_recommendations")
-    active = None
-    store.update(child, status="running")
+
+    from app.services.recommendation_runner import (
+        run_recommendation,
+    )
+
     try:
-        active = "scoped_metadata"
-        store.set_stage(child, active, "running")
-        summary = prepare_inputs(parent, child, config["selections"])
-        store.set_stage(child, active, "completed", {
-            "selected_table_count": len(summary["tables"]),
-            "selected_column_count": summary["target_column_count"],
-            "included_relationship_count": summary["included_relationship_count"],
-        })
-        context = (child / "business_context.txt").read_text(encoding="utf-8") if config.get("business_context_file") else ""
-        branches = config["branches"]
-        active = "individual_recommendations"
-        if branches["individual"]:
-            store.set_stage(child, active, "running")
-            result = generate_individual_rule_recommendations(
-                artifacts_root=child, model=DATABRICKS_MODEL_ENDPOINT,
-                business_context=context,
-            )
-            store.set_stage(child, active, "completed", {"individual_recommendation_rule_count": result.rule_count})
-        else:
-            store.set_stage(child, active, "skipped")
-        active = "inter_table_recommendations"
-        if branches["inter_table"] and summary["cross_table_ready"]:
-            store.set_stage(child, active, "running")
-            result = generate_inter_table_rule_recommendations(
-                artifacts_root=child, model=DATABRICKS_MODEL_ENDPOINT,
-                business_context=context,
-            )
-            store.set_stage(child, active, "completed", {"inter_table_recommendation_rule_count": result.rule_count})
-        else:
-            store.set_stage(child, active, "skipped")
-        store.update(child, status="completed", error=None)
-    except Exception as exc:
-        if active:
-            store.set_stage(child, active, "interrupted")
-        store.update(child, status="failed", error=f"{type(exc).__name__}: {exc}")
-        logging.getLogger(__name__).exception("Recommendation failed: %s/%s", discovery_id, rec_id)
+        run_recommendation(
+            discovery_id=discovery_id,
+            recommendation_id=rec_id,
+        )
+
+    except Exception:
+        # The runner has already persisted the failed status
+        # and error details in the recommendation manifest.
+        logging.getLogger(__name__).exception(
+            "Graph 2 failed for discovery=%s, recommendation=%s",
+            discovery_id,
+            rec_id,
+        )
 
 
 @router.get("")
