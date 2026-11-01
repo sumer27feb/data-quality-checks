@@ -5,6 +5,8 @@ import OverviewPage from "./pages/OverviewPage";
 import PipelinePage from "./pages/PipelinePage";
 import ProfilesPage from "./pages/ProfilesPage";
 import RecommendationsPage from "./pages/RecommendationsPage";
+import ReusableRunsPage from "./pages/ReusableRunsPage";
+import ScopedRecommendationsPage from "./pages/ScopedRecommendationsPage";
 
 export default function App() {
   return (
@@ -14,6 +16,8 @@ export default function App() {
         <Route path="pipeline" element={<PipelinePage />} />
         <Route path="profiles" element={<ProfilesPage />} />
         <Route path="recommendations" element={<RecommendationsPage />} />
+        <Route path="reusable-runs" element={<ReusableRunsPage />} />
+        <Route path="scoped-recommendations" element={<ScopedRecommendationsPage />} />
       </Route>
     </Routes>
   );

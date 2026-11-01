@@ -3,11 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import router as runs_router
 from app.api.profile_routes import router as profiles_router
 from app.api.traditional_routes import router as traditional_router
+from app.api.reusable_routes import router as reusable_runs_router
 
 app = FastAPI(
     title="Automated Data Quality Rule Recommendation",
     description="API for generating and managing data quality rule recommendations.",
-    version="1.0.0",
+    version="1.1.0",
 )
 
 app.add_middleware(
@@ -21,6 +22,7 @@ app.add_middleware(
 app.include_router(runs_router)
 app.include_router(profiles_router)
 app.include_router(traditional_router)
+app.include_router(reusable_runs_router)
 
 
 @app.get("/api/v1/health", tags=["Health"])

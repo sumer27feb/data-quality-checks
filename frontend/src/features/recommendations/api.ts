@@ -1,7 +1,7 @@
 import { request } from "@/features/runs/api";
 
 export type ImpactLevel = "high" | "medium" | "low";
-export type RuleScope = "individual" | "inter_table" | "traditional";
+export type RuleScope = "individual" | "inter_table" | "traditional" | "custom";
 
 export interface RecommendedRule {
   rule: string;
